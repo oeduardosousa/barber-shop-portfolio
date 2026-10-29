@@ -1,5 +1,5 @@
 ---
-name: Navalha & Co. (sample)
+name: Navalha Barber (sample)
 description: A vivid, moving classic barbershop. Cream paper, barber-pole red, cobalt and amber, a heavy soft serif, and a pole that never stops turning.
 colors:
   paper: "#FFF3DA"
@@ -103,9 +103,9 @@ components:
     padding: "0 16px"
 ---
 
-# Design System: Navalha & Co. (sample)
+# Design System: Navalha Barber (sample)
 
-All shop details here are sample content. The name **Navalha & Co.** is a placeholder (BRIEF.md); keep it behind one token so the owner can swap it. Sources: [BRIEF.md](BRIEF.md), [PRODUCT.md](PRODUCT.md).
+All shop details here are sample content. The name **Navalha Barber** is a placeholder (BRIEF.md); keep it behind one token so the owner can swap it. Sources: [BRIEF.md](BRIEF.md), [PRODUCT.md](PRODUCT.md).
 
 > **Basis.** UXKIN was not connected, so this direction is not based on a comparison of real sites. It comes from the brief, PRODUCT.md and the request for a vivid, dynamic site.
 
@@ -345,3 +345,11 @@ Guided by emil-design-eng. The site should feel alive, but motion is spent where
 - Don't use scissors, razors or cartoon barbers as illustrations; real photography or flat color blocks carry the imagery.
 - Don't add vintage ornament beyond the pole stripe and the sign shadow.
 - Don't invent testimonials, awards, addresses or staff and present them as real.
+
+## Imagery Sourcing
+
+This is a portfolio, so photos come from free-licence stock libraries (Unsplash, Pexels), not from invented real people.
+- Use only images whose licence allows free use without payment; record each image's source URL and photographer in a credits list (footer link or `/credits`).
+- Pick photos of barbershop interiors, tools, hands at work and unnamed clients. Team portraits are stock models and stay tagged **Sample**; never attach a stock face to a claim of being a real employee or customer.
+- Warm tones preferred, to sit on cream paper. Crop to 3:4 for portraits and gallery, 16:10 for the hero.
+- Serve optimised (AVIF/WebP, sized per breakpoint, explicit width and height, lazy-loaded below the fold), with meaningful alt text.
