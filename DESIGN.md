@@ -1,306 +1,347 @@
-# DESIGN.md
-
-Visual system for the Barber Shop portfolio demo. The shop is fictional: name, address, hours, prices, staff, reviews and photos are sample content. The name used throughout is the placeholder **Navalha & Co.** (sample). Replace it with a single token when the owner picks a real name.
-
-Source of direction: [BRIEF.md](BRIEF.md) (classic barbershop, warm palette, vintage cues, strong serif/display headings, pt-BR and en).
-
+---
+name: Navalha & Co. (sample)
+description: A vivid, moving classic barbershop. Cream paper, barber-pole red, cobalt and amber, a heavy soft serif, and a pole that never stops turning.
+colors:
+  paper: "#FFF3DA"
+  paper-raised: "#FFFBF0"
+  ink: "#2B140D"
+  ink-muted: "#6B4A3A"
+  pole-red: "#C8201B"
+  pole-red-deep: "#A51814"
+  cobalt: "#123FB0"
+  amber: "#FFB81C"
+  night: "#1A0F2E"
+  success: "#17683F"
+  line: "rgba(43, 20, 13, 0.18)"
+typography:
+  display:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(3rem, 9vw, 7rem)"
+    fontWeight: 900
+    lineHeight: 0.95
+    letterSpacing: "-0.02em"
+  headline:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(2rem, 4.5vw, 3.25rem)"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "-0.015em"
+  title:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.5rem"
+    fontWeight: 700
+    lineHeight: 1.2
+  body:
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.6
+  label:
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "0.14em"
+  price:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.75rem"
+    fontWeight: 800
+    lineHeight: 1
+    fontFeature: "'lnum', 'tnum'"
+rounded:
+  sm: "4px"
+  md: "8px"
+  pill: "999px"
+spacing:
+  xs: "4px"
+  sm: "8px"
+  md: "16px"
+  lg: "24px"
+  xl: "40px"
+  2xl: "64px"
+  3xl: "96px"
+components:
+  button-primary:
+    backgroundColor: "{colors.pole-red}"
+    textColor: "{colors.paper-raised}"
+    rounded: "{rounded.pill}"
+    padding: "0 28px"
+    height: "52px"
+  button-primary-hover:
+    backgroundColor: "{colors.pole-red-deep}"
+  button-secondary:
+    backgroundColor: "{colors.paper-raised}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "0 28px"
+    height: "52px"
+  button-on-dark:
+    backgroundColor: "{colors.amber}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "0 28px"
+    height: "52px"
+  card:
+    backgroundColor: "{colors.paper-raised}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    padding: "24px"
+  slot-chip:
+    backgroundColor: "{colors.paper-raised}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    height: "48px"
+    width: "88px"
+  slot-chip-selected:
+    backgroundColor: "{colors.cobalt}"
+    textColor: "{colors.paper-raised}"
+  input:
+    backgroundColor: "{colors.paper-raised}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    height: "52px"
+    padding: "0 16px"
 ---
 
-## 1. Visual direction
+# Design System: Navalha & Co. (sample)
 
-**Mode:** Persuade for Home, Services, Team, Gallery and Plans. Operate for Booking, Account and Staff admin. Both modes share one system; Operate surfaces use fewer flourishes.
+All shop details here are sample content. The name **Navalha & Co.** is a placeholder (BRIEF.md); keep it behind one token so the owner can swap it. Sources: [BRIEF.md](BRIEF.md), [PRODUCT.md](PRODUCT.md).
 
-**Concept: a printed shop sign and price card.** The look borrows from 1920s–1950s barbershop signage, enamel signs, printed price lists and barber-pole striping. It is warm and high-contrast, never a costume. Everything is flat: hairline rules, paper-tone backgrounds, no gradients, no skeuomorphic shine.
+> **Basis.** UXKIN was not connected, so this direction is not based on a comparison of real sites. It comes from the brief, PRODUCT.md and the request for a vivid, dynamic site.
 
-**Three rules that keep it classic and not kitschy:**
-1. Vintage cues are used at most once per screen: a pole stripe, a rule, a numbered price, or a bordered sign. Never all four at once.
-2. Display type is large and confident; body type is plain and legible. The serif carries the personality, the sans carries the information.
-3. Photography and real content lead. Decoration never sits between a client and a price or a button.
+## Overview
 
-**Avoid:** neon, glassmorphism, purple-to-blue gradients, stock-photo smiles, generic hero illustrations of scissors, cartoon barbers, faux-aged textures, drop shadows as the main depth cue, and emblems that read as military or political insignia.
+**Creative North Star: "The Turning Pole"**
 
----
+A barber pole is the one object everyone already reads as *barbershop*: bright, striped, and always in motion. The whole site borrows that energy. Warm cream paper is the ground, three saturated colors (pole red, cobalt, amber) do the work, and a heavy soft serif talks like a hand-painted shop window. Things move, but with intent: stripes drift, sections reveal in sequence, prices count into place, and every press answers back.
 
-## 2. Color
+It is classic barbershop, turned up. The previous muted direction (dusty red, navy, brass on cream) is retired: it read as quiet and old. This one reads as a shop with the lights on and a line at the door.
 
-All colors are tokens on `:root` (CSS custom properties). Tailwind theme keys mirror these names.
+The brief splits surfaces into two modes, and the system flexes between them:
+- **Persuade** (Home, Services, Team, Gallery and reviews, Plans, Contact): full color, large type, rich motion. Expressive, but the "Book a chair" action is always visible.
+- **Operate** (Booking, Account, Staff admin): the same palette and type, but calm. Paper backgrounds, one red action per view, motion limited to state feedback. A client picking a slot or a barber editing a schedule must never fight the decoration.
+
+**Key Characteristics:**
+- Saturated primaries on warm cream; ink is warm brown-black, never pure black.
+- Chunky, soft-edged serif display; plain sans for everything functional.
+- One signature motif: the **pole stripe** (diagonal red / cream / cobalt band), in motion at rest.
+- Flat color blocks and hairlines. Depth comes from color and offset, not blur.
+- Prices and times are first-class typography, not afterthoughts.
+
+**Rejected:** neon glow, glassmorphism, purple-to-blue gradients, gradient text, faux-aged textures, cartoon scissors and razors as illustration, military or political insignia, stock-photo smiles, and centering every section over three identical cards.
+
+## Colors
+
+A warm-cream ground with three saturated voices. Strategy: **committed**, with color carrying 30 to 60 percent of Persuade pages.
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| `--paper` | `#F4EBD9` | Default page background (warm cream) |
-| `--paper-raised` | `#FBF6EC` | Cards, menu panels, booking summary |
-| `--ink` | `#1B1A17` | Primary text, headings on paper |
-| `--ink-muted` | `#5C5346` | Secondary text, captions, meta (passes AA on paper) |
-| `--pole-red` | `#9B2226` | Primary action, key accents, pole stripe |
-| `--pole-red-hover` | `#7E1B1F` | Primary action hover and pressed |
-| `--navy` | `#1D2D44` | Dark sections (footer, plan feature band), secondary action, header on scroll |
-| `--navy-ink` | `#F4EBD9` | Text on navy (same as paper) |
-| `--brass` | `#C29B4B` | Decorative rules, numerals, focus accent on navy only |
-| `--line` | `rgba(27, 26, 23, 0.16)` | Hairline borders and rules on paper |
-| `--success` | `#2F5D3A` | Confirmed booking, active plan |
-| `--danger` | `#9B2226` | Errors (same as pole red, always paired with an icon and text) |
+| `paper` | `#FFF3DA` | Default page background: warm butter cream |
+| `paper-raised` | `#FFFBF0` | Cards, booking summary, inputs, slot chips |
+| `ink` | `#2B140D` | Body text, headings on paper, dark-on-amber text |
+| `ink-muted` | `#6B4A3A` | Secondary text, captions, meta |
+| `pole-red` | `#C8201B` | Primary action, price emphasis, stripe, big color blocks |
+| `pole-red-deep` | `#A51814` | Hover and pressed for red |
+| `cobalt` | `#123FB0` | Secondary voice: selected state, links on paper, blue color blocks, stripe |
+| `amber` | `#FFB81C` | Highlight: badges, the "popular" plan, accents on dark and on cobalt; large color blocks |
+| `night` | `#1A0F2E` | Dark band (plans, footer): a deep aubergine-black, warmer than navy |
+| `success` | `#17683F` | Confirmed booking, active plan |
+| `line` | `ink` at 18% | Hairlines and borders on paper |
 
-**Contrast (WCAG 2.x, measured):**
+**Measured contrast (WCAG 2.x):**
 
-| Pair | Ratio | Use |
+| Pair | Ratio | Allowed use |
 | --- | --- | --- |
-| `--ink` on `--paper` | 14.69 : 1 | Body text |
-| `--pole-red` on `--paper` | 6.69 : 1 | Links, accents, text buttons (AA and large text) |
-| `--ink-muted` on `--paper` | 6.38 : 1 | Captions and meta |
-| `--navy` on `--paper` | 11.73 : 1 | Secondary headings |
-| `--paper` on `--navy` | 11.73 : 1 | Text on dark bands |
-| `--brass` on `--navy` | 5.35 : 1 | Small accents on navy only |
-| `--pole-red` on `#FFFFFF` | 7.92 : 1 | Primary button label on white (use paper text on red buttons: see below) |
+| `ink` on `paper` | 15.79 | Body text |
+| `ink-muted` on `paper` | 7.16 | Captions, meta |
+| `pole-red` on `paper` | 5.19 | Text, links, large icons (AA) |
+| `paper-raised` on `pole-red` | 5.52 | Primary button label |
+| `paper` on `pole-red-deep` | 6.96 | Hover label |
+| `cobalt` on `paper` | 8.07 | Links, selected states, text |
+| `paper` on `cobalt` | 8.07 | Text on blue blocks |
+| `amber` on `cobalt` | 5.13 | Accent text on blue blocks |
+| `ink` on `amber` | 10.03 | Text on amber badges and blocks |
+| `amber` on `night` | 10.53 | Accent text on the dark band |
+| `paper` on `night` | 16.57 | Text on the dark band |
+| `success` on `paper` | 6.18 | Confirmation text |
 
-Rules:
-- **Brass never carries text on paper** (2.19 : 1). It is for rules, numerals and ornaments, or for text only on navy.
-- Primary button: `--pole-red` background with `--paper` text. Ratio of paper on pole red is 6.69 : 1.
-- Gray-on-cream is not allowed for body copy. Use `--ink-muted` instead of a lighter tint.
-- Sold-out or unavailable states use `--ink-muted` plus a strikethrough and the word, never color alone.
+**Rules:**
+- **Never** put `pole-red` text on `amber` (3.30) or `ink` on `pole-red` (3.04). Amber is never text on paper (1.57); on paper it is a fill only, with `ink` text.
+- Red and cobalt are the two heavy voices. A section is dominated by one of them; both appear together only in the stripe and in the plan comparison.
+- Amber is the spark. Roughly one amber element per screen: a badge, a highlighted plan, a hover underline.
+- Status is never color alone: always an icon plus a word.
+- Dark mode is not in v1. The `night` band gives the dark moments. If added later, remeasure every row above.
 
-**Dark mode:** not in v1. The brand is a light, paper-based shop; navy bands provide the dark moments. If dark mode is added later, invert paper and ink tokens, keep brass and red as they are, and re-measure every pair above.
+## Typography
 
----
+- **Display and prices: Fraunces** (Google Fonts, variable). A chunky, soft-cornered serif with warmth and a little wobble, like a painted shop window. Weights 700 to 900. Use the optical-size axis so large sizes get tighter spacing and small sizes stay open. Lining, tabular numerals for prices and times.
+- **Text and UI: Instrument Sans** (Google Fonts). Plain, slightly condensed, legible at small sizes, with full pt-BR accents (ã, ç, é, ê, ó, õ). Weights 400, 500, 700.
+- **Labels:** Instrument Sans 700, 12px, uppercase, `0.14em` tracking, for eyebrows, tags and category names.
 
-## 3. Typography
-
-| Role | Family | Source | Notes |
+| Role | Desktop | Phone (≤ 639px) | Notes |
 | --- | --- | --- | --- |
-| Display | **Bodoni Moda** | Google Fonts | Headings, price numerals, quotes. Use optical sizing; weights 500 and 700. |
-| Text and UI | **Libre Franklin** | Google Fonts | Body, forms, navigation, buttons. Weights 400, 500, 700. Has full Latin coverage for pt-BR accents (ã, ç, é, ê, ó, õ). |
-| Label caps | Libre Franklin | Google Fonts | Uppercase, `letter-spacing: 0.14em`, weight 700, size 12–13px. Used for eyebrows and category tags. |
+| Display | up to 7rem | 3rem | Hero only, one per page. Fluid with `clamp`. |
+| Headline | up to 3.25rem | 2rem | Section titles |
+| Title | 1.5rem | 1.375rem | Card and service-category titles |
+| Body | 1.0625rem (17px) | 1rem | Max line 68ch |
+| Small | 0.875rem | 0.875rem | Meta, helper text |
+| Label | 0.75rem | 0.75rem | Uppercase eyebrow |
+| Price | 1.75rem | 1.5rem | Fraunces 800, tabular |
 
-**Scale** (rem, base 16px; line-heights tuned for pt-BR, which runs ~15–25% longer than en):
+pt-BR runs 15 to 25 percent longer than English, so no headline or button may depend on a fixed width. Allow two-line headlines and wrap button labels. Never set body in Fraunces; never set display below 24px.
 
-| Token | Size desktop | Size phone (≤ 639px) | Line-height | Family / weight |
-| --- | --- | --- | --- | --- |
-| `display-xl` | 4.5rem | 2.75rem | 1.02 | Bodoni Moda 700 |
-| `display` | 3rem | 2.25rem | 1.08 | Bodoni Moda 700 |
-| `h2` | 2.25rem | 1.875rem | 1.15 | Bodoni Moda 500 |
-| `h3` | 1.5rem | 1.375rem | 1.25 | Bodoni Moda 500 |
-| `h4` | 1.125rem | 1.0625rem | 1.35 | Libre Franklin 700 |
-| `body-lg` | 1.25rem | 1.125rem | 1.6 | Libre Franklin 400 |
-| `body` | 1rem | 1rem | 1.6 | Libre Franklin 400 |
-| `small` | 0.875rem | 0.875rem | 1.5 | Libre Franklin 400, `--ink-muted` |
-| `label` | 0.75rem | 0.75rem | 1.2 | Libre Franklin 700, uppercase |
-| `price` | 1.5rem | 1.375rem | 1 | Bodoni Moda 700, tabular figures (`font-variant-numeric: lining-nums tabular-nums`) |
+## Layout
 
-Rules:
-- Body text is never below 16px. Labels and captions may go to 12px only in uppercase label style.
-- Measure: body copy 60–72 characters (`max-width: 66ch`).
-- Headings use `text-wrap: balance`. Body uses `text-wrap: pretty`.
-- Prices always use the `price` style and the local currency format (R$ for pt-BR, and the en locale format), with the service duration in `small` beside it.
+- **Container:** 1200px max, centered. Reading text 68ch. Gutter 16px on phone (required), 24px from 640px, 32px from 1024px.
+- **Grid:** 4 columns phone, 8 tablet (640 to 1023), 12 desktop (1024+).
+- **Spacing scale (4px base):** 4, 8, 16, 24, 40, 64, 96. Section padding 96px desktop, 64px phone. Vary section rhythm: do not give every section the same height and the same centered layout.
+- **Breakpoints:** 640, 1024, 1280. Design phone-first; verify at 360px, 390px, 768px and 1280px.
 
----
+**Page structures (Persuade):**
+- **Home:** a color-block hero, left-aligned, not centered. Giant Fraunces headline, one red "Book a chair" button and one secondary "See services" button, and the pole stripe running along the top edge. A real sample photo (or a flat color block when none exists) takes the right side on desktop and sits below on phone. Then in order: services preview, team strip, plan band (`night`), gallery, sample reviews, contact and hours. Alternate `paper`, a cobalt block, `paper`, `night`. Never two dark or two saturated bands in a row.
+- **Services:** a printed price list. Categories are headlines; each row is name, short description, duration, a dotted leader, and the price in Fraunces. Two columns on desktop, one on phone. The price column is the loudest thing in the row.
+- **Team:** portrait cards, 3:4 photo, name, specialty, "Book with [name]". Two columns on phone, three or four on desktop. Cards alternate a red, cobalt, or amber photo backing when the photo is a cutout; otherwise plain.
+- **Gallery and reviews:** a 2 / 3 / 4 column grid on 3:4 crops with a few featured tiles that span two cells. Reviews are quotes in Fraunces, each labeled **Sample review**.
+- **Plans:** three cards, Hair, Beard, Hair and Beard, on the `night` band. The middle plan carries an amber "Most chosen" badge (sample). Stacked on phone.
+- **Contact:** address and hours marked sample, plus a styled map placeholder (no live map embed).
 
-## 4. Spacing, radius, elevation
+**Page structures (Operate):**
+- **Booking:** three steps (service, barber and date, time and confirm). One column to 640px; two columns from 1024px with a sticky summary card. Step indicator uses numerals in Fraunces.
+- **Account and Staff admin:** sidebar from 1024px, top tabs on phone. Tables become stacked cards below 640px. White space and `paper-raised` cards, not color blocks.
 
-**Spacing scale (px):** 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128. Use the scale only; no arbitrary values.
+**Responsive rules:** no horizontal scroll at any width; tap targets at least 48px; the primary "Book" button stays reachable in the header on phone; the pole stripe thins from 12px to 8px on phone; two-column layouts collapse in reading order; images use fixed aspect ratios so nothing jumps while loading.
 
-**Section rhythm:** 96px vertical padding on desktop, 64px on phone. Adjacent sections alternate paper and paper-raised, or paper and a navy band. Never two navy bands in a row.
+## Elevation & Depth
 
-**Gutters:** 16px on phone (required by the brief), 24px at ≥ 640px, 32px at ≥ 1024px.
+Flat, with one playful exception. Depth is color layering and hairlines, never blur.
 
-**Radius:** `2px` for buttons, inputs, cards and chips. Classic signage has crisp corners. Only avatars and the language switcher pill use `999px`.
+- **Offset shadow ("sign shadow"):** `4px 4px 0 ink` on key cards and the primary hero image: a hard, unblurred offset, like a printed sign mounted on a board. Use on at most two elements per screen. It moves on hover (see Motion).
+- **Floating menus** (language menu, mobile nav): `0 12px 28px rgba(43, 20, 13, 0.18)`.
+- Everything else: a 1px `line` border or a color change. Sticky header: 1px bottom border.
 
-**Elevation:** flat. Use `--line` hairlines to separate. A single shadow token is allowed for floating menus only: `0 12px 28px rgba(27, 26, 23, 0.14)`. Sticky header gets a hairline bottom border, not a shadow.
+## Shapes
 
-**Stripe motif:** a 6px tall band of three diagonal stripes (`--pole-red`, `--paper`, `--navy`) at 45°, used as the top edge of the header and as the section divider in the footer. Never repeated inside content.
+A friendly, painted-sign geometry: round where you press, crisp where you read.
+- **Buttons, language switcher, chips for filters, badges:** pill (`999px`).
+- **Cards, images:** `8px`.
+- **Inputs and time-slot chips:** `4px`.
+- **Pole stripe:** 45-degree bands, width 24px, colors red / cream / cobalt (a fourth amber band appears only on the Plans page).
+- **Icons:** one set (Lucide), 2px stroke, rounded caps; sized 20px, 24px in navigation. No emoji as icons.
 
----
+## Components
 
-## 5. Layout
+**Header.** `paper` background, pole stripe on the top edge (animated). Wordmark in Fraunces 900. Navigation: Services, Team, Gallery, Plans, Contact. Right: PT / EN pill switcher (`aria-pressed`), then the primary "Book" button. On phone: wordmark, "Book" button, menu button. The menu opens a full-height panel with large Fraunces links, staggered in.
 
-- **Container:** max-width 1200px, centered, with the gutter above. Reading content (articles, terms) uses 720px.
-- **Grid:** 12 columns on desktop (≥ 1024px), 8 on tablet (640–1023px), 4 on phone (≤ 639px).
-- **Home:** full-bleed hero with the shop photo (sample), display headline, one primary action ("Book a chair") and one secondary ("See services"). Below the hero: a short services preview, the team strip, the monthly plan band (navy), gallery, reviews, contact and hours.
-- **Services:** a printed price-list layout. Categories are `h3` headings. Each service is a row: name, short description, duration, then price right-aligned with a dotted leader drawn in `--line`. On desktop, two columns of categories; on phone, one.
-- **Team:** portrait cards, 2 columns on phone, 3–4 on desktop. Each card: photo (sample), name, specialty, short bio, "Book with [name]" link.
-- **Gallery & reviews:** masonry-like grid of 2 columns on phone, 3 on tablet, 4 on desktop, with consistent 3:4 crops for uniform rhythm. Reviews appear as quotes in `h3`-sized Bodoni, each labeled "Sample review".
-- **Booking:** a three-step flow (service → barber and date → time and confirm) on a single column up to 640px; a two-column layout with a sticky summary on desktop.
-- **Account and Staff admin:** a left sidebar on desktop (≥ 1024px) that collapses into a top tab row on phone. Tables become stacked cards below 640px.
-- **Plans:** one card with the monthly price, a short inclusion list, and the checkout button, on the navy band.
+**Buttons.** Pill, 52px high (48px minimum on phone), label Instrument Sans 700 at 16px.
+- *Primary:* `pole-red` fill, `paper-raised` text. Hover `pole-red-deep`. One per view.
+- *Secondary:* `paper-raised` fill, 2px `ink` border, `ink` text.
+- *On dark / on color:* `amber` fill, `ink` text.
+- *Text link:* `cobalt`, 2px underline with 4px offset; hover thickens the underline.
+- *Focus:* 3px `cobalt` ring with 3px offset on paper; `amber` ring on `night` and cobalt.
+- *Disabled:* `line` fill, `ink-muted` text, `aria-disabled`, and a visible reason nearby.
+- *Loading:* the label is replaced by a small turning-pole spinner; the button keeps its width and sets `aria-busy`.
 
----
+**Service row.** Name (title), description (small), duration (label), dotted leader (`line`), price. Only the "Book this" control is interactive. Hover on fine pointers tints the row `paper-raised`.
 
-## 6. Components
+**Barber card.** 3:4 portrait, name, specialty as a label, one-line bio, "Book with [name]" text link. A **Sample** tag sits on every portrait while photos are placeholders.
 
-**Header.** Paper background, stripe motif on top, logo wordmark in Bodoni Moda (text wordmark only; no logo asset provided). Navigation: Services, Team, Gallery, Plans, Contact. Right side: language switcher (PT / EN pill, `aria-pressed` on the active one), then the primary button "Book". Phone: wordmark left, "Book" and a menu button right; the menu opens as a full-height panel.
+**Plan card.** Name, price in Fraunces 900 with "/month" in small, inclusion list with check icons, button. Featured plan has the amber badge and the sign shadow. Marked **Sample price** and **Test mode: no real charge**.
 
-**Buttons.**
-- `primary`: `--pole-red` background, `--paper` text, label 700 at 15px, height 48px on phone and 44px on desktop, padding 0 24px, radius 2px.
-- `secondary`: transparent, 1px `--ink` border, `--ink` text. On navy, the border and text switch to `--paper`.
-- `text`: `--pole-red` text with an underline offset 4px. Used for inline "See all" links.
-- States: hover darkens by one step (`--pole-red-hover`); focus-visible draws a 2px outline in `--ink` with 2px offset on paper, or `--brass` on navy; disabled uses `--line` background and `--ink-muted` text, with `aria-disabled` and a visible reason nearby.
+**Step indicator.** Numerals in Fraunces inside 40px circles: current = `pole-red` fill, done = `success` fill with a check, upcoming = outlined. `aria-current="step"` on the current one.
 
-**Service row.** Name in `h4`, description in `small`, duration in `label` style, price in `price`. The whole row is not clickable; only "Book this" is (text button or secondary button depending on width).
+**Calendar.** Month grid; today has a cobalt ring; selected day is a solid `cobalt` circle; days with no availability are struck through and `aria-disabled`.
 
-**Barber card.** Portrait image 3:4, name `h4`, specialty `label`, one-line bio `small`, and a text button to book with that barber. Hover (fine pointer only) lifts the image slightly; no other change.
+**Time-slot chip.** 48px high, 88px wide minimum, 4px radius, 1px `line` border.
+- *Available:* `paper-raised`, `ink`.
+- *Selected:* `cobalt` fill, `paper-raised` text, check icon.
+- *Unavailable:* `ink-muted`, strikethrough, `aria-disabled`, with the word "Unavailable" in its accessible name.
+- *Held by someone else (race):* amber outline, "Just taken" message, announced politely.
 
-**Booking step indicator.** Three numbered steps. Numerals use `--brass` on navy or `--pole-red` on paper. The current step has an `aria-current="step"` label; completed steps show a check with the word "Done".
+**Form fields.** Labels above, always visible. 52px high, 1px `line` border, `ink` on hover, 2px `cobalt` ring on focus. Error: `pole-red` border, an icon, and a message under the field linked with `aria-describedby`.
 
-**Time slot chip.** Height 44px, min-width 84px, radius 2px, 1px `--line` border.
-- Available: paper-raised background, ink text.
-- Selected: `--ink` background, `--paper` text, with a check icon.
-- Unavailable: `--paper` background, `--ink-muted` text, strikethrough, and `aria-disabled`. The word "Unavailable" is present in the accessible name.
-- Never shown as a color-only difference.
+**Toasts and confirmation.** A booking confirmation is a full card with a large check, date, time, barber, deposit (test mode) and the 2-hour cancellation rule stated plainly. Toasts are `ink` fill with `paper` text, bottom-center on phone.
 
-**Form fields.** Labels above the field, always visible (no placeholder-as-label). Input height 48px, 1px `--line` border at rest, 1px `--ink` border on hover, and a focus ring of 2px solid `--pole-red` with 2px offset (`--brass` on navy). Error: a border in `--danger`, an icon, and a message in `small` under the field, linked with `aria-describedby`.
+**Sample-content markers.** A small `amber` pill "Sample" next to photos, prices, reviews, address and hours. This is a requirement from the brief, not decoration; keep it readable (12px label, `ink` on `amber`).
 
-**Plan card (navy band).** Price in `display` on paper, "per month" in `small`, inclusion list with brass check icons, primary-style button inverted: paper background with navy text, since red on navy is not used for buttons.
+**Footer.** `night` band with the stripe along its top, address and hours (sample), language switcher, and a "Portfolio demo" notice.
 
-**Notice / toast.** Paper-raised panel, 1px `--line` border, 4px left bar in the status color (success green, danger red). Icon plus text, never color alone. Lives bottom-center on phone, top-right on desktop.
+## Motion
 
-**Sample marker.** A small label "Sample content" in `label` style, placed in the footer and once per page near the hero. It is visible text, not a watermark.
+Guided by emil-design-eng. The site should feel alive, but motion is spent where it earns attention: Persuade pages get rich motion, Operate pages get feedback only.
 
-**Footer.** Navy band with the stripe motif at top. Address, hours and contact in paper text (all marked sample), links to Services, Team, Plans, Account, and language switch. Copyright line with the "Sample content" statement.
+**Rules**
+- Ask first: how often is this seen? Anything used many times a day (opening the language menu, keyboard navigation, choosing a time slot repeatedly) is instant or nearly so. **Never animate keyboard-initiated actions.**
+- Animate only `transform` and `opacity` (plus `clip-path`). Never `transition: all`. Never `ease-in`.
+- UI animation stays under 300ms. Scroll-reveals and the hero may run longer.
+- Never enter from `scale(0)`: start at `scale(0.95)` with `opacity: 0`.
+- Exit faster than enter (about 60 percent of the enter time).
+- Hover effects only inside `@media (hover: hover) and (pointer: fine)`.
+- Prefer CSS transitions for UI that can be triggered rapidly (interruptible); use CSS keyframes for predetermined loops; use Motion (the library) for gestures, springs and shared layout.
 
----
+**Easing tokens**
+| Token | Value | Use |
+| --- | --- | --- |
+| `ease-out` | `cubic-bezier(0.23, 1, 0.32, 1)` | Entrances, press feedback, most UI |
+| `ease-in-out` | `cubic-bezier(0.77, 0, 0.175, 1)` | On-screen movement and morphs |
+| `ease-drawer` | `cubic-bezier(0.32, 0.72, 0, 1)` | Mobile menu panel |
+| Spring | `duration 0.5, bounce 0.2` | Plan card lift, gallery drag, the booking confirmation check |
 
-## 7. Imagery and content rules
+**Duration tokens:** press 120ms; hover 150ms; menus and popovers 180 to 220ms; panels 300ms; scroll reveals 500ms; hero sequence up to 900ms in total.
 
-- Photography: warm, natural light; tight crops on hands, tools and faces; no stock smiles. Consistent color grade toward cream and warm shadows.
-- Every image has descriptive `alt` text in the current locale. Decorative images use `alt=""`.
-- Sample people are labeled as sample in alt text or caption where the shop is presented as real.
-- No logos, trademarks or real businesses referenced.
-- Reviews are fabricated sample text and must read as sample (see "Sample review" label above).
+**The signature moves (Persuade)**
+1. **Spinning pole.** The stripe band in the header and footer drifts continuously along its diagonal (a looped background-position or transform, linear, 12s per cycle). It is the one thing that always moves. It pauses when the tab is hidden.
+2. **Hero entrance.** On first load only: the headline reveals line by line (`clip-path: inset(0 0 100% 0)` to `inset(0)`, 600ms, `ease-in-out`), staggered 60ms; the buttons fade up (8px) after; the hero image slides in 24px with a fade. Never replay on language switch or client-side navigation back.
+3. **Scroll reveals.** Section content enters with `translateY(16px)` and fade at 500ms `ease-out`, once, as 15 percent of the section is visible. Children stagger 50ms, capped at 6 items so long lists do not crawl.
+4. **Price count-in.** Plan prices count up from 0 to their value over 700ms the first time they are seen. The final number is in the DOM from the start (for screen readers and no-JS).
+5. **Marquee strip.** A slow `linear` loop of services ("Cut · Beard · Shave · Fade") under the hero, paused on hover, and stopped under reduced motion.
+6. **Gallery.** Tiles reveal with `clip-path` wipes; on fine pointers, hover lifts the image `scale(1.03)` over 250ms inside its overflow-hidden frame. A lightbox opens from the tapped tile's position (origin-aware) and closes on Escape with no delay.
+7. **Sign-shadow cards.** On hover (fine pointer) the card moves `translate(-2px, -2px)` and its offset shadow grows from 4px to 6px, 150ms. On press it settles to `translate(2px, 2px)` with the shadow at 2px.
 
----
+**Interaction feedback (everywhere, including Operate)**
+- Every pressable thing gets `scale(0.97)` on `:active`, 120ms `ease-out`.
+- Language switch: the active pill slides under the new choice (200ms); page text swaps with no animation.
+- Mobile menu: panel slides in with `ease-drawer` at 300ms; links stagger 40ms; closes in 180ms. Keyboard-opened and mouse-opened behave the same.
+- Calendar day and slot selection: the selected state fills in 120ms; the summary card updates in place with a 150ms cross-fade, using a subtle `blur(2px)` bridge if the swap looks like two objects.
+- Step changes in Booking: content slides 24px and fades at 250ms; focus moves to the new step heading.
+- Form errors: the field border changes at 150ms and the message fades in. No shaking.
+- Booking confirmation: the check draws itself (stroke, 400ms), the card enters with a spring, and an amber confetti-free pulse rings once. This is a rare, first-time-style moment, so delight is allowed.
+- Cancel: the booking card collapses with opacity and a 200ms height-safe transform; offer an undo toast first where the rule allows.
+- Skeletons while slots load: a calm `paper-raised` shimmer at 1.4s, no spinner on tiny areas.
 
-## 8. Responsive rules
+**Operate surfaces:** no scroll reveals, no marquee, no count-in. Only press, hover, selection, step and confirmation feedback.
 
-- **Design phone first at 375px width.** No horizontal scroll at any width from 320px up. Test with long pt-BR strings.
-- **Breakpoints:** 640px (tablet), 1024px (desktop), 1280px (wide container).
-- **Phone (≤ 639px):**
-  - 16px gutter; type scale per the phone column above.
-  - Full-width buttons in forms and at section ends; inline buttons otherwise.
-  - Primary "Book" action is pinned in a bottom bar on Services, Team and Barber pages, with `padding-bottom: env(safe-area-inset-bottom)`. The bar is hidden while a form field has focus.
-  - Tap targets at least 44 × 44px.
-  - Tables become stacked cards.
-  - Gallery in 2 columns; masonry is replaced by a uniform grid.
-- **Tablet (640–1023px):** two-column content grids, sidebar becomes a tab row, booking stays single column.
-- **Desktop (≥ 1024px):** full layout, sticky booking summary, 12-column grid, hover states enabled.
-- **Images:** responsive `srcset`, aspect ratios fixed in CSS to prevent layout shift.
-- **Long text:** allow pt-BR to wrap; no fixed-width buttons; `min-width: 0` on flex children; `overflow-wrap: anywhere` only on user-generated strings.
+**Reduced motion (`prefers-reduced-motion: reduce`):** remove all translation, scale, marquee, counting and stripe drift; keep opacity fades at 150ms and color changes. The stripe becomes static. Loading states keep a non-moving "Loading" label.
 
----
+**Performance:** animate only compositor-friendly properties; load Motion only where gestures need it (lightbox, confirmation); use CSS for scroll reveals where possible (`@starting-style` and view timelines when supported, with an IntersectionObserver fallback); animation must never delay input; Largest Contentful Paint (the hero) must not wait on an entrance animation.
 
-## 9. Accessibility
+## Accessibility
 
-- **Contrast:** every text pair is at least 4.5 : 1 (AA). Large display text is well above 3 : 1. The table in section 2 is the source of truth; re-measure if a token changes.
-- **Focus:** a visible focus ring on every interactive element (2px outline, 2px offset). Never removed. Brass ring on navy, red or ink ring on paper.
-- **Keyboard:** full keyboard path through the booking flow; the slot grid uses roving tabindex with arrow keys.
-- **Semantics:** one `h1` per page; sections have headings; the language switcher uses `lang` on the document and `hreflang` links; forms use real `label` elements and `aria-describedby` for hints and errors.
-- **Color is never the only signal.** Errors have icons and text; availability has strikethrough and text; the active nav item has an underline and `aria-current`.
-- **Motion:** respects `prefers-reduced-motion` (section 10).
-- **Language:** `<html lang="pt-BR">` or `lang="en"`, switched per route. Date and currency formatted per locale.
-- **Touch:** 44px minimum targets; 8px minimum spacing between adjacent targets.
-- **Screen readers:** sample content labeled as sample; decorative stripes and rules are `aria-hidden`.
+- **Contrast:** every text pair is in the table above and meets AA (normal text 4.5:1). Large text (24px, or 18.66px bold) at 3:1 only where explicitly noted.
+- **Focus:** always visible: 3px `cobalt` ring (or `amber` on `night` and `cobalt`) with 3px offset. Never `outline: none` without a replacement. Skip link to main content as the first tab stop.
+- **Targets:** 48px minimum for buttons, chips and menu items; 8px gaps.
+- **Semantics:** a real `h1` per page and ordered headings; landmarks; the calendar as a grid with arrow-key navigation; slots as a radio group; step progress via `aria-current`; the language switcher with `lang` attributes on swapped content and `hreflang` alternates.
+- **Not color alone:** unavailable, selected, error, success and sample states each carry text or an icon.
+- **Live regions:** slot-taken, booking confirmed, booking cancelled and form errors announce politely.
+- **Motion:** see Reduced motion. Nothing flashes more than three times a second; the marquee and stripe can be paused (a visible pause control for anything that runs over five seconds).
+- **Forms:** visible labels, correct `autocomplete`, errors that say what to do, and no loss of input on error.
+- **Text:** supports 200 percent zoom and larger system text; line length capped; no text inside images.
+- **Imagery:** meaningful alt text for people and spaces; decorative stripes and marks are `aria-hidden`.
 
----
+## Do's and Don'ts
 
-## 10. Animation and motion
+**Do**
+- Make "Book a chair" the most obvious action on every Persuade page, within one tap on phone.
+- Keep one saturated voice dominant per section; use amber sparingly.
+- Show prices big, plain and comparable.
+- Mark every placeholder with the Sample tag.
+- Make motion respond to the user first, decorate second.
+- Test pt-BR strings at every breakpoint.
 
-Guided by the emil-design-eng principles: motion serves feedback, orientation or a one-time reveal; nothing animates on the keyboard or in the flow a client repeats many times.
-
-### Rules
-- **Frequency first.** Keyboard-triggered actions, slot toggling in the booking grid on repeat, and nav link hovers do not animate beyond a color change.
-- **Only `transform` and `opacity` animate.** No `width`, `height`, `padding` or `margin` animation, except the menu height in the single case noted below, which uses `grid-template-rows`.
-- **Named properties only.** No `transition: all`.
-- **Ease out for entrances and feedback.** Use `cubic-bezier(0.23, 1, 0.32, 1)` for UI. Use `cubic-bezier(0.77, 0, 0.175, 1)` only for on-screen movement such as the gallery lightbox moving between images. Never `ease-in` on UI.
-- **Duration under 300ms** for every UI interaction. Reveals may run to 600ms but only once per page load.
-- **Exit faster than enter.** Entrance 240ms, exit 160ms.
-- **Enter from ~95% scale or a small offset, never from `scale(0)`.** Pair with opacity 0 at the start.
-- **Popovers scale from their trigger** using `transform-origin: var(--transform-origin)`. Modals keep `transform-origin: center` and centered placement.
-- **Interruptible.** Use CSS transitions for states that can be toggled rapidly (menu, tabs, slot selection). Use keyframes only for one-shot reveals.
-- **Hover effects only on fine pointers:** `@media (hover: hover) and (pointer: fine)`.
-- **Decorative motion never blocks** interaction; stagger never delays a control from being usable.
-- **Motion library:** use Motion (framer-motion) only where a value must follow a gesture or spring (booking step swipe on phone, lightbox drag). Use the full `transform` string for hardware acceleration, not the `x`/`y` shorthands, when the page is busy.
-
-### Tokens
-
-```css
-:root {
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-  --dur-press: 160ms;
-  --dur-hover: 200ms;
-  --dur-popover: 180ms;
-  --dur-drawer: 300ms;
-  --dur-reveal: 480ms;
-  --dur-toast: 280ms;
-}
-```
-
-### Interaction map
-
-| Element | Trigger | Motion | Duration / easing | Notes |
-| --- | --- | --- | --- | --- |
-| Primary and secondary button | `:active` | `transform: scale(0.97)` | 160ms `--ease-out` | Every pressable element, 0.95–0.98 range |
-| Text link | hover (fine pointer) | Color and underline offset | 200ms `ease` | No transform |
-| Barber card image | hover (fine pointer) | `scale(1.02)` on the image inside `overflow: hidden` | 240ms `--ease-out` | Gated behind the hover media query |
-| Language switcher pill | click | Thumb slides to the new position | 200ms `--ease-out` | Use transform, not left/width |
-| Header menu (phone) | open / close | Panel slides from top, `transform: translateY(-100%)` to `0` | Open 300ms `--ease-drawer`, close 200ms `--ease-out` | Backdrop fades in 200ms |
-| Language or sort dropdown | open | Scale from trigger: `scale(0.96)` + opacity | 180ms `--ease-out`, `transform-origin` from trigger | Popover rule applies |
-| Modal (confirm cancel, sign-in) | open | Fade + `scale(0.96)` from center | 240ms `--ease-out` | `transform-origin: center`; exit 160ms |
-| Booking step change | Next / Back | Current step fades and shifts 12px; next enters from the side it came from | Enter 240ms `--ease-out`, exit 160ms | Reduced motion: opacity only |
-| Time slot chip | select | Background and text color change | 120ms `ease` | Color only, no movement |
-| Form error message | validation | Fade and 4px slide down | 180ms `--ease-out` | Announced via `aria-live="polite"` |
-| Toast / notice | show / dismiss | Slide in from bottom (phone) or top-right (desktop) with opacity | Enter 280ms `--ease-out`, exit 200ms | Pauses timer when tab is hidden; uses `@starting-style` where supported |
-| Section reveal on scroll | first intersection | Opacity 0 to 1, `translateY(8px)` to `0` | 480ms `--ease-out`, once per page load | Stagger 50ms between cards, max 4 items in sequence |
-| Gallery image reveal | first intersection | `clip-path: inset(0 0 100% 0)` to `inset(0 0 0 0)` | 600ms `--ease-in-out`, once | Skip if reduced motion |
-| Gallery lightbox | next / prev | Image slides horizontally | 320ms `--ease-in-out` | Drag with spring (Motion); reduced motion: crossfade 160ms |
-| Plan card "active" state | purchase success | Badge scales from `0.95` with opacity | 240ms `--ease-out` | One-time, on success only |
-| Sold-out chip | page load | None | n/a | Static state; no motion |
-| Stripe redirect | navigate | None on our side | n/a | Show a static "Redirecting…" text |
-
-### Reduced motion
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 120ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal, .gallery-reveal { opacity: 1; transform: none; clip-path: none; }
-}
-```
-
-Reduced motion keeps opacity and color changes (they aid comprehension) and removes transform-based movement, reveals and parallax.
-
-### Things we do not animate
-- The header on scroll (it stays put with a hairline border).
-- Price changes, or any number that a client is comparing.
-- Page-to-page route transitions beyond a 160ms opacity change.
-- Keyboard shortcuts and the language toggle's text.
-- Loading states beyond a static skeleton with no shimmer; if a spinner is needed, rotate it fast (under 800ms per turn) so the wait feels shorter.
-
----
-
-## 11. Copy and labels (visual rules only)
-
-- Buttons use verbs: "Book a chair", "Choose a time", "Confirm booking", "Start monthly plan", "Cancel booking".
-- Prices always show the currency and the duration next to them.
-- Sample content is labeled once per screen where a claim could be read as real.
-- Language switch labels are "PT" and "EN", with `aria-label` "Português (Brasil)" and "English".
-
----
-
-## 12. Implementation notes
-
-- Tokens live in `:root` and are mirrored in the Tailwind theme.
-- Fonts load from Google Fonts with `display=swap`; subset to Latin, with `font-display: swap` and a serif fallback (`Georgia, serif`) and a sans fallback (`system-ui, sans-serif`).
-- No secrets or service keys in this file.
-- Any new color or spacing value must be added as a token first, then measured for contrast before use.
-
----
-
-## 13. Open decisions (owner input needed)
-
-- Shop name and logo (placeholder "Navalha & Co." in use; no logo provided, so the wordmark is set type only).
-- Brand colors: this palette is a proposal. Replace the cream, red and navy tokens together if the owner has brand colors; re-measure section 2.
-- Whether booking requires a deposit (affects the booking summary layout, not the palette).
-- Additional languages beyond pt-BR and en (would need a type check for diacritics and text expansion).
+**Don't**
+- Don't use gradients, glows, glass, or blurred shadows as decoration.
+- Don't center every section or repeat three identical feature cards.
+- Don't put red text on amber, amber text on cream, or ink on red.
+- Don't animate on every scroll position or replay entrance animations on navigation.
+- Don't use scissors, razors or cartoon barbers as illustrations; real photography or flat color blocks carry the imagery.
+- Don't add vintage ornament beyond the pole stripe and the sign shadow.
+- Don't invent testimonials, awards, addresses or staff and present them as real.
