@@ -2,32 +2,53 @@
 
 <!-- impeccable:product-schema 1 -->
 
-> Inferred, not confirmed. The init interview was answered "no preference" on every question, so everything below comes from the project path (`Portfólio/Barber Shop`) and is labeled as an assumption. Revise via `/impeccable init`.
-
 ## Platform
 
 web
 
 ## Stack
-Delegated: the user had no preference. Choice is left to the build step, which should pick the simplest stack that fits the surface.
+
+Confirmed from BRIEF.md: Next.js (App Router) with TypeScript and Tailwind CSS, Supabase (Postgres, Auth, RLS), Stripe (test mode only), Resend for reminder email, next-intl for pt-BR and en, Motion where needed, deployed on Vercel.
 
 ## Users
-Assumption: prospective barbershop clients (and portfolio reviewers) on mobile, deciding where to get a cut and how to book.
+
+Prospective clients of a classic barbershop who want to see services and prices, pick a barber, and book a slot, or start a monthly plan. Staff (barbers and admin) manage their schedule and services. Portfolio reviewers evaluate the build.
 
 ## Product Purpose
-Assumption: a barbershop website, built as a portfolio piece, that presents the shop, its services and prices, and a path to book an appointment.
+
+A fictional, sample-content barbershop demo that shows real booking, accounts, subscriptions, and staff administration. Success means a reviewer can book an appointment, see it under Account, cancel it, start a plan in Stripe test mode, and see staff edit a service or schedule.
 
 ## Positioning
-Undecided. No shop name, location, or differentiator has been provided.
+
+The demo proves working product flows (calendar, per-barber availability, no double-booking, accounts, subscription checkout, staff admin), not brand storytelling. Visual craft supports these flows rather than replacing them.
+
+## Operating Context
+
+Demo use only. Stripe and Resend run in test mode with owner-supplied keys. No live charges, no real customers, no production traffic.
 
 ## Capabilities and Constraints
-- Undecided: whether booking is real or a demo flow, which services and prices exist.
-- Do not present invented facts (address, hours, prices) as real; mark sample content as sample.
+
+- Online booking with calendar, time slots, per-barber availability, and confirmation.
+- Booking requires a deposit in addition to the monthly plan. Both are simulated: Stripe test mode only, with no live charges.
+- Client accounts: sign up, log in, view and cancel own bookings.
+- Staff admin: manage barbers, services, prices, and schedules.
+- Email reminders for upcoming bookings (SMS out of scope).
+- Portuguese (pt-BR) and English, with a language switcher. No further languages are planned.
+- Layout must work at phone width (16px gutter, no horizontal scroll) and on desktop.
+- Undecided: whether a real GitHub repository and Vercel project will be created.
+
+## Brand Commitments
+
+- The shop name is a fictional placeholder, chosen by the builder and clearly marked as sample content. Logo and brand colors are not provided.
+- Visual style is classic barbershop: warm palette, vintage cues, and strong serif or display headings. The palette and typography are for the design step to decide, not this record.
 
 ## Evidence on Hand
-None provided: no logo, photos, testimonials, or real shop details. Future work must not fabricate testimonials, customers, or claims.
+
+None. No logo, photos, reviews, or real shop details exist. Addresses, hours, prices, staff names, reviews, and photos are placeholders and must be marked as sample. Future work must not fabricate testimonials, customers, or claims presented as genuine.
 
 ## Product Principles
+
 - Make the path from landing to booking short and obvious.
 - Show services and prices plainly; clients compare before they book.
-- Keep placeholder content honest and easy to replace.
+- Keep sample content honest and clearly marked, and easy to replace.
+- Show real flows (booking, accounts, plans, admin) rather than simulated screens.
