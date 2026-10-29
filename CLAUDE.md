@@ -9,10 +9,7 @@
 - Commit each completed, verified step with a clear message. Test before committing.
 - Never push, force-push, or commit `.env*` files or secrets. Only `.env.example` is allowed.
 - `.env*` must be in `.gitignore` before the first commit.
-
-## Secrets
-- Never expose secrets in code, logs, browser bundles, or chat.
-- Only `NEXT_PUBLIC_*` values may reach the browser.
+- Never expose secrets in code, logs, browser bundles, or chat. Only `NEXT_PUBLIC_*` reaches the browser.
 
 ## Quality and Production
 - Use emil-design-eng for animations and interactions.
