@@ -5,8 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { SHOP_NAME } from "@/lib/brand";
 import { closeHour, dayAppointments, dayKey, openDays, type Appt } from "@/lib/schedule";
 import { useDemoData } from "@/lib/store";
-import { UtilityBar } from "./Header";
-import { setRole, ViewEnter } from "./role-gate";
+import { LangSwitch, UtilityBar } from "./Header";
+import { setRole, ViewEnter, ViewSwitch } from "./role-gate";
 
 type Service = { name: string; minutes: number; price: number };
 type Member = { name: string; specialty: string };
@@ -58,27 +58,36 @@ export function BarberApp() {
   return (
     <>
       <div className="stripe" aria-hidden />
-      <UtilityBar current="barber" always />
+      <div className="sm:hidden">
+        <UtilityBar current="barber" always />
+      </div>
       <header className="sticky top-0 z-40 border-b border-line bg-coal">
         <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px]">
           <span className="font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">{SHOP_NAME}</span>
-          <span className="label hidden text-cream-muted sm:inline">{t("tag")}</span>
+          <div className="utility ml-auto hidden items-center gap-4 sm:flex">
+            <ViewSwitch current="barber" />
+            <LangSwitch />
+          </div>
         </div>
       </header>
 
       <main className="wrap py-8 lg:py-12">
         <ViewEnter />
-        <p className="label mb-2 text-cream-muted">{common("sample")}</p>
-        <h1 className="text-headline">{t("title")}</h1>
-        <p className="mt-2 max-w-[60ch] text-cream-muted">{t("note")}</p>
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-5">
+          <div>
+            <p className="label mb-2 text-cream-muted">{common("sample")}</p>
+            <h1 className="text-headline">{t("title")}</h1>
+            <p className="mt-2 max-w-[60ch] text-cream-muted">{t("note")}</p>
+          </div>
 
-        <div role="group" aria-label={t("viewLabel")} className="lang lang-wide mt-8">
+        <div role="group" aria-label={t("viewLabel")} className="lang lang-wide">
           <span aria-hidden className="lang-thumb" style={{ transform: tab === "revenue" ? "translateX(100%)" : "none" }} />
           {(["agenda", "revenue"] as const).map((k) => (
             <button key={k} type="button" aria-pressed={tab === k} onClick={() => setTab(k)}>
               {k === "agenda" ? t("tabAgenda") : t("tabRevenue")}
             </button>
           ))}
+          </div>
         </div>
 
         {tab === "agenda" && (
