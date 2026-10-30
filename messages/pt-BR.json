@@ -19,7 +19,7 @@
     "gallery": "Galeria",
     "plans": "Planos",
     "contact": "Contato",
-    "book": "Reservar cadeira",
+    "book": "Reservar horário",
     "bookShort": "Agendar",
     "menu": "Menu",
     "close": "Fechar menu"
@@ -270,7 +270,7 @@
     "signOut": "Sair",
     "mineEmpty": "Você ainda não tem agendamentos.",
     "cancel": "Cancelar agendamento",
-    "bookAnother": "Reservar cadeira"
+    "bookAnother": "Reservar horário"
   },
   "gate": {
     "title": "Quem está visitando?",

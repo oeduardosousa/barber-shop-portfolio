@@ -3,6 +3,7 @@
 import { Pause, Play } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
+import { rollTo } from "./Header";
 
 /** Adds data-in to [data-reveal] / [data-wipe] elements the first time they scroll into view. */
 export function RevealObserver() {
@@ -86,5 +87,14 @@ export function PriceCount({ value }: { value: number }) {
         {final}
       </span>
     </>
+  );
+}
+
+/** In-page link that glides to its section, like the header nav. */
+export function RollLink({ id, className, children }: { id: string; className?: string; children: React.ReactNode }) {
+  return (
+    <a href={`#${id}`} className={className} onClick={(e) => rollTo(e, id)}>
+      {children}
+    </a>
   );
 }

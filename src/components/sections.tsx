@@ -6,7 +6,7 @@ import { PLANS } from "@/lib/checkout/catalog";
 import { SHOP_NAME } from "@/lib/brand";
 import { BookButton } from "./booking";
 import { SwitchViewButton } from "./role-gate";
-import { MotionToggle, PriceCount } from "./client-bits";
+import { MotionToggle, PriceCount, RollLink } from "./client-bits";
 
 const stagger = (i: number) => ({ "--i": Math.min(i, 5) }) as React.CSSProperties;
 
@@ -68,9 +68,9 @@ export function Hero() {
           <p className="hero-fade mt-6 max-w-[52ch] text-lg text-cream-muted">{t("sub")}</p>
           <div className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row">
             <BookButton className="btn btn-primary">{nav("book")}</BookButton>
-            <a href="#services" className="btn btn-secondary">
+            <RollLink id="services" className="btn btn-secondary">
               {t("seeServices")}
-            </a>
+            </RollLink>
           </div>
         </div>
 

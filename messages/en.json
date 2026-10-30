@@ -19,7 +19,7 @@
     "gallery": "Gallery",
     "plans": "Plans",
     "contact": "Contact",
-    "book": "Book a chair",
+    "book": "Book a time slot",
     "bookShort": "Book",
     "menu": "Menu",
     "close": "Close menu"
@@ -270,7 +270,7 @@
     "signOut": "Sign out",
     "mineEmpty": "You have no bookings yet.",
     "cancel": "Cancel booking",
-    "bookAnother": "Book a chair"
+    "bookAnother": "Book a time slot"
   },
   "gate": {
     "title": "Who's visiting?",

@@ -12,7 +12,7 @@ import { ViewSwitch } from "./role-gate";
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
 
 /** Rolls the page to a section with an eased glide instead of the browser's instant jump. */
-function rollTo(e: React.MouseEvent<HTMLAnchorElement>, id: string, onDone?: () => void) {
+export function rollTo(e: React.MouseEvent<HTMLAnchorElement>, id: string, onDone?: () => void) {
   const target = document.getElementById(id);
   if (!target) return;
   e.preventDefault();
