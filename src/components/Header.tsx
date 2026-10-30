@@ -11,6 +11,41 @@ import { ViewSwitch } from "./role-gate";
 
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
 
+/** Rolls the page to a section with an eased glide instead of the browser's instant jump. */
+function rollTo(e: React.MouseEvent<HTMLAnchorElement>, id: string, onDone?: () => void) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  e.preventDefault();
+  history.replaceState(null, "", `#${id}`);
+  const go = () => {
+    const header = document.querySelector("header");
+    const offset = (header?.getBoundingClientRect().height ?? 0) + 8;
+    const from = window.scrollY;
+    const to = Math.max(0, target.getBoundingClientRect().top + from - offset);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reduced ? 0 : Math.min(1100, 450 + Math.abs(to - from) * 0.25);
+    if (duration === 0) {
+      window.scrollTo(0, to);
+      return;
+    }
+    const start = performance.now();
+    const ease = (p: number) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      window.scrollTo(0, from + (to - from) * ease(p));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if (onDone) {
+    // The mobile menu locks body scroll while open; let it unlock before rolling.
+    onDone();
+    setTimeout(go, 80);
+  } else {
+    go();
+  }
+}
+
 export function LangSwitch() {
   const t = useTranslations("lang");
   const locale = useLocale();
@@ -89,20 +124,20 @@ export function Header() {
     <div className="stripe" aria-hidden />
     <UtilityBar current="client" />
     <header className="sticky top-0 z-40 border-b border-line bg-coal">
-      <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px]">
+      <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px] xl:justify-between">
         <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">
           {SHOP_NAME}
         </a>
 
-        <nav aria-label={t("label")} className="ml-4 hidden items-center gap-2 xl:flex 2xl:ml-10 2xl:gap-4">
+        <nav aria-label={t("label")} className="hidden items-center justify-center gap-1 xl:flex">
           {LINKS.map((k) => (
-            <a key={k} href={`#${k}`} className="nav-link">
+            <a key={k} href={`#${k}`} className="nav-link" onClick={(e) => rollTo(e, k)}>
               {t(k)}
             </a>
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-3 sm:gap-4 xl:gap-5">
+        <div className="ml-auto flex items-center gap-3 sm:gap-4 xl:ml-0 xl:gap-3">
           <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm xl:inline-flex xl:!px-4" />
           <BookButton className="btn btn-primary whitespace-nowrap !px-5">
             <span className="xl:hidden">{t("bookShort")}</span>
@@ -150,7 +185,7 @@ export function Header() {
               href={`#${k}`}
               className="menu-link font-display text-4xl font-black leading-tight py-1"
               style={{ "--i": i } as React.CSSProperties}
-              onClick={() => setOpen(false)}
+              onClick={(e) => rollTo(e, k, () => setOpen(false))}
             >
               {t(k)}
             </a>

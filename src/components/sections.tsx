@@ -1,4 +1,4 @@
-import { Check, MapPin, Clock } from "lucide-react";
+import { Armchair, Camera, Check, Clock, Droplets, MapPin, Scissors as ScissorsIcon, Smile, Sparkles, Store, User, type LucideIcon } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PLANS } from "@/lib/checkout/catalog";
@@ -255,29 +255,38 @@ export function Plans() {
   );
 }
 
-const TILES = [
-  { c: "bg-gold text-coal", span: "col-span-2 row-span-2" },
-  { c: "bg-coal-raised text-cream border border-line", span: "" },
-  { c: "bg-cream text-coal", span: "" },
-  { c: "bg-coal-deep text-cream border border-line", span: "" },
-  { c: "bg-gold-deep text-coal", span: "" },
-  { c: "bg-coal-raised text-cream border border-line", span: "lg:col-span-2" },
+// Placeholder "photos": warm toned scenes with a light source and a silhouette icon,
+// laid out as a mosaic so the real client photos can drop into the same slots.
+const TILES: { Icon: LucideIcon; span: string; scene: string }[] = [
+  { Icon: ScissorsIcon, span: "col-span-2 row-span-2", scene: "radial-gradient(circle at 28% 22%, #f5c03055, transparent 55%), linear-gradient(160deg, #3a2a1b, #14100d)" },
+  { Icon: User, span: "", scene: "radial-gradient(circle at 70% 25%, #fff3da33, transparent 50%), linear-gradient(200deg, #5a3d24, #1e1813)" },
+  { Icon: Armchair, span: "row-span-2", scene: "radial-gradient(circle at 50% 15%, #f5c03044, transparent 55%), linear-gradient(180deg, #2b2119, #0b0908)" },
+  { Icon: Sparkles, span: "", scene: "radial-gradient(circle at 30% 70%, #ffd46644, transparent 55%), linear-gradient(135deg, #6b4a1f, #1e1813)" },
+  { Icon: Store, span: "col-span-2", scene: "radial-gradient(circle at 80% 30%, #fff3da2a, transparent 50%), linear-gradient(110deg, #1e1813, #4a3220 60%, #14100d)" },
+  { Icon: Droplets, span: "", scene: "radial-gradient(circle at 40% 30%, #f5c03040, transparent 55%), linear-gradient(170deg, #4b3520, #0b0908)" },
+  { Icon: Smile, span: "", scene: "radial-gradient(circle at 60% 20%, #fff3da30, transparent 55%), linear-gradient(190deg, #7a5524, #1e1813)" },
 ];
 
 export function Gallery() {
   const t = useTranslations("gallery");
+  const captions = t.raw("captions") as string[];
   return (
     <section id="gallery" aria-labelledby="gallery-title" className="section bg-coal">
       <div className="wrap">
         <Heading id="gallery-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {TILES.map((tile, i) => (
-            <li key={i} data-wipe style={stagger(i)} className={`tile ${tile.span}`}>
-              <div
-                className={`tile-inner flex h-full min-h-[200px] items-end p-4 ${tile.c} ${tile.span.includes("row-span-2") ? "" : "aspect-[3/4]"}`}
-              >
-                <span className="label">{t("tile", { n: i + 1 })}</span>
-              </div>
+        <ul className="mt-10 grid auto-rows-[150px] grid-cols-2 gap-3 sm:auto-rows-[190px] sm:gap-4 lg:auto-rows-[210px] lg:grid-cols-4">
+          {TILES.map(({ Icon, span, scene }, i) => (
+            <li key={i} data-reveal style={stagger(i)} className={`tile ${span}`}>
+              <figure className="tile-inner relative m-0 h-full" style={{ background: scene }}>
+                <Icon className="absolute right-4 top-4 text-cream/25" size={i === 0 ? 120 : 56} strokeWidth={1} aria-hidden />
+                <span className="tile-badge" aria-hidden>
+                  <Camera size={14} />
+                </span>
+                <figcaption className="tile-caption">
+                  <span className="label">{t("tile", { n: i + 1 })}</span>
+                  <span className="text-sm font-medium text-cream">{captions[i]}</span>
+                </figcaption>
+              </figure>
             </li>
           ))}
         </ul>

@@ -150,7 +150,8 @@
     "eyebrow": "Galeria",
     "title": "A loja, em quadros",
     "note": "Quadros provisórios. As fotos reais entram depois, com créditos.",
-    "tile": "Foto de exemplo {n}"
+    "tile": "Foto {n}",
+    "captions": ["Corte clássico na tesoura", "Degradê na régua", "A cadeira da casa", "Acabamento com navalha", "A fachada, à noite", "Toalha quente e barba", "Cliente satisfeito"]
   },
   "reviews": {
     "eyebrow": "Avaliações",

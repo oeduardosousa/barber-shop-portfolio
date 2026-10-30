@@ -150,7 +150,8 @@
     "eyebrow": "Gallery",
     "title": "The shop, in frames",
     "note": "Placeholder tiles. Real photos are added later and will be credited.",
-    "tile": "Sample photo {n}"
+    "tile": "Photo {n}",
+    "captions": ["Classic scissor cut", "Skin fade", "The house chair", "Straight-razor finish", "The storefront at night", "Hot towel and beard", "Happy client"]
   },
   "reviews": {
     "eyebrow": "Reviews",
