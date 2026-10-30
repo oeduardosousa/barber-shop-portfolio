@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "@/components/Header";
 import { BookingProvider } from "@/components/booking";
+import { RoleGate } from "@/components/role-gate";
 import { RevealObserver } from "@/components/client-bits";
 import { Contact, Footer, Gallery, Hero, Marquee, Plans, Reviews, Services, Team } from "@/components/sections";
 
@@ -30,6 +31,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </main>
       <Footer />
       <RevealObserver />
+      <RoleGate />
     </BookingProvider>
   );
 }

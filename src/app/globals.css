@@ -274,6 +274,35 @@ h1, h2, h3, .font-display {
 }
 
 /* Booking dialog */
+.gate {
+  width: 100%;
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--color-coal);
+  color: var(--color-cream);
+  overflow-y: auto;
+}
+.gate[open] { animation: fade-in 200ms ease; }
+.gate-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  text-align: left;
+  border: 2px solid var(--color-cream);
+  border-radius: 12px;
+  background: var(--color-coal-raised);
+  color: var(--color-cream);
+  cursor: pointer;
+  --sign: var(--color-gold);
+}
+.gate-card svg { color: var(--color-gold); }
+
 .book-dialog {
   margin: auto;
   width: 100%;
@@ -288,8 +317,9 @@ h1, h2, h3, .font-display {
 }
 @media (min-width: 640px) {
   .book-dialog {
-    max-width: 640px;
-    height: auto;
+    width: 560px;
+    max-width: calc(100vw - 48px);
+    height: min(640px, calc(100dvh - 48px));
     border: 2px solid var(--color-cream);
     border-radius: 12px;
     box-shadow: 6px 6px 0 var(--color-gold);

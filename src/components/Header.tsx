@@ -6,11 +6,12 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SHOP_NAME } from "@/lib/brand";
-import { BookButton } from "./booking";
+import { BookButton, MineButton } from "./booking";
+import { SwitchViewButton } from "./role-gate";
 
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
 
-function LangSwitch() {
+export function LangSwitch() {
   const t = useTranslations("lang");
   const locale = useLocale();
   const router = useRouter();
@@ -89,6 +90,7 @@ export function Header() {
           <div className="hidden lg:block">
             <LangSwitch />
           </div>
+          <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm lg:inline-flex xl:!px-4" />
           <BookButton className="btn btn-primary !px-5">
             <span className="lg:hidden">{t("bookShort")}</span>
             <span className="hidden lg:inline">{t("book")}</span>
@@ -145,8 +147,10 @@ export function Header() {
           <BookButton className="btn btn-gold" onClick={() => setOpen(false)}>
             {t("book")}
           </BookButton>
-          <div>
+          <MineButton className="btn btn-secondary gap-2" onClick={() => setOpen(false)} />
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <LangSwitch />
+            <SwitchViewButton className="link" onClick={() => setOpen(false)} />
           </div>
         </div>
       </div>

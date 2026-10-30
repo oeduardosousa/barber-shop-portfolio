@@ -3,9 +3,15 @@
     "title": "Navalha Barber (exemplo) · Demo de barbearia clássica",
     "description": "Uma demo de portfólio de uma barbearia clássica: serviços, barbeiros, planos mensais e agendamento. Todos os dados da loja são conteúdo de exemplo."
   },
-  "common": { "sample": "Exemplo", "samplePrice": "Preço de exemplo", "min": "{n} min" },
+  "common": {
+    "sample": "Exemplo",
+    "samplePrice": "Preço de exemplo",
+    "min": "{n} min"
+  },
   "skip": "Ir para o conteúdo principal",
-  "lang": { "label": "Idioma" },
+  "lang": {
+    "label": "Idioma"
+  },
   "nav": {
     "label": "Principal",
     "services": "Serviços",
@@ -20,13 +26,22 @@
   },
   "hero": {
     "eyebrow": "Demo de portfólio · loja fictícia",
-    "lines": ["Corte afiado.", "Barba em dia.", "Sua cadeira."],
+    "lines": [
+      "Corte afiado.",
+      "Barba em dia.",
+      "Sua cadeira."
+    ],
     "sub": "A Navalha Barber é uma barbearia clássica de exemplo. Veja a tabela de preços, conheça os barbeiros e escolha um plano mensal.",
     "seeServices": "Ver serviços",
     "scissorsLabel": "Tesoura de barbeiro animada, decorativa"
   },
   "marquee": {
-    "items": ["Corte", "Barba", "Navalha", "Degradê"],
+    "items": [
+      "Corte",
+      "Barba",
+      "Navalha",
+      "Degradê"
+    ],
     "pause": "Pausar movimento",
     "play": "Retomar movimento"
   },
@@ -36,11 +51,36 @@
     "note": "Preços e durações são valores de exemplo.",
     "book": "Agendar",
     "items": [
-      { "name": "Corte de cabelo", "desc": "Tesoura ou máquina, com acabamento na nuca.", "minutes": 45, "price": 60 },
-      { "name": "Degradê", "desc": "Zero, baixo, médio ou alto, bem esfumado.", "minutes": 50, "price": 70 },
-      { "name": "Barba", "desc": "Modelada e alinhada, com toalha quente.", "minutes": 30, "price": 45 },
-      { "name": "Barba na navalha", "desc": "Toalha quente, espuma e passada lenta de navalha.", "minutes": 30, "price": 50 },
-      { "name": "Cabelo e barba", "desc": "Corte completo e barba na mesma visita.", "minutes": 70, "price": 95 }
+      {
+        "name": "Corte de cabelo",
+        "desc": "Tesoura ou máquina, com acabamento na nuca.",
+        "minutes": 45,
+        "price": 60
+      },
+      {
+        "name": "Tintura no cabelo",
+        "desc": "Cor, tom ou platinado, aplicado e enxaguado na mão.",
+        "minutes": 90,
+        "price": 120
+      },
+      {
+        "name": "Barba",
+        "desc": "Modelada e alinhada, com toalha quente.",
+        "minutes": 30,
+        "price": 45
+      },
+      {
+        "name": "Barba na navalha",
+        "desc": "Toalha quente, espuma e passada lenta de navalha.",
+        "minutes": 30,
+        "price": 50
+      },
+      {
+        "name": "Cabelo e barba",
+        "desc": "Corte completo e barba na mesma visita.",
+        "minutes": 70,
+        "price": 95
+      }
     ]
   },
   "team": {
@@ -49,10 +89,26 @@
     "note": "Nomes e bios são conteúdo de exemplo. Os retratos são provisórios.",
     "bookWith": "Agendar com {name}",
     "members": [
-      { "name": "Rafael", "specialty": "Degradês", "bio": "Bio de exemplo: degradês na pele e acabamentos limpos." },
-      { "name": "Tiago", "specialty": "Barbas", "bio": "Bio de exemplo: modelagem de barba e trabalho na navalha." },
-      { "name": "Bruno", "specialty": "Cortes clássicos", "bio": "Bio de exemplo: cortes na tesoura e risco ao lado." },
-      { "name": "Camila", "specialty": "Cabelo e barba", "bio": "Bio de exemplo: atendimento completo." }
+      {
+        "name": "Rafael",
+        "specialty": "Degradês",
+        "bio": "Bio de exemplo: degradês na pele e acabamentos limpos."
+      },
+      {
+        "name": "Tiago",
+        "specialty": "Barbas",
+        "bio": "Bio de exemplo: modelagem de barba e trabalho na navalha."
+      },
+      {
+        "name": "Bruno",
+        "specialty": "Cortes clássicos",
+        "bio": "Bio de exemplo: cortes na tesoura e risco ao lado."
+      },
+      {
+        "name": "Camila",
+        "specialty": "Cabelo e barba",
+        "bio": "Bio de exemplo: atendimento completo."
+      }
     ]
   },
   "plans": {
@@ -65,9 +121,30 @@
     "cta": "Escolher plano",
     "ctaSoon": "O checkout ainda não está disponível",
     "items": [
-      { "name": "Cabelo", "price": 129, "perks": ["Cortes de cabelo ao longo do mês", "Agende com qualquer barbeiro"] },
-      { "name": "Barba", "price": 99, "perks": ["Barbas ao longo do mês", "Agende com qualquer barbeiro"] },
-      { "name": "Cabelo e barba", "price": 199, "perks": ["Corte e barba a cada visita", "Agende com qualquer barbeiro"] }
+      {
+        "name": "Cabelo",
+        "price": 129,
+        "perks": [
+          "Cortes de cabelo ao longo do mês",
+          "Agende com qualquer barbeiro"
+        ]
+      },
+      {
+        "name": "Barba",
+        "price": 99,
+        "perks": [
+          "Barbas ao longo do mês",
+          "Agende com qualquer barbeiro"
+        ]
+      },
+      {
+        "name": "Cabelo e barba",
+        "price": 199,
+        "perks": [
+          "Corte e barba a cada visita",
+          "Agende com qualquer barbeiro"
+        ]
+      }
     ]
   },
   "gallery": {
@@ -94,11 +171,19 @@
     "address": "Rua Exemplo, 000 · Cidade Exemplo",
     "hoursLabel": "Horários",
     "hours": [
-      { "days": "Terça a sexta", "time": "09:00 às 19:00" },
-      { "days": "Sábado", "time": "09:00 às 17:00" },
-      { "days": "Domingo e segunda", "time": "Fechado" }
+      {
+        "days": "Terça a sexta",
+        "time": "09:00 às 19:00"
+      },
+      {
+        "days": "Sábado",
+        "time": "09:00 às 17:00"
+      },
+      {
+        "days": "Domingo e segunda",
+        "time": "Fechado"
+      }
     ],
-    "booking": "O agendamento é uma simulação: escolha serviço, barbeiro e horário. Nada é enviado ou salvo.",
     "map": "Espaço do mapa",
     "mapLabel": "Espaço decorativo reservado para o mapa"
   },
@@ -107,7 +192,6 @@
     "stepService": "Escolha o serviço",
     "stepBarber": "Escolha o barbeiro",
     "stepTime": "Escolha dia e horário",
-    "stepDetails": "Seus dados",
     "doneTitle": "Agendado",
     "back": "Voltar",
     "close": "Fechar agendamento",
@@ -119,17 +203,56 @@
     "sumService": "Serviço",
     "sumBarber": "Barbeiro",
     "sumWhen": "Quando",
-    "name": "Nome",
-    "nameError": "Informe seu nome.",
-    "email": "E-mail",
-    "emailError": "Informe um e-mail válido.",
-    "demoNote": "Apenas demonstração: nada é enviado, salvo ou cobrado.",
+    "demoNote": "Apenas demonstração: nada é enviado, salvo em servidor ou cobrado.",
     "confirm": "Confirmar agendamento",
     "code": "Código",
     "doneBody": "Obrigado, {name}. {barber} reservou sua cadeira. Este é um agendamento simulado.",
-    "done": "Concluir"
+    "done": "Concluir",
+    "stepAccount": "Crie sua conta",
+    "stepConfirm": "Confirmar agendamento"
   },
   "footer": {
     "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais."
+  },
+  "account": {
+    "mine": "Meus agendamentos",
+    "createTitle": "Crie uma conta temporária",
+    "loginTitle": "Entrar",
+    "name": "Nome",
+    "nameError": "Informe seu nome.",
+    "password": "Senha",
+    "passwordError": "Use pelo menos 4 caracteres.",
+    "wrong": "Nome ou senha não conferem.",
+    "demoNote": "Conta de demonstração, guardada só neste navegador. Use uma senha inventada, nunca uma real.",
+    "create": "Criar conta e continuar",
+    "signIn": "Entrar",
+    "haveAccount": "Já tenho uma conta",
+    "newAccount": "Criar uma nova conta",
+    "signedAs": "Conectado como {name}",
+    "signOut": "Sair",
+    "mineEmpty": "Você ainda não tem agendamentos.",
+    "cancel": "Cancelar agendamento",
+    "bookAnother": "Reservar cadeira"
+  },
+  "gate": {
+    "title": "Quem está visitando?",
+    "note": "Esta é uma demo de portfólio. Escolha o site do cliente ou o painel do barbeiro. Você pode trocar a qualquer momento.",
+    "client": "Sou cliente",
+    "clientDesc": "Veja os serviços, reserve uma cadeira e acompanhe seus agendamentos.",
+    "barber": "Sou barbeiro",
+    "barberDesc": "Veja a agenda do dia, com horários simulados e os agendamentos feitos pelo lado do cliente.",
+    "switch": "Trocar visão"
+  },
+  "barber": {
+    "title": "Painel do barbeiro",
+    "note": "Agenda simulada. Os agendamentos feitos pelo lado do cliente aparecem aqui também.",
+    "clientView": "Visão do cliente",
+    "barberLabel": "Barbeiro",
+    "dayLabel": "Dia",
+    "statAppts": "Atendimentos",
+    "statRevenue": "Faturamento",
+    "statNew": "Pelo site",
+    "viaSite": "Agendado no site",
+    "free": "Livre"
   }
 }

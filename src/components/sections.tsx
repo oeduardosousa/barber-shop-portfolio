@@ -2,6 +2,7 @@ import { Check, MapPin, Clock } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { SHOP_NAME } from "@/lib/brand";
 import { BookButton } from "./booking";
+import { SwitchViewButton } from "./role-gate";
 import { MotionToggle, PriceCount } from "./client-bits";
 
 const stagger = (i: number) => ({ "--i": Math.min(i, 5) }) as React.CSSProperties;
@@ -310,6 +311,7 @@ export function Reviews() {
 
 export function Contact() {
   const t = useTranslations("contact");
+  const nav = useTranslations("nav");
   const hours = t.raw("hours") as { days: string; time: string }[];
   return (
     <section id="contact" aria-labelledby="contact-title" className="section border-t border-line bg-coal">
@@ -339,9 +341,9 @@ export function Contact() {
               </dd>
             </div>
           </dl>
-          <p className="mt-6 rounded-lg border-2 border-cream bg-coal-raised p-4 text-[0.9375rem]" data-reveal style={stagger(2)}>
-            {t("booking")}
-          </p>
+          <div className="mt-8" data-reveal style={stagger(2)}>
+            <BookButton className="btn btn-primary">{nav("book")}</BookButton>
+          </div>
         </div>
         <div className="lg:col-span-7" data-reveal style={stagger(1)}>
           <div
@@ -381,7 +383,10 @@ export function Footer() {
           <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
           <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{t("demo")}</p>
         </div>
-        <BookButton className="btn btn-gold self-start">{nav("book")}</BookButton>
+        <div className="flex flex-wrap items-center gap-4 self-start">
+          <SwitchViewButton className="link" />
+          <BookButton className="btn btn-gold">{nav("book")}</BookButton>
+        </div>
       </div>
     </footer>
   );
