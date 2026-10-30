@@ -5,7 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { BOOK_HREF, SHOP_NAME } from "@/lib/brand";
+import { SHOP_NAME } from "@/lib/brand";
+import { BookButton } from "./booking";
 
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
 
@@ -88,10 +89,10 @@ export function Header() {
           <div className="hidden lg:block">
             <LangSwitch />
           </div>
-          <a href={BOOK_HREF} className="btn btn-primary !px-5">
+          <BookButton className="btn btn-primary !px-5">
             <span className="lg:hidden">{t("bookShort")}</span>
             <span className="hidden lg:inline">{t("book")}</span>
-          </a>
+          </BookButton>
           <button
             ref={openBtn}
             type="button"
@@ -141,9 +142,9 @@ export function Header() {
           ))}
         </nav>
         <div className="flex flex-col gap-4 p-4 pb-8">
-          <a href={BOOK_HREF} className="btn btn-gold" onClick={() => setOpen(false)}>
+          <BookButton className="btn btn-gold" onClick={() => setOpen(false)}>
             {t("book")}
-          </a>
+          </BookButton>
           <div>
             <LangSwitch />
           </div>

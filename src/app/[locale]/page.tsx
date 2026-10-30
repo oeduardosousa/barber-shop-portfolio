@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "@/components/Header";
+import { BookingProvider } from "@/components/booking";
 import { RevealObserver } from "@/components/client-bits";
 import { Contact, Footer, Gallery, Hero, Marquee, Plans, Reviews, Services, Team } from "@/components/sections";
 
@@ -9,7 +10,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations();
 
   return (
-    <>
+    <BookingProvider>
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-gold focus:px-6 focus:py-3 focus:font-bold focus:text-coal"
@@ -29,6 +30,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </main>
       <Footer />
       <RevealObserver />
-    </>
+    </BookingProvider>
   );
 }

@@ -21,7 +21,6 @@
 
 html {
   color-scheme: dark;
-  scroll-behavior: smooth;
   scroll-padding-top: 88px;
   background: var(--color-coal);
 }
@@ -274,6 +273,79 @@ h1, h2, h3, .font-display {
   transition-delay: calc(var(--i, 0) * 40ms + 80ms);
 }
 
+/* Booking dialog */
+.book-dialog {
+  margin: auto;
+  width: 100%;
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 0;
+  border: 0;
+  background: var(--color-coal);
+  color: var(--color-cream);
+  overflow: hidden;
+}
+@media (min-width: 640px) {
+  .book-dialog {
+    max-width: 640px;
+    height: auto;
+    border: 2px solid var(--color-cream);
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 var(--color-gold);
+  }
+}
+.book-dialog[open] { animation: dialog-in 250ms var(--ease-out); }
+.book-dialog::backdrop { background: rgb(11 9 8 / 0.8); }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+
+.book-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 16px;
+  text-align: left;
+  border: 2px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-coal-raised);
+  cursor: pointer;
+  transition: transform 120ms var(--ease-out), border-color 150ms ease;
+}
+.book-option:active { transform: scale(0.98); }
+@media (hover: hover) and (pointer: fine) {
+  .book-option:hover { border-color: var(--color-gold); }
+}
+.book-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-coal-raised);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms var(--ease-out), background-color 150ms ease, color 150ms ease;
+}
+.book-chip:active:not(:disabled) { transform: scale(0.97); }
+.book-chip[aria-checked="true"] { background: var(--color-gold); color: var(--color-coal); border-color: var(--color-gold); }
+.book-chip:disabled { opacity: 0.4; text-decoration: line-through; cursor: not-allowed; }
+.book-input {
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 2px solid var(--color-cream-muted);
+  border-radius: 8px;
+  background: var(--color-coal-raised);
+  color: var(--color-cream);
+}
+.book-input[aria-invalid="true"] { border-color: var(--color-gold); }
+.btn:disabled { background: var(--color-line); color: var(--color-cream-muted); cursor: not-allowed; }
+.btn:disabled:active { transform: none; }
+
 /* Hero entrance (first load) */
 .hero-line {
   display: block;
@@ -343,7 +415,8 @@ html[data-motion="paused"] .marquee-track { animation-play-state: paused; }
   .menu-panel, .menu-panel[data-open="true"], .menu-link, .menu-panel[data-open="true"] .menu-link { transition-duration: 150ms; transition-delay: 0s; transform: none; }
   .menu-panel { opacity: 0; }
   .menu-panel[data-open="true"] { opacity: 1; }
-  .btn:active, .link:active, .sign:active { transform: none; }
+  .btn:active, .link:active, .sign:active, .book-option:active, .book-chip:active { transform: none; }
+  .book-dialog[open] { animation: fade-in 150ms ease; }
   .sign:hover, .plan:hover, .tile:hover .tile-inner { transform: none; }
 }
 }

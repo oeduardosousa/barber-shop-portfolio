@@ -1,6 +1,7 @@
 import { Check, MapPin, Clock } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
-import { BOOK_HREF, SHOP_NAME } from "@/lib/brand";
+import { SHOP_NAME } from "@/lib/brand";
+import { BookButton } from "./booking";
 import { MotionToggle, PriceCount } from "./client-bits";
 
 const stagger = (i: number) => ({ "--i": Math.min(i, 5) }) as React.CSSProperties;
@@ -62,9 +63,7 @@ export function Hero() {
           </h1>
           <p className="hero-fade mt-6 max-w-[52ch] text-lg text-cream-muted">{t("sub")}</p>
           <div className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={BOOK_HREF} className="btn btn-primary">
-              {nav("book")}
-            </a>
+            <BookButton className="btn btn-primary">{nav("book")}</BookButton>
             <a href="#services" className="btn btn-secondary">
               {t("seeServices")}
             </a>
@@ -141,9 +140,9 @@ export function Services() {
                 <p className="max-w-[52ch] text-[0.9375rem] text-cream-muted">
                   {s.desc} <span className="label ml-1 whitespace-nowrap text-cream">{c("min", { n: s.minutes })}</span>
                 </p>
-                <a href={BOOK_HREF} className="link text-[0.9375rem]">
+                <BookButton preset={{ service: i }} className="link text-[0.9375rem]">
                   {t("book")}
-                </a>
+                </BookButton>
               </div>
             </li>
           ))}
@@ -183,9 +182,9 @@ export function Team() {
                   <h3 className="text-title">{m.name}</h3>
                   <p className="label text-gold">{m.specialty}</p>
                   <p className="mt-1 flex-1 text-[0.9375rem] text-cream-muted">{m.bio}</p>
-                  <a href={BOOK_HREF} className="link mt-2 text-[0.9375rem]">
+                  <BookButton preset={{ barber: i }} className="link mt-2 text-[0.9375rem]">
                     {t("bookWith", { name: m.name })}
-                  </a>
+                  </BookButton>
                 </div>
               </article>
             </li>
@@ -382,9 +381,7 @@ export function Footer() {
           <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
           <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{t("demo")}</p>
         </div>
-        <a href={BOOK_HREF} className="btn btn-gold self-start">
-          {nav("book")}
-        </a>
+        <BookButton className="btn btn-gold self-start">{nav("book")}</BookButton>
       </div>
     </footer>
   );

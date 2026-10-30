@@ -98,9 +98,36 @@
       { "days": "Saturday", "time": "09:00 to 17:00" },
       { "days": "Sunday and Monday", "time": "Closed" }
     ],
-    "booking": "Online booking is not live in this build yet. It arrives in the next step.",
+    "booking": "Booking is a simulation: pick a service, a barber and a time. Nothing is sent or saved.",
     "map": "Map placeholder",
     "mapLabel": "Decorative map placeholder"
+  },
+  "booking": {
+    "progress": "Step {n} of {total}",
+    "stepService": "Pick a service",
+    "stepBarber": "Pick a barber",
+    "stepTime": "Pick a day and time",
+    "stepDetails": "Your details",
+    "doneTitle": "You're booked",
+    "back": "Back",
+    "close": "Close booking",
+    "pickDay": "Day",
+    "pickDayHint": "Choose a day to see open times.",
+    "pickTime": "Time",
+    "takenNote": "Struck-through times are already taken (sample data).",
+    "next": "Continue",
+    "sumService": "Service",
+    "sumBarber": "Barber",
+    "sumWhen": "When",
+    "name": "Name",
+    "nameError": "Enter your name.",
+    "email": "Email",
+    "emailError": "Enter a valid email.",
+    "demoNote": "Demo only: nothing is sent, saved or charged.",
+    "confirm": "Confirm booking",
+    "code": "Code",
+    "doneBody": "Thanks, {name}. {barber} has your chair reserved. This is a simulated booking.",
+    "done": "Done"
   },
   "footer": {
     "demo": "Portfolio demo. Every shop detail on this site is sample content. No real payments."

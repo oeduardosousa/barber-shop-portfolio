@@ -98,9 +98,36 @@
       { "days": "Sábado", "time": "09:00 às 17:00" },
       { "days": "Domingo e segunda", "time": "Fechado" }
     ],
-    "booking": "O agendamento online ainda não está ativo nesta versão. Ele chega na próxima etapa.",
+    "booking": "O agendamento é uma simulação: escolha serviço, barbeiro e horário. Nada é enviado ou salvo.",
     "map": "Espaço do mapa",
     "mapLabel": "Espaço decorativo reservado para o mapa"
+  },
+  "booking": {
+    "progress": "Etapa {n} de {total}",
+    "stepService": "Escolha o serviço",
+    "stepBarber": "Escolha o barbeiro",
+    "stepTime": "Escolha dia e horário",
+    "stepDetails": "Seus dados",
+    "doneTitle": "Agendado",
+    "back": "Voltar",
+    "close": "Fechar agendamento",
+    "pickDay": "Dia",
+    "pickDayHint": "Escolha um dia para ver os horários livres.",
+    "pickTime": "Horário",
+    "takenNote": "Horários riscados já estão ocupados (dados de exemplo).",
+    "next": "Continuar",
+    "sumService": "Serviço",
+    "sumBarber": "Barbeiro",
+    "sumWhen": "Quando",
+    "name": "Nome",
+    "nameError": "Informe seu nome.",
+    "email": "E-mail",
+    "emailError": "Informe um e-mail válido.",
+    "demoNote": "Apenas demonstração: nada é enviado, salvo ou cobrado.",
+    "confirm": "Confirmar agendamento",
+    "code": "Código",
+    "doneBody": "Obrigado, {name}. {barber} reservou sua cadeira. Este é um agendamento simulado.",
+    "done": "Concluir"
   },
   "footer": {
     "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais."
