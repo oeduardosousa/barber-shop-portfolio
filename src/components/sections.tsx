@@ -88,7 +88,7 @@ export function Marquee() {
   const items = t.raw("items") as string[];
   const row = (hidden: boolean) => (
     <ul className="flex items-center" aria-hidden={hidden || undefined}>
-      {[...items, ...items].map((w, i) => (
+      {[...items, ...items, ...items].map((w, i) => (
         <li key={i} className="flex items-center font-display text-3xl font-black uppercase tracking-tight text-coal">
           <span className="px-5">{w}</span>
           <span className="text-coal" aria-hidden>
@@ -99,15 +99,15 @@ export function Marquee() {
     </ul>
   );
   return (
-    <section className="bg-gold" aria-label={items.join(", ")}>
-      <div className="wrap flex items-center gap-4 py-3">
-        <div className="marquee min-w-0 flex-1 overflow-hidden">
-          <div className="marquee-track">
-            {row(false)}
-            {row(true)}
-          </div>
+    <section className="relative bg-gold" aria-label={items.join(", ")}>
+      <div className="marquee overflow-hidden py-3">
+        <div className="marquee-track">
+          {row(false)}
+          {row(true)}
         </div>
-        <MotionToggle />
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center bg-gradient-to-l from-gold from-60% to-transparent pl-12 pr-4 sm:pr-6 lg:pr-8">
+        <MotionToggle iconOnly className="pointer-events-auto" />
       </div>
     </section>
   );

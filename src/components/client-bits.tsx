@@ -26,7 +26,7 @@ export function RevealObserver() {
 }
 
 /** Pause/play for all looping motion (marquee, stripes, scissors). */
-export function MotionToggle() {
+export function MotionToggle({ iconOnly, className = "" }: { iconOnly?: boolean; className?: string }) {
   const t = useTranslations("marquee");
   const [paused, setPaused] = useState(false);
 
@@ -38,9 +38,9 @@ export function MotionToggle() {
   }
 
   return (
-    <button type="button" onClick={toggle} aria-pressed={paused} aria-label={paused ? t("play") : t("pause")} className="btn btn-secondary !min-h-12 gap-2 !px-3 !text-sm sm:!px-4">
+    <button type="button" onClick={toggle} aria-pressed={paused} aria-label={paused ? t("play") : t("pause")} title={paused ? t("play") : t("pause")} className={`btn btn-secondary !min-h-12 gap-2 !px-3 !text-sm ${iconOnly ? "" : "sm:!px-4"} ${className}`}>
       {paused ? <Play size={20} aria-hidden /> : <Pause size={20} aria-hidden />}
-      <span className="hidden sm:inline">{paused ? t("play") : t("pause")}</span>
+      {!iconOnly && <span className="hidden sm:inline">{paused ? t("play") : t("pause")}</span>}
     </button>
   );
 }
