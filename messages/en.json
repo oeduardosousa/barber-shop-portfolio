@@ -23,7 +23,7 @@
     "lines": ["Sharp cut.", "Clean beard.", "Your chair."],
     "sub": "Navalha Barber is a sample classic barbershop. Browse the price list, meet the barbers and pick a monthly plan.",
     "seeServices": "See services",
-    "poleLabel": "Decorative barber pole"
+    "scissorsLabel": "Decorative animated barber scissors"
   },
   "marquee": {
     "items": ["Cut", "Beard", "Shave", "Fade"],

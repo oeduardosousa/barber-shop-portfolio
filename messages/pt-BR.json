@@ -23,7 +23,7 @@
     "lines": ["Corte afiado.", "Barba em dia.", "Sua cadeira."],
     "sub": "A Navalha Barber é uma barbearia clássica de exemplo. Veja a tabela de preços, conheça os barbeiros e escolha um plano mensal.",
     "seeServices": "Ver serviços",
-    "poleLabel": "Poste de barbeiro decorativo"
+    "scissorsLabel": "Tesoura de barbeiro animada, decorativa"
   },
   "marquee": {
     "items": ["Corte", "Barba", "Navalha", "Degradê"],

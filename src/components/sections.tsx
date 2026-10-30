@@ -22,6 +22,25 @@ function Heading({ eyebrow, title, note, id }: { eyebrow: string; title: string;
   );
 }
 
+function Scissors() {
+  const half = (cls: string, color: string) => (
+    <g className={`scissors-half ${cls}`}>
+      <path d="M94 104 L100 6 L107 104 Z" fill={color} />
+      <rect x="96" y="100" width="8" height="50" rx="4" fill={color} />
+      <circle cx="100" cy="171" r="20" fill="none" stroke={color} strokeWidth="9" />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 200 200" className="h-[88%] max-h-[420px] w-auto" aria-hidden focusable="false">
+      <g transform="rotate(-32 100 100)">
+        {half("scissors-a", "var(--color-gold)")}
+        {half("scissors-b", "var(--color-cream)")}
+        <circle cx="100" cy="100" r="7" fill="var(--color-coal)" stroke="var(--color-gold-hi)" strokeWidth="3" />
+      </g>
+    </svg>
+  );
+}
+
 export function Hero() {
   const t = useTranslations("hero");
   const nav = useTranslations("nav");
@@ -52,12 +71,9 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero-art lg:col-span-4" role="img" aria-label={t("poleLabel")}>
-          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-coal-raised py-6 lg:aspect-[3/4]">
-            <div className="absolute size-[70%] rounded-full bg-gold lg:size-[110%]" aria-hidden />
-            <div className="relative h-full">
-              <div className="pole" />
-            </div>
+        <div className="hero-art lg:col-span-4" role="img" aria-label={t("scissorsLabel")}>
+          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-coal-raised lg:aspect-[3/4]">
+            <Scissors />
           </div>
         </div>
       </div>

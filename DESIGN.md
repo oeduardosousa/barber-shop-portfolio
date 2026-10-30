@@ -126,7 +126,7 @@ The brief splits surfaces into two modes, and the system flexes between them:
 - Flat color blocks and hairlines. Depth comes from color and offset, not blur.
 - Prices and times are first-class typography, not afterthoughts.
 
-**Rejected:** neon glow, glassmorphism, purple-to-blue gradients, gradient text, faux-aged textures, cartoon scissors and razors as illustration, military or political insignia, stock-photo smiles, and centering every section over three identical cards.
+**Rejected:** neon glow, glassmorphism, purple-to-blue gradients, gradient text, faux-aged textures, cartoon razors and cartoon barbers as illustration, military or political insignia, stock-photo smiles, and centering every section over three identical cards.
 
 ## Colors
 
@@ -339,7 +339,7 @@ Guided by emil-design-eng. The site should feel alive, but motion is spent where
 - Don't center every section or repeat three identical feature cards.
 - Don't add a second accent color; no red, blue, green or purple, even for status.
 - Don't animate on every scroll position or replay entrance animations on navigation.
-- Don't use scissors, razors or cartoon barbers as illustrations; real photography or flat color blocks carry the imagery.
+- Don't use razors or cartoon barbers as illustrations. The one illustration is the hero's flat, animated scissors (gold and cream blades on `coal-raised`, in the sign card, snipping twice then resting open; looped motion pauses via the motion toggle and stops under reduced motion, where the blades rest open). Real photography or flat color blocks carry all other imagery.
 - Don't add vintage ornament beyond the pole stripe and the sign shadow.
 - Don't invent testimonials, awards, addresses or staff and present them as real.
 

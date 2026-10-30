@@ -25,7 +25,7 @@ export function RevealObserver() {
   return null;
 }
 
-/** Pause/play for all looping motion (marquee, stripes, pole). */
+/** Pause/play for all looping motion (marquee, stripes, scissors). */
 export function MotionToggle() {
   const t = useTranslations("marquee");
   const [paused, setPaused] = useState(false);
