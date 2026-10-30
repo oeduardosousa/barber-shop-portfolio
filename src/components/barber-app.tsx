@@ -214,9 +214,11 @@ export function BarberApp() {
           <div>
             <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
             <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{footer("demo")}</p>
-            <p className="mt-2 text-[0.9375rem] font-bold">{footer("madeBy")}</p>
           </div>
           <SwitchViewButton className="link self-start" />
+        </div>
+        <div className="border-t border-line">
+          <p className="wrap py-5 text-sm text-cream-muted">{footer("madeBy")}</p>
         </div>
       </footer>
     </>
