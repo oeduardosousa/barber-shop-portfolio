@@ -44,7 +44,7 @@ export function LangSwitch() {
 export function UtilityBar({ current, always }: { current: "client" | "barber"; always?: boolean }) {
   return (
     <div className={`utility border-b border-line bg-coal ${always ? "" : "hidden xl:block"}`}>
-      <div className="flex flex-wrap items-center gap-4 px-4 py-2 sm:px-6 xl:px-10 2xl:px-14">
+      <div className="wrap flex flex-wrap items-center gap-4 py-2">
         <ViewSwitch current={current} />
         <div className="ml-auto">
           <LangSwitch />
@@ -89,7 +89,7 @@ export function Header() {
     <div className="stripe" aria-hidden />
     <UtilityBar current="client" />
     <header className="sticky top-0 z-40 border-b border-line bg-coal">
-      <div className="flex h-[76px] items-center gap-6 px-4 sm:px-6 xl:h-[92px] xl:px-10 2xl:px-14">
+      <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px]">
         <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">
           {SHOP_NAME}
         </a>

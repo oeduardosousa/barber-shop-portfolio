@@ -60,7 +60,7 @@ export function BarberApp() {
       <div className="stripe" aria-hidden />
       <UtilityBar current="barber" always />
       <header className="sticky top-0 z-40 border-b border-line bg-coal">
-        <div className="flex h-[76px] items-center gap-6 px-4 sm:px-6 xl:h-[92px] xl:px-10 2xl:px-14">
+        <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px]">
           <span className="font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">{SHOP_NAME}</span>
           <span className="label hidden text-cream-muted sm:inline">{t("tag")}</span>
         </div>
