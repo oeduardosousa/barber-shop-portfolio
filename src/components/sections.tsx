@@ -1,4 +1,4 @@
-import { Armchair, Camera, Check, Clock, Droplets, MapPin, Scissors as ScissorsIcon, Smile, Sparkles, Store, User, type LucideIcon } from "lucide-react";
+import { Armchair, Camera, Check, Clock, Droplets, MapPin, Scissors as ScissorsIcon, Smile, Sparkles, Star, Store, User, type LucideIcon } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PLANS } from "@/lib/checkout/catalog";
@@ -297,20 +297,31 @@ export function Gallery() {
 
 export function Reviews() {
   const t = useTranslations("reviews");
-  const items = t.raw("items") as string[];
+  const items = t.raw("items") as { name: string; when: string; text: string }[];
   return (
     <section aria-labelledby="reviews-title" className="section border-t border-line bg-coal-raised">
-      <div className="wrap grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <Heading id="reviews-title" eyebrow={t("eyebrow")} title={t("title")} />
-        </div>
-        <ul className="grid gap-8 lg:col-span-8 lg:gap-10">
-          {items.map((q, i) => (
-            <li key={q} data-reveal style={stagger(i)} className={`${i % 2 ? "lg:ml-12" : ""} border-t-2 border-cream pt-5`}>
-              <blockquote className="font-display text-2xl font-bold leading-snug sm:text-3xl">{q}</blockquote>
-              <p className="mt-3 flex flex-wrap items-center gap-3 text-sm text-cream-muted">
+      <div className="wrap">
+        <Heading id="reviews-title" eyebrow={t("eyebrow")} title={t("title")} />
+        <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((r, i) => (
+            <li key={r.name} data-reveal style={stagger(i)} className="flex flex-col rounded-lg border border-line bg-coal p-6">
+              <div className="flex items-center gap-3">
+                <span aria-hidden className="grid size-11 shrink-0 place-items-center rounded-full bg-cream font-display text-lg font-bold text-coal">
+                  {r.name[0]}
+                </span>
+                <div className="min-w-0">
+                  <p className="font-bold">{r.name}</p>
+                  <p className="text-sm text-cream-muted">{r.when}</p>
+                </div>
+              </div>
+              <div role="img" aria-label={t("stars")} className="mt-4 flex gap-1 text-gold">
+                {[0, 1, 2, 3, 4].map((n) => (
+                  <Star key={n} size={18} fill="currentColor" aria-hidden />
+                ))}
+              </div>
+              <p className="mt-3 leading-relaxed">{r.text}</p>
+              <p className="mt-auto pt-5">
                 <Sample>{t("label")}</Sample>
-                {t("author")}
               </p>
             </li>
           ))}

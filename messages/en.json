@@ -151,17 +151,52 @@
     "title": "The shop, in frames",
     "note": "Placeholder tiles. Real photos are added later and will be credited.",
     "tile": "Photo {n}",
-    "captions": ["Classic scissor cut", "Skin fade", "The house chair", "Straight-razor finish", "The storefront at night", "Hot towel and beard", "Happy client"]
+    "captions": [
+      "Classic scissor cut",
+      "Skin fade",
+      "The house chair",
+      "Straight-razor finish",
+      "The storefront at night",
+      "Hot towel and beard",
+      "Happy client"
+    ]
   },
   "reviews": {
     "eyebrow": "Reviews",
     "title": "What clients say",
     "label": "Sample review",
-    "author": "Sample client",
+    "stars": "5 out of 5 stars",
     "items": [
-      "Sample review: a clean fade and no wait at the door.",
-      "Sample review: the beard trim was exactly what I asked for.",
-      "Sample review: booking a chair took less than a minute."
+      {
+        "name": "Rafael M.",
+        "when": "2 weeks ago",
+        "text": "Best fade I have ever had. Seen right on time, no wait, and the barber took care over every detail."
+      },
+      {
+        "name": "Bruno S.",
+        "when": "1 month ago",
+        "text": "The beard trim was exactly what I asked for. Clean shop, hot towel and free coffee. Already booked my next one."
+      },
+      {
+        "name": "Thiago L.",
+        "when": "1 month ago",
+        "text": "Booked a chair on the website in under a minute and walked in with no line. So convenient."
+      },
+      {
+        "name": "Diego A.",
+        "when": "2 months ago",
+        "text": "Took my son for his first haircut and he loved it. Patient and careful from start to finish."
+      },
+      {
+        "name": "Lucas P.",
+        "when": "3 months ago",
+        "text": "Flawless scissor cut. You can tell these guys know their craft. Recommend without hesitation."
+      },
+      {
+        "name": "Felipe R.",
+        "when": "4 months ago",
+        "text": "Joined the monthly plan and it is well worth it. I always leave looking sharp and the price is fair."
+      }
     ]
   },
   "contact": {

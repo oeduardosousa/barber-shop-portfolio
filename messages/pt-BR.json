@@ -151,17 +151,52 @@
     "title": "A loja, em quadros",
     "note": "Quadros provisórios. As fotos reais entram depois, com créditos.",
     "tile": "Foto {n}",
-    "captions": ["Corte clássico na tesoura", "Degradê na régua", "A cadeira da casa", "Acabamento com navalha", "A fachada, à noite", "Toalha quente e barba", "Cliente satisfeito"]
+    "captions": [
+      "Corte clássico na tesoura",
+      "Degradê na régua",
+      "A cadeira da casa",
+      "Acabamento com navalha",
+      "A fachada, à noite",
+      "Toalha quente e barba",
+      "Cliente satisfeito"
+    ]
   },
   "reviews": {
     "eyebrow": "Avaliações",
     "title": "O que dizem os clientes",
     "label": "Avaliação de exemplo",
-    "author": "Cliente de exemplo",
+    "stars": "5 de 5 estrelas",
     "items": [
-      "Avaliação de exemplo: degradê limpo e sem espera na porta.",
-      "Avaliação de exemplo: a barba ficou exatamente como pedi.",
-      "Avaliação de exemplo: reservar a cadeira levou menos de um minuto."
+      {
+        "name": "Rafael M.",
+        "when": "há 2 semanas",
+        "text": "Melhor degradê que já fiz na vida. Atendimento no horário marcado, sem espera, e o barbeiro caprichou em cada detalhe."
+      },
+      {
+        "name": "Bruno S.",
+        "when": "há 1 mês",
+        "text": "A barba ficou exatamente como eu pedi. Ambiente limpo, toalha quente e café na casa. Já agendei o próximo."
+      },
+      {
+        "name": "Thiago L.",
+        "when": "há 1 mês",
+        "text": "Reservei a cadeira pelo site em menos de um minuto e cheguei sem pegar fila. Prático demais."
+      },
+      {
+        "name": "Diego A.",
+        "when": "há 2 meses",
+        "text": "Levei meu filho para o primeiro corte e ele saiu adorando. Paciência e cuidado do começo ao fim."
+      },
+      {
+        "name": "Lucas P.",
+        "when": "há 3 meses",
+        "text": "Corte de tesoura impecável. Dá para ver que o pessoal entende do ofício. Recomendo de olhos fechados."
+      },
+      {
+        "name": "Felipe R.",
+        "when": "há 4 meses",
+        "text": "Assinei o plano mensal e compensa muito. Sempre saio com o visual alinhado e o preço é justo."
+      }
     ]
   },
   "contact": {
