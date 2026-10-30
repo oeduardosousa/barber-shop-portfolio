@@ -101,3 +101,25 @@ export function SwitchViewButton({ className, onClick }: { className?: string; o
     </button>
   );
 }
+
+/** Segmented toggle between the client site and the barber dashboard. */
+export function ViewSwitch({ current, onNavigate }: { current: "client" | "barber"; onNavigate?: () => void }) {
+  const t = useTranslations("gate");
+  const router = useRouter();
+  const go = (role: "client" | "barber") => {
+    if (role === current) return;
+    setRole(role);
+    onNavigate?.();
+    router.push(role === "barber" ? "/barber" : "/");
+  };
+  return (
+    <div role="group" aria-label={t("switch")} className="lang lang-wide">
+      <span aria-hidden className="lang-thumb" style={{ transform: current === "barber" ? "translateX(100%)" : "none" }} />
+      {(["client", "barber"] as const).map((r) => (
+        <button key={r} type="button" aria-pressed={r === current} onClick={() => go(r)}>
+          {t(`short.${r}`)}
+        </button>
+      ))}
+    </div>
+  );
+}

@@ -21,7 +21,7 @@
 
 html {
   color-scheme: dark;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 112px;
   background: var(--color-coal);
 }
 body {
@@ -450,3 +450,4 @@ html[data-motion="paused"] .marquee-track { animation-play-state: paused; }
   .sign:hover, .plan:hover, .tile:hover .tile-inner { transform: none; }
 }
 }
+.lang-wide button { width: 92px; }

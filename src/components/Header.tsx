@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SHOP_NAME } from "@/lib/brand";
 import { BookButton, MineButton } from "./booking";
-import { SwitchViewButton } from "./role-gate";
+import { ViewSwitch } from "./role-gate";
 
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
 
@@ -73,12 +73,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-coal">
       <div className="stripe" aria-hidden />
-      <div className="wrap flex h-[64px] items-center justify-between gap-3 lg:h-[72px]">
-        <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl lg:text-[1.75rem]">
+      <div className="wrap flex h-[76px] items-center justify-between gap-3 xl:h-[96px]">
+        <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">
           {SHOP_NAME}
         </a>
 
-        <nav aria-label={t("label")} className="hidden items-center gap-1 lg:flex">
+        <nav aria-label={t("label")} className="hidden items-center gap-2 xl:flex">
           {LINKS.map((k) => (
             <a key={k} href={`#${k}`} className="nav-link">
               {t(k)}
@@ -86,19 +86,20 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden lg:block">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="hidden items-center gap-3 xl:flex">
+            <ViewSwitch current="client" />
             <LangSwitch />
           </div>
-          <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm lg:inline-flex xl:!px-4" />
+          <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm xl:inline-flex xl:!px-4" />
           <BookButton className="btn btn-primary !px-5">
-            <span className="lg:hidden">{t("bookShort")}</span>
-            <span className="hidden lg:inline">{t("book")}</span>
+            <span className="xl:hidden">{t("bookShort")}</span>
+            <span className="hidden xl:inline">{t("book")}</span>
           </BookButton>
           <button
             ref={openBtn}
             type="button"
-            className="btn btn-secondary !min-h-12 !w-12 !p-0 lg:hidden"
+            className="btn btn-secondary !min-h-12 !w-12 !p-0 xl:hidden"
             aria-label={t("menu")}
             aria-expanded={open}
             aria-controls="menu"
@@ -111,14 +112,14 @@ export function Header() {
 
       <div
         id="menu"
-        className="menu-panel on-dark lg:hidden"
+        className="menu-panel on-dark xl:hidden"
         data-open={open}
         inert={!open}
         role="dialog"
         aria-modal="true"
         aria-label={t("menu")}
       >
-        <div className="flex h-[64px] items-center justify-between px-4">
+        <div className="flex h-[76px] items-center justify-between px-4">
           <span className="font-display text-2xl font-black">{SHOP_NAME}</span>
           <button
             ref={closeBtn}
@@ -150,7 +151,7 @@ export function Header() {
           <MineButton className="btn btn-secondary gap-2" onClick={() => setOpen(false)} />
           <div className="flex flex-wrap items-center justify-between gap-3">
             <LangSwitch />
-            <SwitchViewButton className="link" onClick={() => setOpen(false)} />
+            <ViewSwitch current="client" onNavigate={() => setOpen(false)} />
           </div>
         </div>
       </div>

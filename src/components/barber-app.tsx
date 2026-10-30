@@ -2,12 +2,11 @@
 
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "@/i18n/navigation";
 import { SHOP_NAME } from "@/lib/brand";
 import { closeHour, dayAppointments, dayKey, openDays } from "@/lib/schedule";
 import { useDemoData } from "@/lib/store";
 import { LangSwitch } from "./Header";
-import { setRole } from "./role-gate";
+import { setRole, ViewSwitch } from "./role-gate";
 
 type Service = { name: string; minutes: number; price: number };
 type Member = { name: string; specialty: string };
@@ -44,13 +43,11 @@ export function BarberApp() {
     <>
       <header className="sticky top-0 z-40 border-b border-line bg-coal">
         <div className="stripe" aria-hidden />
-        <div className="wrap flex h-[64px] items-center justify-between gap-3">
+        <div className="wrap flex min-h-[76px] flex-wrap items-center justify-between gap-x-4 gap-y-3 py-3 sm:min-h-[88px]">
           <span className="font-display text-xl font-black tracking-tight sm:text-2xl">{SHOP_NAME}</span>
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-3 sm:gap-4">
             <LangSwitch />
-            <Link href="/" className="btn btn-secondary !px-4 !text-sm" onClick={() => setRole("client")}>
-              {t("clientView")}
-            </Link>
+            <ViewSwitch current="barber" />
           </div>
         </div>
       </header>

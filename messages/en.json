@@ -241,7 +241,11 @@
     "clientDesc": "Browse services, book a chair and see your bookings.",
     "barber": "I'm a barber",
     "barberDesc": "See the day's schedule, with simulated appointments and the bookings made on the client side.",
-    "switch": "Switch view"
+    "switch": "View",
+    "short": {
+      "client": "Client",
+      "barber": "Barber"
+    }
   },
   "barber": {
     "title": "Barber dashboard",

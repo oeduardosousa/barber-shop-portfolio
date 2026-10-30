@@ -241,7 +241,11 @@
     "clientDesc": "Veja os serviços, reserve uma cadeira e acompanhe seus agendamentos.",
     "barber": "Sou barbeiro",
     "barberDesc": "Veja a agenda do dia, com horários simulados e os agendamentos feitos pelo lado do cliente.",
-    "switch": "Trocar visão"
+    "switch": "Visão",
+    "short": {
+      "client": "Cliente",
+      "barber": "Barbeiro"
+    }
   },
   "barber": {
     "title": "Painel do barbeiro",
