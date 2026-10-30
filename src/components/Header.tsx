@@ -21,7 +21,7 @@ function rollTo(e: React.MouseEvent<HTMLAnchorElement>, id: string, onDone?: () 
     const header = document.querySelector("header");
     const offset = (header?.getBoundingClientRect().height ?? 0) + 8;
     const from = window.scrollY;
-    const to = Math.max(0, target.getBoundingClientRect().top + from - offset);
+    const to = id === "top" ? 0 : Math.max(0, target.getBoundingClientRect().top + from - offset);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const duration = reduced ? 0 : Math.min(1100, 450 + Math.abs(to - from) * 0.25);
     if (duration === 0) {
@@ -125,7 +125,11 @@ export function Header() {
     <UtilityBar current="client" />
     <header className="sticky top-0 z-40 border-b border-line bg-coal">
       <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px] xl:justify-between">
-        <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">
+        <a
+          href="#top"
+          className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]"
+          onClick={(e) => rollTo(e, "top")}
+        >
           {SHOP_NAME}
         </a>
 

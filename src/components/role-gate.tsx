@@ -118,6 +118,8 @@ export function ViewEnter() {
     incoming = null;
     const main = document.querySelector("main");
     if (!role || !main) return;
+    // A view switch is a new page: start at the top, not wherever the last view was scrolled.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     const from = reduced() ? 0 : role === "barber" ? SHIFT : -SHIFT;
     main.animate(
       [
