@@ -46,7 +46,9 @@ export function UtilityBar({ current, always }: { current: "client" | "barber"; 
     <div className={`utility border-b border-line bg-coal ${always ? "" : "hidden xl:block"}`}>
       <div className="flex flex-wrap items-center gap-4 px-4 py-2 sm:px-6 xl:px-10 2xl:px-14">
         <ViewSwitch current={current} />
-        <LangSwitch />
+        <div className="ml-auto">
+          <LangSwitch />
+        </div>
       </div>
     </div>
   );
