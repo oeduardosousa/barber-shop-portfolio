@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { ShopMap } from "./shop-map";
 import { PLANS } from "@/lib/checkout/catalog";
 import { SHOP_NAME } from "@/lib/brand";
+import { PORTRAITS } from "@/lib/team";
 import { BookButton } from "./booking";
 import { SwitchViewButton } from "./role-gate";
 import { MotionToggle, PriceCount, RollLink } from "./client-bits";
@@ -61,8 +62,15 @@ export function Hero() {
           </p>
           <h1 id="hero-title" className="text-display">
             {lines.map((l, i) => (
-              <span key={l} className="hero-line" style={stagger(i)}>
-                {i === lines.length - 1 ? <span className="text-gold">{l}</span> : l}
+              <span key={l} className={`hero-line${i === lines.length - 1 ? " hero-gold" : ""}`}>
+                {l.split(" ").map((w, j) => (
+                  <span key={j}>
+                    {j > 0 && " "}
+                    <span className="hero-word">
+                      <span style={{ "--w": i * 2 + j } as React.CSSProperties}>{w}</span>
+                    </span>
+                  </span>
+                ))}
               </span>
             ))}
           </h1>
@@ -156,8 +164,6 @@ export function Services() {
     </section>
   );
 }
-
-const PORTRAITS = ["/photos/barber-1.jpg", "/photos/barber-2.jpg", "/photos/barber-3.jpg", "/photos/barber-4.jpg"];
 
 export function Team() {
   const t = useTranslations("team");

@@ -1,18 +1,20 @@
 "use client";
 
-import { ArrowLeft, CalendarCheck, Check, X } from "lucide-react";
+import { ArrowLeft, CalendarCheck, Check, UserPlus, UserRound, X } from "lucide-react";
+import Image from "next/image";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { SERVICES } from "@/lib/checkout/catalog";
 import { dayKey, fromKey, openDays, slotsFor } from "@/lib/schedule";
+import { PORTRAITS } from "@/lib/team";
 import { store, useDemoData } from "@/lib/store";
 
 type Preset = { service?: number; barber?: number };
-type View = "book" | "mine";
-type Ctx = { open: (preset?: Preset) => void; openMine: () => void };
+type View = "book" | "mine" | "account";
+type Ctx = { open: (preset?: Preset) => void; openMine: () => void; openAccount: () => void };
 
-const BookingCtx = createContext<Ctx>({ open: () => {}, openMine: () => {} });
+const BookingCtx = createContext<Ctx>({ open: () => {}, openMine: () => {}, openAccount: () => {} });
 
 type Service = { name: string; desc: string; minutes: number; price: number };
 type Member = { name: string; specialty: string };
@@ -40,7 +42,10 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   }, [mounted, session]);
 
   const close = useCallback(() => dialogRef.current?.close(), []);
-  const value = useMemo(() => ({ open: (p?: Preset) => show("book", p), openMine: () => show("mine") }), [show]);
+  const value = useMemo(
+    () => ({ open: (p?: Preset) => show("book", p), openMine: () => show("mine"), openAccount: () => show("account") }),
+    [show],
+  );
 
   return (
     <BookingCtx.Provider value={value}>
@@ -60,8 +65,10 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
         >
           {view === "book" ? (
             <BookingFlow key={session} preset={preset} onClose={close} onMine={() => setView("mine")} />
-          ) : (
+          ) : view === "mine" ? (
             <MyBookings key={session} onClose={close} onBook={() => show("book")} />
+          ) : (
+            <AccountPanel key={session} onClose={close} onMine={() => setView("mine")} />
           )}
         </dialog>
       )}
@@ -114,6 +121,28 @@ export function MineButton({ className, onClick, compact }: { className?: string
       {bookings.length > 0 && (
         <span className="ml-1 rounded-full bg-gold px-2 py-0.5 text-xs font-black text-coal">{bookings.length}</span>
       )}
+    </button>
+  );
+}
+
+/** Header button: "Create account" while signed out, the client's first name once signed in. */
+export function AccountButton({ className, onClick }: { className?: string; onClick?: () => void }) {
+  const t = useTranslations("account");
+  const { openAccount } = useContext(BookingCtx);
+  const { account } = useDemoData();
+  const user = account?.signedIn ? account : null;
+  const Icon = user ? UserRound : UserPlus;
+  return (
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        onClick?.();
+        openAccount();
+      }}
+    >
+      <Icon size={20} aria-hidden />
+      <span className="whitespace-nowrap">{user ? user.name.split(" ")[0] : t("createButton")}</span>
     </button>
   );
 }
@@ -229,6 +258,42 @@ function AccountForm({ onDone }: { onDone: () => void }) {
   );
 }
 
+function AccountPanel({ onClose, onMine }: { onClose: () => void; onMine: () => void }) {
+  const t = useTranslations("account");
+  const common = useTranslations("common");
+  const plans = useTranslations("plans").raw("items") as { name: string }[];
+  const { account, plan } = useDemoData();
+  const user = account?.signedIn ? account : null;
+
+  return (
+    <Shell eyebrow={common("sample")} title={user ? t("panelTitle") : account ? t("loginTitle") : t("createTitle")} onClose={onClose}>
+      {!user ? (
+        <AccountForm onDone={() => {}} />
+      ) : (
+        <div className="grid gap-5">
+          <p className="text-cream-muted">{t("signedAs", { name: user.name })}</p>
+          <div className="rounded-lg border-2 border-cream bg-coal-raised p-4">
+            <p className="label text-cream-muted">{t("planLabel")}</p>
+            <p className="mt-1 font-display text-2xl font-black text-gold">{plan === null ? t("noPlan") : plans[plan].name}</p>
+            {plan === null && (
+              <Link href="/#plans" className="link mt-2" onClick={onClose}>
+                {t("seePlans")}
+              </Link>
+            )}
+          </div>
+          <button type="button" className="btn btn-primary gap-2" onClick={onMine}>
+            <CalendarCheck size={20} aria-hidden />
+            {t("mine")}
+          </button>
+          <button type="button" className="link justify-self-start" onClick={store.signOut}>
+            {t("signOut")}
+          </button>
+        </div>
+      )}
+    </Shell>
+  );
+}
+
 function BookingFlow({ preset, onClose, onMine }: { preset: Preset; onClose: () => void; onMine: () => void }) {
   const t = useTranslations("booking");
   const common = useTranslations("common");
@@ -324,9 +389,13 @@ function BookingFlow({ preset, onClose, onMine }: { preset: Preset; onClose: () 
                   setStep(2);
                 }}
               >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-gold font-display text-2xl font-black text-coal" aria-hidden>
-                  {m.name[0]}
-                </span>
+                <Image
+                  src={PORTRAITS[i % PORTRAITS.length]}
+                  alt=""
+                  width={72}
+                  height={72}
+                  className="size-[72px] shrink-0 rounded-full border-2 border-gold object-cover object-[50%_20%]"
+                />
                 <span className="flex-1">
                   <span className="block font-display text-xl font-bold">{m.name}</span>
                   <span className="block text-sm text-cream-muted">{m.specialty}</span>

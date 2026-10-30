@@ -3,7 +3,7 @@
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { SHOP_NAME } from "@/lib/brand";
-import { closeHour, dayAppointments, dayKey, openDays, type Appt } from "@/lib/schedule";
+import { closeHour, dayAppointments, dayKey, openDays, simPlan, type Appt } from "@/lib/schedule";
 import { useDemoData } from "@/lib/store";
 import { LangSwitch, UtilityBar } from "./Header";
 import { setRole, SwitchViewButton, ViewEnter, ViewSwitch } from "./role-gate";
@@ -20,7 +20,8 @@ export function BarberApp() {
   const team = useTranslations("team").raw("members") as Member[];
   const f = useFormatter();
   const locale = useLocale();
-  const { bookings } = useDemoData();
+  const plans = useTranslations("plans").raw("items") as { name: string }[];
+  const { account, bookings, plan } = useDemoData();
   const [tab, setTab] = useState<Tab>("agenda");
   const [barber, setBarber] = useState(0);
   const days = useMemo(() => openDays(8), []);
@@ -33,6 +34,9 @@ export function BarberApp() {
   const fmt = (d: Date, o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat(locale, o).format(d);
   const earned = (list: Appt[]) => list.reduce((sum, a) => sum + services[a.service].price, 0);
   const dayOf = (d: Date, b: number) => dayAppointments(d, b, bookings, services.length);
+
+  // Plan of the client on an appointment: the demo account's own plan, or a stable simulated one for walk-ins.
+  const planOf = (a: Appt) => (a.real ? (a.client === account?.name ? plan : null) : simPlan(a.client, plans.length));
 
   const appts = dayOf(day, barber);
   const revenue = earned(appts);
@@ -137,7 +141,14 @@ export function BarberApp() {
                   {appt ? (
                     <div className="flex flex-1 flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-lg border-2 border-cream bg-coal-raised px-4 py-2">
                       <div>
-                        <p className="font-bold">{appt.client}</p>
+                        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold">
+                          {appt.client}
+                          <span
+                            className={`label rounded-full border px-2 py-0.5 ${planOf(appt) === null ? "border-line text-cream-muted" : "border-gold text-gold"}`}
+                          >
+                            {planOf(appt) === null ? t("noPlan") : t("plan", { name: plans[planOf(appt)!].name })}
+                          </span>
+                        </p>
                         <p className="text-sm text-cream-muted">
                           {services[appt.service].name} · {common("min", { n: services[appt.service].minutes })}
                         </p>

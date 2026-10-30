@@ -270,7 +270,12 @@
     "signOut": "Sair",
     "mineEmpty": "Você ainda não tem agendamentos.",
     "cancel": "Cancelar agendamento",
-    "bookAnother": "Reservar horário"
+    "bookAnother": "Reservar horário",
+    "createButton": "Criar conta",
+    "panelTitle": "Minha conta",
+    "planLabel": "Plano mensal",
+    "noPlan": "Sem plano",
+    "seePlans": "Ver planos"
   },
   "gate": {
     "title": "Quem está visitando?",
@@ -302,7 +307,9 @@
     "revRange": "Todos os barbeiros, 8 dias",
     "revAppts": "Atendimentos no dia",
     "revByBarber": "Por barbeiro",
-    "revByDay": "Por dia"
+    "revByDay": "Por dia",
+    "plan": "Plano: {name}",
+    "noPlan": "Sem plano"
   },
   "checkout": {
     "eyebrow": "Checkout · modo de teste",

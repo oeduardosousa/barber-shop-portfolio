@@ -270,7 +270,12 @@
     "signOut": "Sign out",
     "mineEmpty": "You have no bookings yet.",
     "cancel": "Cancel booking",
-    "bookAnother": "Book a time slot"
+    "bookAnother": "Book a time slot",
+    "createButton": "Create account",
+    "panelTitle": "My account",
+    "planLabel": "Monthly plan",
+    "noPlan": "No plan yet",
+    "seePlans": "See plans"
   },
   "gate": {
     "title": "Who's visiting?",
@@ -302,7 +307,9 @@
     "revRange": "All barbers, next 8 days",
     "revAppts": "Appointments, this day",
     "revByBarber": "By barber",
-    "revByDay": "By day"
+    "revByDay": "By day",
+    "plan": "Plan: {name}",
+    "noPlan": "No plan"
   },
   "checkout": {
     "eyebrow": "Checkout · test mode",

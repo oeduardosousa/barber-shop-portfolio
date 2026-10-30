@@ -60,6 +60,12 @@ export function slotsFor(day: Date, barber: number, minutes: number, bookings: B
   return out;
 }
 
+/** Simulated walk-in clients: roughly half have a plan (index into the plans list), the rest none. */
+export const simPlan = (client: string, planCount: number): number | null => {
+  const h = hash(`${client}|plan`);
+  return h % 100 < 55 ? (h >>> 8) % planCount : null;
+};
+
 const CLIENTS = ["Lucas M.", "Pedro A.", "Marcos V.", "Diego R.", "Felipe S.", "André L.", "Gustavo P.", "Caio T.", "Henrique B.", "Vitor C."];
 
 export type Appt = { time: string; client: string; service: number; real: boolean; id?: string };

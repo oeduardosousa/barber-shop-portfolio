@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SHOP_NAME } from "@/lib/brand";
-import { BookButton, MineButton } from "./booking";
+import { AccountButton, BookButton, MineButton } from "./booking";
 import { ViewSwitch } from "./role-gate";
 
 const LINKS = ["services", "team", "gallery", "plans", "contact"] as const;
@@ -142,6 +142,7 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3 sm:gap-4 xl:ml-0 xl:gap-3">
+          <AccountButton className="btn btn-secondary hidden gap-2 !px-3 !text-sm xl:inline-flex xl:!px-4" />
           <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm xl:inline-flex xl:!px-4" />
           <BookButton className="btn btn-primary whitespace-nowrap !px-5">
             <span className="xl:hidden">{t("bookShort")}</span>
@@ -199,6 +200,7 @@ export function Header() {
           <BookButton className="btn btn-gold" onClick={() => setOpen(false)}>
             {t("book")}
           </BookButton>
+          <AccountButton className="btn btn-secondary gap-2" onClick={() => setOpen(false)} />
           <MineButton className="btn btn-secondary gap-2" onClick={() => setOpen(false)} />
           <div className="flex flex-wrap items-center justify-between gap-3">
             <LangSwitch />

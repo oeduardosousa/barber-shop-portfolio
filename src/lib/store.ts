@@ -8,8 +8,8 @@ export type Account = { name: string; password: string; signedIn: boolean };
 
 const KEY = "nb-demo";
 const EVT = "nb-store";
-type Data = { account: Account | null; bookings: Booking[] };
-const EMPTY: Data = { account: null, bookings: [] };
+type Data = { account: Account | null; bookings: Booking[]; plan: number | null };
+const EMPTY: Data = { account: null, bookings: [], plan: null };
 
 let cache: Data = EMPTY;
 let raw: string | null = null;
@@ -62,6 +62,10 @@ export const store = {
   signOut() {
     const a = read().account;
     if (a) write({ ...read(), account: { ...a, signedIn: false } });
+  },
+  /** Index of the monthly plan the demo client paid for in checkout. */
+  setPlan(plan: number) {
+    write({ ...read(), plan });
   },
   addBooking(b: Omit<Booking, "id" | "code">) {
     const id = `${Date.now()}`;

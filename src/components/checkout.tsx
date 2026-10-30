@@ -4,6 +4,7 @@ import { Check, CircleAlert, Undo2 } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { store } from "@/lib/store";
 import { DEPOSIT_PERCENT, PLANS, SERVICES, type Method } from "@/lib/checkout/catalog";
 import type { ErrorCode, Quote } from "@/lib/checkout/pricing";
 
@@ -86,6 +87,7 @@ export function Checkout({ item }: { item: Item | null }) {
       if (data.status === "succeeded") {
         setDone({ orderId: data.orderId, paymentId: data.paymentId, quote: data.quote });
         setCard({ number: "", exp: "", cvc: "" });
+        if (item?.kind === "plan") store.setPlan(PLANS.find((x) => x.id === item.id)?.index ?? 0);
         setPhase("success");
       } else if (data.status === "failed") {
         setReason(data.reason);
