@@ -219,9 +219,9 @@
         "time": "Closed"
       }
     ],
-    "map": "Interactive map placeholder",
-    "mapHint": "Drag to explore, zoom in and out, tap the pin for directions. The live map is connected later.",
-    "mapLabel": "Placeholder for an interactive map"
+    "mapLabel": "Interactive map: Copacabana Beach",
+    "mapPopup": "Fictional location",
+    "mapNote": "Interactive map of Copacabana Beach, Rio de Janeiro. The shop and its address are fictional, used only as a demo location."
   },
   "booking": {
     "progress": "Step {n} of {total}",

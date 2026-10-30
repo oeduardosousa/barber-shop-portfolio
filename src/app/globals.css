@@ -503,3 +503,14 @@ html[data-motion="paused"] .marquee-track { animation-play-state: paused; }
   .bar-fill-v, .bar-fill-h { transition: none; }
   .bar-col:active { transform: none; }
 }
+
+/* Leaflet map: match the shop's palette */
+.shop-map { background: var(--color-coal-raised); font-family: inherit; }
+.shop-pin { background: none; border: 0; }
+.shop-map .leaflet-popup-content-wrapper { border-radius: 8px; border: 2px solid var(--color-coal); background: var(--color-cream); color: var(--color-coal); }
+.shop-map .leaflet-popup-tip { background: var(--color-cream); }
+.shop-map .leaflet-popup-content { margin: 12px 16px; font-size: 0.875rem; line-height: 1.35; }
+.shop-map .leaflet-popup-content > div { display: flex; flex-direction: column; gap: 2px; }
+.shop-map .leaflet-popup-content strong { font-family: var(--font-display, inherit); font-weight: 900; }
+.shop-map .leaflet-bar a { width: 36px; height: 36px; line-height: 36px; }
+.shop-map .leaflet-container:focus-visible, .shop-map:focus-visible { outline: 3px solid var(--color-gold); outline-offset: -3px; }

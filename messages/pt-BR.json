@@ -219,9 +219,9 @@
         "time": "Fechado"
       }
     ],
-    "map": "Espaço do mapa interativo",
-    "mapHint": "Arraste para explorar, aproxime e afaste, toque no pino para ver a rota. O mapa real é conectado depois.",
-    "mapLabel": "Espaço reservado para um mapa interativo"
+    "mapLabel": "Mapa interativo: Praia de Copacabana",
+    "mapPopup": "Local fictício",
+    "mapNote": "Mapa interativo da Praia de Copacabana, Rio de Janeiro. A barbearia e o endereço são fictícios, usados apenas como local de demonstração."
   },
   "booking": {
     "progress": "Etapa {n} de {total}",

@@ -1,7 +1,8 @@
-import { Camera, Check, Clock, MapPin, Minus, Plus, Star } from "lucide-react";
+import { Camera, Check, Clock, MapPin, Star } from "lucide-react";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { ShopMap } from "./shop-map";
 import { PLANS } from "@/lib/checkout/catalog";
 import { SHOP_NAME } from "@/lib/brand";
 import { BookButton } from "./booking";
@@ -374,35 +375,10 @@ export function Contact() {
           </div>
         </div>
         <div className="lg:col-span-7" data-reveal style={stagger(1)}>
-          <div
-            className="sign relative flex aspect-[4/3] cursor-grab items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-gold sm:aspect-[16/10]"
-            role="img"
-            aria-label={t("mapLabel")}
-          >
-            <div
-              className="absolute inset-0 opacity-30"
-              aria-hidden
-              style={{
-                backgroundImage:
-                  "linear-gradient(var(--color-paper) 2px, transparent 2px), linear-gradient(90deg, var(--color-paper) 2px, transparent 2px)",
-                backgroundSize: "56px 56px",
-              }}
-            />
-            <div className="relative flex flex-col items-center gap-3 text-coal">
-              <MapPin size={56} aria-hidden />
-              <span className="font-display text-2xl font-black">{t("map")}</span>
-              <p className="max-w-[32ch] text-center text-sm font-medium">{t("mapHint")}</p>
-              <Sample />
-            </div>
-            <div className="absolute right-3 top-3 flex flex-col overflow-hidden rounded-md border-2 border-coal bg-paper text-coal" aria-hidden>
-              <span className="flex h-9 w-9 items-center justify-center border-b-2 border-coal">
-                <Plus size={18} />
-              </span>
-              <span className="flex h-9 w-9 items-center justify-center">
-                <Minus size={18} />
-              </span>
-            </div>
+          <div className="sign relative aspect-[4/3] overflow-hidden rounded-lg border-2 border-cream sm:aspect-[16/10]">
+            <ShopMap label={t("mapLabel")} popupTitle={SHOP_NAME} popupNote={t("mapPopup")} />
           </div>
+          <p className="mt-3 text-sm text-cream-muted">{t("mapNote")}</p>
         </div>
       </div>
     </section>
