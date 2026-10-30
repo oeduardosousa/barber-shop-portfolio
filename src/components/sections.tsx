@@ -1,5 +1,7 @@
 import { Check, MapPin, Clock } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { PLANS } from "@/lib/checkout/catalog";
 import { SHOP_NAME } from "@/lib/brand";
 import { BookButton } from "./booking";
 import { SwitchViewButton } from "./role-gate";
@@ -236,11 +238,11 @@ export function Plans() {
                     ))}
                   </ul>
                   <div>
-                    <button type="button" className="btn btn-primary w-full" aria-disabled="true" aria-describedby={`plan-note-${i}`}>
+                    <Link href={{ pathname: "/checkout", query: { plan: PLANS[i].id } }} className="btn btn-primary w-full" aria-describedby={`plan-note-${i}`}>
                       {t("cta")}
-                    </button>
+                    </Link>
                     <p id={`plan-note-${i}`} className="mt-3 text-sm text-cream-muted">
-                      {t("ctaSoon")}. {t("testMode")}.
+                      {t("testMode")}.
                     </p>
                   </div>
                 </article>

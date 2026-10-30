@@ -114,12 +114,11 @@
   "plans": {
     "eyebrow": "Monthly plans",
     "title": "Pay monthly, look sharp",
-    "note": "Sample prices. Checkout opens in a later step and will run in Stripe test mode: no real charge.",
+    "note": "Sample prices. Checkout runs in test mode: no real charge.",
     "perMonth": "/month",
     "popular": "Most chosen (sample)",
     "testMode": "Test mode: no real charge",
     "cta": "Choose plan",
-    "ctaSoon": "Checkout is not available yet",
     "items": [
       {
         "name": "Hair",
@@ -209,7 +208,8 @@
     "doneBody": "Thanks, {name}. {barber} has your chair reserved. This is a simulated booking.",
     "done": "Done",
     "stepAccount": "Create your account",
-    "stepConfirm": "Confirm booking"
+    "stepConfirm": "Confirm booking",
+    "payDeposit": "Pay deposit"
   },
   "footer": {
     "demo": "Portfolio demo. Every shop detail on this site is sample content. No real payments."
@@ -265,5 +265,74 @@
     "revAppts": "Appointments, this day",
     "revByBarber": "By barber",
     "revByDay": "By day"
+  },
+  "checkout": {
+    "eyebrow": "Checkout · test mode",
+    "title": "Checkout",
+    "testBanner": "Sandbox: no real charge. Do not enter a real card.",
+    "emptyTitle": "Your order is empty",
+    "emptyBody": "Pick a monthly plan or book a chair to pay a deposit.",
+    "seePlans": "See plans",
+    "summary": "Order summary",
+    "planLine": "{name} plan, monthly",
+    "depositLine": "Deposit · {name}",
+    "qty": "Quantity",
+    "more": "One more",
+    "less": "One less",
+    "subtotal": "Subtotal",
+    "discount": "Discount ({code})",
+    "total": "Total today",
+    "recurring": "Then {price} every month until you cancel. This is a simulated subscription.",
+    "oneTime": "One-time deposit, {percent}% of the service price. The rest is paid at the shop.",
+    "serverNote": "Prices are calculated on the server.",
+    "promo": "Promo code",
+    "promoHint": "Try WELCOME10 (10% off a plan).",
+    "apply": "Apply",
+    "method": "Payment method",
+    "card": "Card",
+    "pix": "Pix",
+    "pixNote": "Simulated Pix: confirms instantly. Not available for monthly plans.",
+    "cardNumber": "Card number",
+    "cardExp": "Expiry (MM/YY)",
+    "cardCvc": "CVC",
+    "testCards": "Test cards",
+    "fillOk": "Approved",
+    "fillDecline": "Declined",
+    "fillFunds": "No funds",
+    "pay": "Pay {amount}",
+    "subscribe": "Start plan · {amount}",
+    "paying": "Processing…",
+    "cancel": "Cancel checkout",
+    "successTitle": "Payment confirmed",
+    "successBody": "Thanks. This was a simulated payment in test mode; nothing was charged.",
+    "order": "Order",
+    "payment": "Payment",
+    "failedTitle": "Payment did not go through",
+    "failedBody": "Nothing was charged. You can try again or switch method.",
+    "tryAgain": "Try again",
+    "cancelledTitle": "Checkout cancelled",
+    "cancelledBody": "You left before paying. Nothing was charged.",
+    "resume": "Back to checkout",
+    "backShop": "Back to the shop",
+    "quoting": "Updating prices…",
+    "reason": {
+      "card_declined": "The card was declined.",
+      "insufficient_funds": "The card has insufficient funds.",
+      "expired_card": "The card has expired.",
+      "invalid_card": "Only the test cards listed here work in this sandbox. Check the number, expiry and CVC."
+    },
+    "errors": {
+      "invalid_body": "The order could not be read.",
+      "empty_order": "The order is empty.",
+      "too_many_items": "Too many items in the order.",
+      "unknown_item": "One of the items is not available.",
+      "invalid_quantity": "The quantity is not valid.",
+      "mixed_order": "A monthly plan must be bought on its own.",
+      "invalid_method": "Choose a payment method.",
+      "method_not_allowed": "This payment method is not available for monthly plans.",
+      "invalid_promo": "That promo code is not valid.",
+      "promo_not_allowed": "Promo codes only apply to monthly plans.",
+      "network": "Could not reach the server. Try again."
+    }
   }
 }

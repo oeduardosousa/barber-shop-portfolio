@@ -114,12 +114,11 @@
   "plans": {
     "eyebrow": "Planos mensais",
     "title": "Pague por mês, fique afiado",
-    "note": "Preços de exemplo. O checkout abre em uma próxima etapa e rodará no modo de teste do Stripe: sem cobrança real.",
+    "note": "Preços de exemplo. O checkout roda em modo de teste: sem cobrança real.",
     "perMonth": "/mês",
     "popular": "Mais escolhido (exemplo)",
     "testMode": "Modo de teste: sem cobrança real",
     "cta": "Escolher plano",
-    "ctaSoon": "O checkout ainda não está disponível",
     "items": [
       {
         "name": "Cabelo",
@@ -209,7 +208,8 @@
     "doneBody": "Obrigado, {name}. {barber} reservou sua cadeira. Este é um agendamento simulado.",
     "done": "Concluir",
     "stepAccount": "Crie sua conta",
-    "stepConfirm": "Confirmar agendamento"
+    "stepConfirm": "Confirmar agendamento",
+    "payDeposit": "Pagar sinal"
   },
   "footer": {
     "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais."
@@ -265,5 +265,74 @@
     "revAppts": "Atendimentos no dia",
     "revByBarber": "Por barbeiro",
     "revByDay": "Por dia"
+  },
+  "checkout": {
+    "eyebrow": "Checkout · modo de teste",
+    "title": "Checkout",
+    "testBanner": "Sandbox: sem cobrança real. Não digite um cartão real.",
+    "emptyTitle": "Seu pedido está vazio",
+    "emptyBody": "Escolha um plano mensal ou reserve uma cadeira para pagar o sinal.",
+    "seePlans": "Ver planos",
+    "summary": "Resumo do pedido",
+    "planLine": "Plano {name}, mensal",
+    "depositLine": "Sinal · {name}",
+    "qty": "Quantidade",
+    "more": "Mais um",
+    "less": "Menos um",
+    "subtotal": "Subtotal",
+    "discount": "Desconto ({code})",
+    "total": "Total hoje",
+    "recurring": "Depois {price} por mês até você cancelar. Assinatura simulada.",
+    "oneTime": "Sinal único de {percent}% do valor do serviço. O restante é pago na barbearia.",
+    "serverNote": "Os preços são calculados no servidor.",
+    "promo": "Código promocional",
+    "promoHint": "Teste WELCOME10 (10% de desconto em um plano).",
+    "apply": "Aplicar",
+    "method": "Forma de pagamento",
+    "card": "Cartão",
+    "pix": "Pix",
+    "pixNote": "Pix simulado: confirma na hora. Indisponível para planos mensais.",
+    "cardNumber": "Número do cartão",
+    "cardExp": "Validade (MM/AA)",
+    "cardCvc": "CVC",
+    "testCards": "Cartões de teste",
+    "fillOk": "Aprovado",
+    "fillDecline": "Recusado",
+    "fillFunds": "Sem saldo",
+    "pay": "Pagar {amount}",
+    "subscribe": "Iniciar plano · {amount}",
+    "paying": "Processando…",
+    "cancel": "Cancelar checkout",
+    "successTitle": "Pagamento confirmado",
+    "successBody": "Obrigado. Foi um pagamento simulado em modo de teste; nada foi cobrado.",
+    "order": "Pedido",
+    "payment": "Pagamento",
+    "failedTitle": "O pagamento não foi concluído",
+    "failedBody": "Nada foi cobrado. Você pode tentar de novo ou trocar a forma de pagamento.",
+    "tryAgain": "Tentar de novo",
+    "cancelledTitle": "Checkout cancelado",
+    "cancelledBody": "Você saiu antes de pagar. Nada foi cobrado.",
+    "resume": "Voltar ao checkout",
+    "backShop": "Voltar à barbearia",
+    "quoting": "Atualizando preços…",
+    "reason": {
+      "card_declined": "O cartão foi recusado.",
+      "insufficient_funds": "O cartão não tem saldo suficiente.",
+      "expired_card": "O cartão está vencido.",
+      "invalid_card": "Neste sandbox só funcionam os cartões de teste listados aqui. Confira número, validade e CVC."
+    },
+    "errors": {
+      "invalid_body": "Não foi possível ler o pedido.",
+      "empty_order": "O pedido está vazio.",
+      "too_many_items": "Itens demais no pedido.",
+      "unknown_item": "Um dos itens não está disponível.",
+      "invalid_quantity": "A quantidade não é válida.",
+      "mixed_order": "O plano mensal deve ser comprado sozinho.",
+      "invalid_method": "Escolha uma forma de pagamento.",
+      "method_not_allowed": "Esta forma de pagamento não está disponível para planos mensais.",
+      "invalid_promo": "Esse código promocional não é válido.",
+      "promo_not_allowed": "Códigos promocionais valem só para planos mensais.",
+      "network": "Não foi possível falar com o servidor. Tente de novo."
+    }
   }
 }

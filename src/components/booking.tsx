@@ -3,6 +3,8 @@
 import { ArrowLeft, CalendarCheck, Check, X } from "lucide-react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "@/i18n/navigation";
+import { SERVICES } from "@/lib/checkout/catalog";
 import { dayKey, fromKey, openDays, slotsFor } from "@/lib/schedule";
 import { store, useDemoData } from "@/lib/store";
 
@@ -419,8 +421,11 @@ function BookingFlow({ preset, onClose, onMine }: { preset: Preset; onClose: () 
             [t("sumWhen"), when],
           ])}
           <p className="text-sm text-cream-muted">{t("demoNote")}</p>
+          <Link href={{ pathname: "/checkout", query: { service: SERVICES[service!].id } }} className="btn btn-primary">
+            {t("payDeposit")}
+          </Link>
           <div className="grid gap-3 sm:grid-cols-2">
-            <button type="button" className="btn btn-primary" onClick={onMine}>
+            <button type="button" className="btn btn-secondary" onClick={onMine}>
               {acc("mine")}
             </button>
             <button type="button" className="btn btn-secondary" onClick={onClose}>
