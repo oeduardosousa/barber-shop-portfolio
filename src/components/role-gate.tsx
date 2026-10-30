@@ -46,6 +46,7 @@ export function RoleGate() {
     setRole(role);
     setChosen(true);
     ref.current?.close();
+    if (role === "client") window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     if (role === "barber") router.push("/barber");
   }
 

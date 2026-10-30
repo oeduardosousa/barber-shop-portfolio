@@ -6,7 +6,7 @@ import { SHOP_NAME } from "@/lib/brand";
 import { closeHour, dayAppointments, dayKey, openDays, type Appt } from "@/lib/schedule";
 import { useDemoData } from "@/lib/store";
 import { LangSwitch, UtilityBar } from "./Header";
-import { setRole, ViewEnter, ViewSwitch } from "./role-gate";
+import { setRole, SwitchViewButton, ViewEnter, ViewSwitch } from "./role-gate";
 
 type Service = { name: string; minutes: number; price: number };
 type Member = { name: string; specialty: string };
@@ -15,6 +15,7 @@ type Tab = "agenda" | "revenue";
 export function BarberApp() {
   const t = useTranslations("barber");
   const common = useTranslations("common");
+  const footer = useTranslations("footer");
   const services = useTranslations("services").raw("items") as Service[];
   const team = useTranslations("team").raw("members") as Member[];
   const f = useFormatter();
@@ -206,6 +207,18 @@ export function BarberApp() {
           </div>
         )}
       </main>
+
+      <footer className="on-dark mt-12 bg-coal-deep text-cream">
+        <div className="stripe" aria-hidden />
+        <div className="wrap flex flex-col gap-8 py-12 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
+            <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{footer("demo")}</p>
+            <p className="mt-2 text-[0.9375rem] font-bold">{footer("madeBy")}</p>
+          </div>
+          <SwitchViewButton className="link self-start" />
+        </div>
+      </footer>
     </>
   );
 }

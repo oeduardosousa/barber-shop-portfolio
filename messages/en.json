@@ -248,7 +248,8 @@
     "payDeposit": "Pay deposit"
   },
   "footer": {
-    "demo": "Portfolio demo. Every shop detail on this site is sample content. No real payments."
+    "demo": "Portfolio demo. Every shop detail on this site is sample content. No real payments.",
+    "madeBy": "Made by Eduardo Sousa"
   },
   "account": {
     "mine": "My bookings",

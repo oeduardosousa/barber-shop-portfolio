@@ -404,6 +404,7 @@ export function Footer() {
         <div>
           <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
           <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{t("demo")}</p>
+          <p className="mt-2 text-[0.9375rem] font-bold">{t("madeBy")}</p>
         </div>
         <div className="flex flex-wrap items-center gap-4 self-start">
           <SwitchViewButton className="link" />

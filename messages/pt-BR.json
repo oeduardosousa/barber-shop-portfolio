@@ -248,7 +248,8 @@
     "payDeposit": "Pagar sinal"
   },
   "footer": {
-    "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais."
+    "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais.",
+    "madeBy": "Feito por Eduardo Sousa"
   },
   "account": {
     "mine": "Meus agendamentos",
