@@ -219,9 +219,9 @@
         "time": "Closed"
       }
     ],
-    "mapLabel": "Interactive map: Copacabana Beach",
+    "mapLabel": "Interactive map: Mineirão Stadium",
     "mapPopup": "Fictional location",
-    "mapNote": "Interactive map of Copacabana Beach, Rio de Janeiro. The shop and its address are fictional, used only as a demo location."
+    "mapNote": "Interactive map of the Mineirão stadium, Belo Horizonte, Brazil. The shop and its address are fictional, used only as a demo location."
   },
   "booking": {
     "progress": "Step {n} of {total}",

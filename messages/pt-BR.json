@@ -219,9 +219,9 @@
         "time": "Fechado"
       }
     ],
-    "mapLabel": "Mapa interativo: Praia de Copacabana",
+    "mapLabel": "Mapa interativo: Estádio Mineirão",
     "mapPopup": "Local fictício",
-    "mapNote": "Mapa interativo da Praia de Copacabana, Rio de Janeiro. A barbearia e o endereço são fictícios, usados apenas como local de demonstração."
+    "mapNote": "Mapa interativo do Estádio do Mineirão, Belo Horizonte. A barbearia e o endereço são fictícios, usados apenas como local de demonstração."
   },
   "booking": {
     "progress": "Etapa {n} de {total}",

@@ -3,8 +3,8 @@
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef } from "react";
 
-// Copacabana Beach, Rio de Janeiro. The shop itself is fictional.
-const CENTER: [number, number] = [-22.9711, -43.1823];
+// Mineirão stadium, Belo Horizonte. The shop itself is fictional.
+const CENTER: [number, number] = [-19.8659, -43.9710];
 
 const PIN = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 24 29" aria-hidden="true"><path d="M12 1.5C6.8 1.5 3 5.4 3 10.3c0 6.6 9 17 9 17s9-10.4 9-17C21 5.4 17.2 1.5 12 1.5z" fill="#f5c030" stroke="#14100d" stroke-width="1.8"/><circle cx="12" cy="10.3" r="3.2" fill="#14100d"/></svg>`;
 
