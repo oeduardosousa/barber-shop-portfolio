@@ -279,7 +279,7 @@ export function Reviews() {
         </div>
         <ul className="grid gap-8 lg:col-span-8 lg:gap-10">
           {items.map((q, i) => (
-            <li key={q} data-reveal style={stagger(i)} className={`${i % 2 ? "lg:ml-12" : ""} border-l-4 border-pole-red pl-5`}>
+            <li key={q} data-reveal style={stagger(i)} className={`${i % 2 ? "lg:ml-12" : ""} border-t-2 border-ink pt-5`}>
               <blockquote className="font-display text-2xl font-bold leading-snug sm:text-3xl">{q}</blockquote>
               <p className="mt-3 flex flex-wrap items-center gap-3 text-sm text-ink-muted">
                 <Sample>{t("label")}</Sample>
