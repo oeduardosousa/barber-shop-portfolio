@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "Navalha Barber (exemplo) · Demo de barbearia clássica",
+    "description": "Uma demo de portfólio de uma barbearia clássica: serviços, barbeiros, planos mensais e agendamento. Todos os dados da loja são conteúdo de exemplo."
+  },
+  "common": { "sample": "Exemplo", "samplePrice": "Preço de exemplo", "min": "{n} min" },
+  "skip": "Ir para o conteúdo principal",
+  "lang": { "label": "Idioma" },
+  "nav": {
+    "label": "Principal",
+    "services": "Serviços",
+    "team": "Equipe",
+    "gallery": "Galeria",
+    "plans": "Planos",
+    "contact": "Contato",
+    "book": "Reservar cadeira",
+    "bookShort": "Agendar",
+    "menu": "Menu",
+    "close": "Fechar menu"
+  },
+  "hero": {
+    "eyebrow": "Demo de portfólio · loja fictícia",
+    "lines": ["Corte afiado.", "Barba em dia.", "Sua cadeira."],
+    "sub": "A Navalha Barber é uma barbearia clássica de exemplo. Veja a tabela de preços, conheça os barbeiros e escolha um plano mensal.",
+    "seeServices": "Ver serviços",
+    "poleLabel": "Poste de barbeiro decorativo"
+  },
+  "marquee": {
+    "items": ["Corte", "Barba", "Navalha", "Degradê"],
+    "pause": "Pausar movimento",
+    "play": "Retomar movimento"
+  },
+  "services": {
+    "eyebrow": "Tabela de preços",
+    "title": "Escolha seu serviço",
+    "note": "Preços e durações são valores de exemplo.",
+    "book": "Agendar",
+    "items": [
+      { "name": "Corte de cabelo", "desc": "Tesoura ou máquina, com acabamento na nuca.", "minutes": 45, "price": 60 },
+      { "name": "Degradê", "desc": "Zero, baixo, médio ou alto, bem esfumado.", "minutes": 50, "price": 70 },
+      { "name": "Barba", "desc": "Modelada e alinhada, com toalha quente.", "minutes": 30, "price": 45 },
+      { "name": "Barba na navalha", "desc": "Toalha quente, espuma e passada lenta de navalha.", "minutes": 30, "price": 50 },
+      { "name": "Cabelo e barba", "desc": "Corte completo e barba na mesma visita.", "minutes": 70, "price": 95 }
+    ]
+  },
+  "team": {
+    "eyebrow": "Os barbeiros",
+    "title": "Quatro cadeiras, quatro mãos",
+    "note": "Nomes e bios são conteúdo de exemplo. Os retratos são provisórios.",
+    "bookWith": "Agendar com {name}",
+    "members": [
+      { "name": "Rafael", "specialty": "Degradês", "bio": "Bio de exemplo: degradês na pele e acabamentos limpos." },
+      { "name": "Tiago", "specialty": "Barbas", "bio": "Bio de exemplo: modelagem de barba e trabalho na navalha." },
+      { "name": "Bruno", "specialty": "Cortes clássicos", "bio": "Bio de exemplo: cortes na tesoura e risco ao lado." },
+      { "name": "Camila", "specialty": "Cabelo e barba", "bio": "Bio de exemplo: atendimento completo." }
+    ]
+  },
+  "plans": {
+    "eyebrow": "Planos mensais",
+    "title": "Pague por mês, fique afiado",
+    "note": "Preços de exemplo. O checkout abre em uma próxima etapa e rodará no modo de teste do Stripe: sem cobrança real.",
+    "perMonth": "/mês",
+    "popular": "Mais escolhido (exemplo)",
+    "testMode": "Modo de teste: sem cobrança real",
+    "cta": "Escolher plano",
+    "ctaSoon": "O checkout ainda não está disponível",
+    "items": [
+      { "name": "Cabelo", "price": 129, "perks": ["Cortes de cabelo ao longo do mês", "Agende com qualquer barbeiro"] },
+      { "name": "Barba", "price": 99, "perks": ["Barbas ao longo do mês", "Agende com qualquer barbeiro"] },
+      { "name": "Cabelo e barba", "price": 199, "perks": ["Corte e barba a cada visita", "Agende com qualquer barbeiro"] }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Galeria",
+    "title": "A loja, em quadros",
+    "note": "Quadros provisórios. As fotos reais entram depois, com créditos.",
+    "tile": "Foto de exemplo {n}"
+  },
+  "reviews": {
+    "eyebrow": "Avaliações",
+    "title": "O que dizem os clientes",
+    "label": "Avaliação de exemplo",
+    "author": "Cliente de exemplo",
+    "items": [
+      "Avaliação de exemplo: degradê limpo e sem espera na porta.",
+      "Avaliação de exemplo: a barba ficou exatamente como pedi.",
+      "Avaliação de exemplo: reservar a cadeira levou menos de um minuto."
+    ]
+  },
+  "contact": {
+    "eyebrow": "Visite",
+    "title": "Encontre a cadeira",
+    "addressLabel": "Endereço",
+    "address": "Rua Exemplo, 000 · Cidade Exemplo",
+    "hoursLabel": "Horários",
+    "hours": [
+      { "days": "Terça a sexta", "time": "09:00 às 19:00" },
+      { "days": "Sábado", "time": "09:00 às 17:00" },
+      { "days": "Domingo e segunda", "time": "Fechado" }
+    ],
+    "booking": "O agendamento online ainda não está ativo nesta versão. Ele chega na próxima etapa.",
+    "map": "Espaço do mapa",
+    "mapLabel": "Espaço decorativo reservado para o mapa"
+  },
+  "footer": {
+    "demo": "Demo de portfólio. Todo detalhe da loja neste site é conteúdo de exemplo. Sem pagamentos reais."
+  }
+}

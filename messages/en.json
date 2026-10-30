@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "Navalha Barber (sample) · Classic barbershop demo",
+    "description": "A portfolio demo of a classic barbershop: services, barbers, monthly plans and booking. All shop details are sample content."
+  },
+  "common": { "sample": "Sample", "samplePrice": "Sample price", "min": "{n} min" },
+  "skip": "Skip to main content",
+  "lang": { "label": "Language" },
+  "nav": {
+    "label": "Main",
+    "services": "Services",
+    "team": "Team",
+    "gallery": "Gallery",
+    "plans": "Plans",
+    "contact": "Contact",
+    "book": "Book a chair",
+    "bookShort": "Book",
+    "menu": "Menu",
+    "close": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Portfolio demo · fictional shop",
+    "lines": ["Sharp cut.", "Clean beard.", "Your chair."],
+    "sub": "Navalha Barber is a sample classic barbershop. Browse the price list, meet the barbers and pick a monthly plan.",
+    "seeServices": "See services",
+    "poleLabel": "Decorative barber pole"
+  },
+  "marquee": {
+    "items": ["Cut", "Beard", "Shave", "Fade"],
+    "pause": "Pause motion",
+    "play": "Play motion"
+  },
+  "services": {
+    "eyebrow": "Price list",
+    "title": "Pick your service",
+    "note": "Prices and durations are sample values.",
+    "book": "Book this",
+    "items": [
+      { "name": "Haircut", "desc": "Scissors or clipper, finished with a neck shave.", "minutes": 45, "price": 60 },
+      { "name": "Fade", "desc": "Skin, low, mid or high, blended clean.", "minutes": 50, "price": 70 },
+      { "name": "Beard trim", "desc": "Shaped and lined, with a hot towel.", "minutes": 30, "price": 45 },
+      { "name": "Straight-razor shave", "desc": "Hot towel, lather and a slow razor pass.", "minutes": 30, "price": 50 },
+      { "name": "Hair and beard", "desc": "A full cut and a beard trim in one visit.", "minutes": 70, "price": 95 }
+    ]
+  },
+  "team": {
+    "eyebrow": "The barbers",
+    "title": "Four chairs, four hands",
+    "note": "Names and bios are sample content. Portraits are placeholders.",
+    "bookWith": "Book with {name}",
+    "members": [
+      { "name": "Rafael", "specialty": "Fades", "bio": "Sample bio: skin fades and clean tapers." },
+      { "name": "Tiago", "specialty": "Beards", "bio": "Sample bio: beard shaping and razor work." },
+      { "name": "Bruno", "specialty": "Classic cuts", "bio": "Sample bio: scissor cuts and side parts." },
+      { "name": "Camila", "specialty": "Hair and beard", "bio": "Sample bio: full-service visits." }
+    ]
+  },
+  "plans": {
+    "eyebrow": "Monthly plans",
+    "title": "Pay monthly, look sharp",
+    "note": "Sample prices. Checkout opens in a later step and will run in Stripe test mode: no real charge.",
+    "perMonth": "/month",
+    "popular": "Most chosen (sample)",
+    "testMode": "Test mode: no real charge",
+    "cta": "Choose plan",
+    "ctaSoon": "Checkout is not available yet",
+    "items": [
+      { "name": "Hair", "price": 129, "perks": ["Haircuts through the month", "Book any barber"] },
+      { "name": "Beard", "price": 99, "perks": ["Beard trims through the month", "Book any barber"] },
+      { "name": "Hair and beard", "price": 199, "perks": ["Haircut and beard each visit", "Book any barber"] }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "The shop, in frames",
+    "note": "Placeholder tiles. Real photos are added later and will be credited.",
+    "tile": "Sample photo {n}"
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What clients say",
+    "label": "Sample review",
+    "author": "Sample client",
+    "items": [
+      "Sample review: a clean fade and no wait at the door.",
+      "Sample review: the beard trim was exactly what I asked for.",
+      "Sample review: booking a chair took less than a minute."
+    ]
+  },
+  "contact": {
+    "eyebrow": "Visit",
+    "title": "Find the chair",
+    "addressLabel": "Address",
+    "address": "Sample Street, 000 · Sample City",
+    "hoursLabel": "Hours",
+    "hours": [
+      { "days": "Tuesday to Friday", "time": "09:00 to 19:00" },
+      { "days": "Saturday", "time": "09:00 to 17:00" },
+      { "days": "Sunday and Monday", "time": "Closed" }
+    ],
+    "booking": "Online booking is not live in this build yet. It arrives in the next step.",
+    "map": "Map placeholder",
+    "mapLabel": "Decorative map placeholder"
+  },
+  "footer": {
+    "demo": "Portfolio demo. Every shop detail on this site is sample content. No real payments."
+  }
+}
