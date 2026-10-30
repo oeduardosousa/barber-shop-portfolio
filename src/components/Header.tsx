@@ -127,7 +127,7 @@ export function Header() {
       <div className="wrap flex h-[76px] items-center gap-6 xl:h-[92px] xl:justify-between">
         <a
           href="#top"
-          className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]"
+          className="inline-flex min-h-11 items-center whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]"
           onClick={(e) => rollTo(e, "top")}
         >
           {SHOP_NAME}

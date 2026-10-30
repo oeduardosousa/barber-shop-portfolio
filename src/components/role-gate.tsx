@@ -65,9 +65,9 @@ export function RoleGate() {
       <div className="wrap flex min-h-dvh flex-col justify-center gap-8 py-10">
         <div>
           <p className="label mb-3 text-cream-muted">{SHOP_NAME}</p>
-          <h1 id="gate-title" className="text-headline">
+          <h2 id="gate-title" className="text-headline">
             {t("title")}
-          </h1>
+          </h2>
           <p className="mt-3 max-w-[52ch] text-cream-muted">{t("note")}</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -110,13 +110,16 @@ const SHIFT = 28;
 const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /** Role we are navigating to; the next page reads it to animate in from the right side. */
-let incoming: Role | null = null;
+const pending: { incoming: Role | null } = { incoming: null };
+const markIncoming = (role: Role) => {
+  pending.incoming = role;
+};
 
 /** Slides the page content in from the side the switch moved toward. Render once inside each page. */
 export function ViewEnter() {
   useLayoutEffect(() => {
-    const role = incoming;
-    incoming = null;
+    const role = pending.incoming;
+    pending.incoming = null;
     const main = document.querySelector("main");
     if (!role || !main) return;
     // A view switch is a new page: start at the top, not wherever the last view was scrolled.
@@ -139,7 +142,7 @@ export function ViewSwitch({ current, onNavigate }: { current: Role; onNavigate?
   const router = useRouter();
   const busy = useRef(false);
   // After a switch the new page mounts with the thumb on the old side, then slides across.
-  const [pos, setPos] = useState<Role>(() => (incoming === current ? (current === "barber" ? "client" : "barber") : current));
+  const [pos, setPos] = useState<Role>(() => (pending.incoming === current ? (current === "barber" ? "client" : "barber") : current));
 
   useEffect(() => {
     let b = 0;
@@ -158,7 +161,7 @@ export function ViewSwitch({ current, onNavigate }: { current: Role; onNavigate?
     setTimeout(() => (busy.current = false), 2000);
     setRole(role);
     onNavigate?.();
-    incoming = role;
+    markIncoming(role);
     const main = document.querySelector("main");
     const leave =
       main && !reduced()

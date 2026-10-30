@@ -480,6 +480,8 @@ html[data-motion="paused"] .marquee-track { animation-play-state: paused; }
 }
 .lang-wide button { width: 92px; }
 .utility .lang { height: 40px; }
+/* keep the compact look but give each segment a 44px touch target */
+.lang button::after { content: ""; position: absolute; inset: -7px 0; }
 .utility .lang button { width: 48px; font-size: 0.8125rem; }
 .utility .lang-wide button { width: 88px; }
 
