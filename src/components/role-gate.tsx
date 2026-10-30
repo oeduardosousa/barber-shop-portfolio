@@ -2,7 +2,7 @@
 
 import { Scissors, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
 import { SHOP_NAME } from "@/lib/brand";
 
@@ -102,19 +102,77 @@ export function SwitchViewButton({ className, onClick }: { className?: string; o
   );
 }
 
+type Role = "client" | "barber";
+
+const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+const SHIFT = 28;
+const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Role we are navigating to; the next page reads it to animate in from the right side. */
+let incoming: Role | null = null;
+
+/** Slides the page content in from the side the switch moved toward. Render once inside each page. */
+export function ViewEnter() {
+  useLayoutEffect(() => {
+    const role = incoming;
+    incoming = null;
+    const main = document.querySelector("main");
+    if (!role || !main) return;
+    const from = reduced() ? 0 : role === "barber" ? SHIFT : -SHIFT;
+    main.animate(
+      [
+        { opacity: 0, transform: `translateX(${from}px)` },
+        { opacity: 1, transform: "none" },
+      ],
+      { duration: 260, easing: EASE },
+    );
+  }, []);
+  return null;
+}
+
 /** Segmented toggle between the client site and the barber dashboard. */
-export function ViewSwitch({ current, onNavigate }: { current: "client" | "barber"; onNavigate?: () => void }) {
+export function ViewSwitch({ current, onNavigate }: { current: Role; onNavigate?: () => void }) {
   const t = useTranslations("gate");
   const router = useRouter();
-  const go = (role: "client" | "barber") => {
-    if (role === current) return;
+  const busy = useRef(false);
+  // After a switch the new page mounts with the thumb on the old side, then slides across.
+  const [pos, setPos] = useState<Role>(() => (incoming === current ? (current === "barber" ? "client" : "barber") : current));
+
+  useEffect(() => {
+    let b = 0;
+    const a = requestAnimationFrame(() => {
+      b = requestAnimationFrame(() => setPos(current));
+    });
+    return () => {
+      cancelAnimationFrame(a);
+      cancelAnimationFrame(b);
+    };
+  }, [current]);
+
+  const go = (role: Role) => {
+    if (role === current || busy.current) return;
+    busy.current = true;
+    setTimeout(() => (busy.current = false), 2000);
     setRole(role);
     onNavigate?.();
-    router.push(role === "barber" ? "/barber" : "/");
+    incoming = role;
+    const main = document.querySelector("main");
+    const leave =
+      main && !reduced()
+        ? main.animate(
+            [
+              { opacity: 1, transform: "none" },
+              { opacity: 0, transform: `translateX(${role === "barber" ? -SHIFT : SHIFT}px)` },
+            ],
+            { duration: 140, easing: EASE, fill: "forwards" },
+          ).finished
+        : Promise.resolve();
+    leave.catch(() => {}).then(() => router.push(role === "barber" ? "/barber" : "/"));
   };
+
   return (
     <div role="group" aria-label={t("switch")} className="lang lang-wide">
-      <span aria-hidden className="lang-thumb" style={{ transform: current === "barber" ? "translateX(100%)" : "none" }} />
+      <span aria-hidden className="lang-thumb" style={{ transform: pos === "barber" ? "translateX(100%)" : "none" }} />
       {(["client", "barber"] as const).map((r) => (
         <button key={r} type="button" aria-pressed={r === current} onClick={() => go(r)}>
           {t(`short.${r}`)}

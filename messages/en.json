@@ -255,8 +255,15 @@
     "dayLabel": "Day",
     "statAppts": "Appointments",
     "statRevenue": "Revenue",
-    "statNew": "From the site",
-    "viaSite": "Booked on site",
-    "free": "Free"
+    "free": "Free",
+    "tag": "Barber panel",
+    "tabAgenda": "Schedule",
+    "tabRevenue": "Revenue",
+    "viewLabel": "Panel",
+    "revDay": "All barbers, this day",
+    "revRange": "All barbers, next 8 days",
+    "revAppts": "Appointments, this day",
+    "revByBarber": "By barber",
+    "revByDay": "By day"
   }
 }

@@ -40,6 +40,18 @@ export function LangSwitch() {
   );
 }
 
+/** Utility row above the header: pick the view (client or barber) and the language. */
+export function UtilityBar({ current, always }: { current: "client" | "barber"; always?: boolean }) {
+  return (
+    <div className={`utility border-b border-line bg-coal ${always ? "" : "hidden xl:block"}`}>
+      <div className="flex flex-wrap items-center gap-4 px-4 py-2 sm:px-6 xl:px-10 2xl:px-14">
+        <ViewSwitch current={current} />
+        <LangSwitch />
+      </div>
+    </div>
+  );
+}
+
 export function Header() {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
@@ -71,14 +83,16 @@ export function Header() {
   }, [open]);
 
   return (
+    <>
+    <div className="stripe" aria-hidden />
+    <UtilityBar current="client" />
     <header className="sticky top-0 z-40 border-b border-line bg-coal">
-      <div className="stripe" aria-hidden />
-      <div className="wrap flex h-[76px] items-center justify-between gap-3 xl:h-[96px]">
+      <div className="flex h-[76px] items-center gap-6 px-4 sm:px-6 xl:h-[92px] xl:px-10 2xl:px-14">
         <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl xl:text-[1.75rem]">
           {SHOP_NAME}
         </a>
 
-        <nav aria-label={t("label")} className="hidden items-center gap-2 xl:flex">
+        <nav aria-label={t("label")} className="ml-4 hidden items-center gap-2 xl:flex 2xl:ml-10 2xl:gap-4">
           {LINKS.map((k) => (
             <a key={k} href={`#${k}`} className="nav-link">
               {t(k)}
@@ -86,13 +100,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          <div className="hidden items-center gap-3 xl:flex">
-            <ViewSwitch current="client" />
-            <LangSwitch />
-          </div>
+        <div className="ml-auto flex items-center gap-3 sm:gap-4 xl:gap-5">
           <MineButton compact className="btn btn-secondary hidden gap-2 !px-3 !text-sm xl:inline-flex xl:!px-4" />
-          <BookButton className="btn btn-primary !px-5">
+          <BookButton className="btn btn-primary whitespace-nowrap !px-5">
             <span className="xl:hidden">{t("bookShort")}</span>
             <span className="hidden xl:inline">{t("book")}</span>
           </BookButton>
@@ -156,5 +166,6 @@ export function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }

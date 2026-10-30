@@ -451,3 +451,25 @@ html[data-motion="paused"] .marquee-track { animation-play-state: paused; }
 }
 }
 .lang-wide button { width: 92px; }
+.utility .lang { height: 40px; }
+.utility .lang button { width: 48px; font-size: 0.8125rem; }
+.utility .lang-wide button { width: 88px; }
+
+/* Barber panel */
+.panel-in { animation: fade-up 240ms var(--ease-out) both; }
+.bar-col {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 8px 2px 10px; border-radius: 8px; border: 2px solid transparent;
+  transition: transform 160ms var(--ease-out), border-color 150ms ease;
+}
+.bar-col:active { transform: scale(0.97); }
+.bar-col[aria-pressed="true"] { border-color: var(--color-cream); }
+.bar-track { display: flex; align-items: flex-end; width: 100%; height: 140px; border-radius: 6px; background: var(--color-coal-raised); overflow: hidden; }
+.bar-fill-v, .bar-fill-h { background: var(--color-gold); transition: transform 400ms var(--ease-out); }
+.bar-fill-v { width: 100%; height: 100%; transform-origin: bottom; }
+.bar-fill-h { height: 100%; width: 100%; transform-origin: left; }
+@media (prefers-reduced-motion: reduce) {
+  .panel-in { animation: fade-in 150ms ease both; }
+  .bar-fill-v, .bar-fill-h { transition: none; }
+  .bar-col:active { transform: none; }
+}

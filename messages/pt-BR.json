@@ -255,8 +255,15 @@
     "dayLabel": "Dia",
     "statAppts": "Atendimentos",
     "statRevenue": "Faturamento",
-    "statNew": "Pelo site",
-    "viaSite": "Agendado no site",
-    "free": "Livre"
+    "free": "Livre",
+    "tag": "Painel do barbeiro",
+    "tabAgenda": "Agenda",
+    "tabRevenue": "Receita",
+    "viewLabel": "Painel",
+    "revDay": "Todos os barbeiros, no dia",
+    "revRange": "Todos os barbeiros, 8 dias",
+    "revAppts": "Atendimentos no dia",
+    "revByBarber": "Por barbeiro",
+    "revByDay": "Por dia"
   }
 }
