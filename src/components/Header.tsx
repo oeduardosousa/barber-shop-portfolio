@@ -120,7 +120,7 @@ export function Header() {
           <button
             ref={closeBtn}
             type="button"
-            className="btn btn-amber !min-h-12 !w-12 !p-0"
+            className="btn btn-gold !min-h-12 !w-12 !p-0"
             aria-label={t("close")}
             onClick={() => setOpen(false)}
           >
@@ -141,7 +141,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex flex-col gap-4 p-4 pb-8">
-          <a href={BOOK_HREF} className="btn btn-amber" onClick={() => setOpen(false)}>
+          <a href={BOOK_HREF} className="btn btn-gold" onClick={() => setOpen(false)}>
             {t("book")}
           </a>
           <div>

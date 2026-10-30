@@ -2,18 +2,13 @@
 
 @theme {
   --color-coal: #14100d;
-  --color-coal-raised: #221a15;
+  --color-coal-raised: #1e1813;
+  --color-coal-deep: #0b0908;
   --color-cream: #fff3da;
   --color-cream-muted: #c7b3a0;
-  --color-pole-red: #c8201b;
-  --color-pole-red-deep: #a51814;
-  --color-pole-red-bright: #ff6b5e;
-  --color-cobalt: #0e2f8c;
-  --color-pole-blue: #2f5fe8;
-  --color-sky: #8fb0ff;
-  --color-amber: #ffb81c;
-  --color-night: #20143a;
-  --color-success: #4fd08f;
+  --color-gold: #f5c030;
+  --color-gold-hi: #ffd466;
+  --color-gold-deep: #b38a1e;
   --color-line: rgb(255 243 218 / 0.18);
 
   --font-display: var(--font-fraunces), Georgia, serif;
@@ -49,13 +44,8 @@ h1, h2, h3, .font-display {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-amber);
+  outline: 3px solid var(--color-gold);
   outline-offset: 3px;
-}
-.on-dark :focus-visible,
-.on-cobalt :focus-visible,
-.on-red :focus-visible {
-  outline-color: var(--color-amber);
 }
 
 @layer components {
@@ -108,8 +98,9 @@ h1, h2, h3, .font-display {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  background: var(--color-amber);
-  color: var(--color-coal);
+  background: var(--color-coal);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
   padding: 3px 10px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -137,9 +128,8 @@ h1, h2, h3, .font-display {
 }
 @media (min-width: 640px) { .btn { min-height: 52px; } }
 .btn:active { transform: scale(0.97); }
-.btn-primary { background: var(--color-pole-red); color: var(--color-cream); }
+.btn-primary, .btn-gold { background: var(--color-gold); color: var(--color-coal); }
 .btn-secondary { background: var(--color-coal-raised); color: var(--color-cream); border-color: var(--color-cream); }
-.btn-amber { background: var(--color-amber); color: var(--color-coal); }
 .btn[aria-disabled="true"] {
   background: var(--color-line);
   color: var(--color-cream-muted);
@@ -147,13 +137,12 @@ h1, h2, h3, .font-display {
 }
 .btn[aria-disabled="true"]:active { transform: none; }
 @media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover { background: var(--color-pole-red-deep); }
-  .btn-amber:hover { background: #ffc94d; }
-  .btn-secondary:hover { background: var(--color-amber); color: var(--color-coal); }
+  .btn-primary:hover, .btn-gold:hover { background: var(--color-gold-hi); }
+  .btn-secondary:hover { background: var(--color-gold); color: var(--color-coal); }
 }
 
 .link {
-  color: var(--color-sky);
+  color: var(--color-gold);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -167,8 +156,6 @@ h1, h2, h3, .font-display {
 @media (hover: hover) and (pointer: fine) {
   .link:hover { text-decoration-thickness: 4px; }
 }
-.on-cobalt .link, .on-dark .link { color: var(--color-amber); }
-.on-cobalt .sign { --sign: var(--color-coal); }
 
 /* Pole stripe */
 .stripe { position: relative; height: 8px; overflow: hidden; background: var(--color-coal); }
@@ -180,10 +167,10 @@ h1, h2, h3, .font-display {
   width: calc(100% + 136px);
   background: repeating-linear-gradient(
     45deg,
-    var(--color-pole-red) 0 24px,
-    var(--color-coal) 24px 48px,
-    var(--color-pole-blue) 48px 72px,
-    var(--color-coal) 72px 96px
+    var(--color-gold) 0 24px,
+    var(--color-cream) 24px 48px,
+    var(--color-gold-deep) 48px 72px,
+    var(--color-cream) 72px 96px
   );
   animation: drift 12s linear infinite;
 }
@@ -206,10 +193,10 @@ h1, h2, h3, .font-display {
   top: -136px;
   background: repeating-linear-gradient(
     45deg,
-    var(--color-pole-red) 0 24px,
-    var(--color-coal) 24px 48px,
-    var(--color-pole-blue) 48px 72px,
-    var(--color-coal) 72px 96px
+    var(--color-gold) 0 24px,
+    var(--color-cream) 24px 48px,
+    var(--color-gold-deep) 48px 72px,
+    var(--color-cream) 72px 96px
   );
   animation: rise 6s linear infinite;
 }
@@ -217,13 +204,13 @@ h1, h2, h3, .font-display {
 
 /* Sign shadow cards */
 .sign {
-  box-shadow: 4px 4px 0 var(--sign, var(--color-pole-red));
+  box-shadow: 4px 4px 0 var(--sign, var(--color-gold));
   transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
-  .sign:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sign, var(--color-pole-red)); }
+  .sign:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sign, var(--color-gold)); }
 }
-.sign:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--sign, var(--color-pole-red)); }
+.sign:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--sign, var(--color-gold)); }
 
 /* Header */
 .nav-link {
@@ -236,7 +223,7 @@ h1, h2, h3, .font-display {
   transition: background-color 150ms ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  .nav-link:hover { background: var(--color-coal-raised); text-decoration: underline; text-decoration-color: var(--color-amber); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+  .nav-link:hover { background: var(--color-coal-raised); text-decoration: underline; text-decoration-color: var(--color-gold); text-decoration-thickness: 3px; text-underline-offset: 6px; }
 }
 
 .lang {
@@ -275,7 +262,7 @@ h1, h2, h3, .font-display {
   z-index: 60;
   display: flex;
   flex-direction: column;
-  background: var(--color-night);
+  background: var(--color-coal-deep);
   color: var(--color-cream);
   transform: translateX(100%);
   visibility: hidden;

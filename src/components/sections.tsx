@@ -37,7 +37,7 @@ export function Hero() {
           <h1 id="hero-title" className="text-display">
             {lines.map((l, i) => (
               <span key={l} className="hero-line" style={stagger(i)}>
-                {i === lines.length - 1 ? <span className="text-pole-red-bright">{l}</span> : l}
+                {i === lines.length - 1 ? <span className="text-gold">{l}</span> : l}
               </span>
             ))}
           </h1>
@@ -53,8 +53,8 @@ export function Hero() {
         </div>
 
         <div className="hero-art lg:col-span-4" role="img" aria-label={t("poleLabel")}>
-          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-cobalt py-6 lg:aspect-[3/4]">
-            <div className="absolute size-[70%] rounded-full bg-amber lg:size-[110%]" aria-hidden />
+          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-coal-raised py-6 lg:aspect-[3/4]">
+            <div className="absolute size-[70%] rounded-full bg-gold lg:size-[110%]" aria-hidden />
             <div className="relative h-full">
               <div className="pole" />
             </div>
@@ -71,9 +71,9 @@ export function Marquee() {
   const row = (hidden: boolean) => (
     <ul className="flex items-center" aria-hidden={hidden || undefined}>
       {[...items, ...items].map((w, i) => (
-        <li key={i} className="flex items-center font-display text-3xl font-black uppercase tracking-tight text-cream">
+        <li key={i} className="flex items-center font-display text-3xl font-black uppercase tracking-tight text-coal">
           <span className="px-5">{w}</span>
-          <span className="text-amber" aria-hidden>
+          <span className="text-coal" aria-hidden>
             ✦
           </span>
         </li>
@@ -81,7 +81,7 @@ export function Marquee() {
     </ul>
   );
   return (
-    <section className="on-red bg-pole-red" aria-label={items.join(", ")}>
+    <section className="bg-gold" aria-label={items.join(", ")}>
       <div className="wrap flex items-center gap-4 py-3">
         <div className="marquee min-w-0 flex-1 overflow-hidden">
           <div className="marquee-track">
@@ -117,7 +117,7 @@ export function Services() {
               <div className="flex items-end gap-3">
                 <h3 className="text-title">{s.name}</h3>
                 <span className="leader" aria-hidden />
-                <span className="price text-pole-red-bright">
+                <span className="price text-gold">
                   {f.number(s.price, { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}
                 </span>
               </div>
@@ -137,26 +137,26 @@ export function Services() {
   );
 }
 
-const BACKINGS = ["bg-pole-red", "bg-amber", "bg-night", "bg-coal"];
+const BACKINGS = ["bg-gold", "bg-cream", "bg-coal-raised", "bg-coal-deep"];
 
 export function Team() {
   const t = useTranslations("team");
   const c = useTranslations("common");
   const members = t.raw("members") as { name: string; specialty: string; bio: string }[];
   return (
-    <section id="team" aria-labelledby="team-title" className="section on-cobalt bg-cobalt text-cream">
+    <section id="team" aria-labelledby="team-title" className="section bg-coal-raised text-cream">
       <div className="wrap">
         <Heading id="team-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {members.map((m, i) => (
             <li key={m.name} data-reveal style={stagger(i)} className={i % 2 ? "lg:mt-12" : ""}>
-              <article className="sign flex h-full flex-col overflow-hidden rounded-lg border-2 border-cream bg-coal-raised text-cream">
+              <article className="sign flex h-full flex-col overflow-hidden rounded-lg border-2 border-cream bg-coal text-cream">
                 <div
                   className={`relative flex aspect-[3/4] items-center justify-center ${BACKINGS[i % BACKINGS.length]}`}
                   role="img"
                   aria-label={`${c("sample")}: ${m.name}`}
                 >
-                  <span className={`font-display text-[7rem] font-black leading-none ${i % BACKINGS.length === 1 ? "text-coal" : "text-cream"}`} aria-hidden>
+                  <span className={`font-display text-[7rem] font-black leading-none ${i % BACKINGS.length < 2 ? "text-coal" : "text-cream"}`} aria-hidden>
                     {m.name[0]}
                   </span>
                   <span className="absolute left-2 top-2">
@@ -165,9 +165,9 @@ export function Team() {
                 </div>
                 <div className="flex flex-1 flex-col gap-1 p-4 sm:p-5">
                   <h3 className="text-title">{m.name}</h3>
-                  <p className="label text-pole-red-bright">{m.specialty}</p>
+                  <p className="label text-gold">{m.specialty}</p>
                   <p className="mt-1 flex-1 text-[0.9375rem] text-cream-muted">{m.bio}</p>
-                  <a href={BOOK_HREF} className="link mt-2 !text-sky text-[0.9375rem]">
+                  <a href={BOOK_HREF} className="link mt-2 text-[0.9375rem]">
                     {t("bookWith", { name: m.name })}
                   </a>
                 </div>
@@ -185,7 +185,7 @@ export function Plans() {
   const c = useTranslations("common");
   const items = t.raw("items") as { name: string; price: number; perks: string[] }[];
   return (
-    <section id="plans" aria-labelledby="plans-title" className="section on-dark bg-night text-cream">
+    <section id="plans" aria-labelledby="plans-title" className="section bg-coal-deep text-cream">
       <div className="wrap">
         <Heading id="plans-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-12 grid gap-8 lg:grid-cols-3 lg:items-start lg:gap-6">
@@ -203,7 +203,7 @@ export function Plans() {
                   )}
                   <h3 className="text-title">{p.name}</h3>
                   <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                    <span className="font-display text-5xl font-black leading-none text-pole-red-bright">
+                    <span className="font-display text-5xl font-black leading-none text-gold">
                       <PriceCount value={p.price} />
                     </span>
                     <span className="text-sm text-cream-muted">{t("perMonth")}</span>
@@ -214,7 +214,7 @@ export function Plans() {
                   <ul className="flex flex-1 flex-col gap-2">
                     {p.perks.map((k) => (
                       <li key={k} className="flex gap-2 text-[0.9375rem]">
-                        <Check size={20} className="mt-0.5 shrink-0 text-success" aria-hidden />
+                        <Check size={20} className="mt-0.5 shrink-0 text-gold" aria-hidden />
                         {k}
                       </li>
                     ))}
@@ -238,12 +238,12 @@ export function Plans() {
 }
 
 const TILES = [
-  { c: "bg-pole-red text-cream", span: "col-span-2 row-span-2" },
-  { c: "bg-amber text-coal", span: "" },
-  { c: "bg-cobalt text-cream", span: "" },
-  { c: "bg-night text-cream", span: "" },
+  { c: "bg-gold text-coal", span: "col-span-2 row-span-2" },
   { c: "bg-coal-raised text-cream border border-line", span: "" },
-  { c: "bg-pole-red-deep text-cream", span: "lg:col-span-2" },
+  { c: "bg-cream text-coal", span: "" },
+  { c: "bg-coal-deep text-cream border border-line", span: "" },
+  { c: "bg-gold-deep text-coal", span: "" },
+  { c: "bg-coal-raised text-cream border border-line", span: "lg:col-span-2" },
 ];
 
 export function Gallery() {
@@ -330,7 +330,7 @@ export function Contact() {
         </div>
         <div className="lg:col-span-7" data-reveal style={stagger(1)}>
           <div
-            className="sign relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-pole-red sm:aspect-[16/10]"
+            className="sign relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-gold sm:aspect-[16/10]"
             role="img"
             aria-label={t("mapLabel")}
           >
@@ -343,7 +343,7 @@ export function Contact() {
                 backgroundSize: "56px 56px",
               }}
             />
-            <div className="relative flex flex-col items-center gap-3 text-cream">
+            <div className="relative flex flex-col items-center gap-3 text-coal">
               <MapPin size={56} aria-hidden />
               <span className="font-display text-2xl font-black">{t("map")}</span>
               <Sample />
@@ -359,14 +359,14 @@ export function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
   return (
-    <footer className="on-dark bg-night text-cream">
+    <footer className="on-dark bg-coal-deep text-cream">
       <div className="stripe" aria-hidden />
       <div className="wrap flex flex-col gap-8 py-12 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="font-display text-4xl font-black">{SHOP_NAME}</p>
           <p className="mt-3 max-w-[52ch] text-[0.9375rem] opacity-85">{t("demo")}</p>
         </div>
-        <a href={BOOK_HREF} className="btn btn-amber self-start">
+        <a href={BOOK_HREF} className="btn btn-gold self-start">
           {nav("book")}
         </a>
       </div>
