@@ -86,7 +86,7 @@
   "team": {
     "eyebrow": "Os barbeiros",
     "title": "Quatro cadeiras, quatro mãos",
-    "note": "Nomes e bios são conteúdo de exemplo. Os retratos são provisórios.",
+    "note": "Nomes e bios são conteúdo de exemplo. Os retratos são fotos de banco de imagens, não a equipe real.",
     "bookWith": "Agendar com {name}",
     "members": [
       {
@@ -149,16 +149,16 @@
   "gallery": {
     "eyebrow": "Galeria",
     "title": "A loja, em quadros",
-    "note": "Quadros provisórios. As fotos reais entram depois, com créditos.",
+    "note": "Fotos de banco de imagens (Pexels), não são fotos reais desta loja.",
     "tile": "Foto {n}",
     "captions": [
       "Corte clássico na tesoura",
-      "Degradê na régua",
-      "A cadeira da casa",
       "Acabamento com navalha",
-      "A fachada, à noite",
+      "O salão",
       "Toalha quente e barba",
-      "Cliente satisfeito"
+      "Degradê na pele",
+      "Barba na régua",
+      "A cadeira da casa"
     ]
   },
   "reviews": {
@@ -219,8 +219,9 @@
         "time": "Fechado"
       }
     ],
-    "map": "Espaço do mapa",
-    "mapLabel": "Espaço decorativo reservado para o mapa"
+    "map": "Espaço do mapa interativo",
+    "mapHint": "Arraste para explorar, aproxime e afaste, toque no pino para ver a rota. O mapa real é conectado depois.",
+    "mapLabel": "Espaço reservado para um mapa interativo"
   },
   "booking": {
     "progress": "Etapa {n} de {total}",

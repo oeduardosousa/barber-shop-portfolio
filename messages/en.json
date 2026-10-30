@@ -86,7 +86,7 @@
   "team": {
     "eyebrow": "The barbers",
     "title": "Four chairs, four hands",
-    "note": "Names and bios are sample content. Portraits are placeholders.",
+    "note": "Names and bios are sample content. Portraits are stock photos, not real staff.",
     "bookWith": "Book with {name}",
     "members": [
       {
@@ -149,16 +149,16 @@
   "gallery": {
     "eyebrow": "Gallery",
     "title": "The shop, in frames",
-    "note": "Placeholder tiles. Real photos are added later and will be credited.",
+    "note": "Stock photos from Pexels, not real photos of this shop.",
     "tile": "Photo {n}",
     "captions": [
       "Classic scissor cut",
-      "Skin fade",
-      "The house chair",
       "Straight-razor finish",
-      "The storefront at night",
+      "The shop floor",
       "Hot towel and beard",
-      "Happy client"
+      "Skin fade",
+      "Beard shaping",
+      "The house chair"
     ]
   },
   "reviews": {
@@ -219,8 +219,9 @@
         "time": "Closed"
       }
     ],
-    "map": "Map placeholder",
-    "mapLabel": "Decorative map placeholder"
+    "map": "Interactive map placeholder",
+    "mapHint": "Drag to explore, zoom in and out, tap the pin for directions. The live map is connected later.",
+    "mapLabel": "Placeholder for an interactive map"
   },
   "booking": {
     "progress": "Step {n} of {total}",

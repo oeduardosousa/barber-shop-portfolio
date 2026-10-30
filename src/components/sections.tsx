@@ -1,4 +1,5 @@
-import { Armchair, Camera, Check, Clock, Droplets, MapPin, Scissors as ScissorsIcon, Smile, Sparkles, Star, Store, User, type LucideIcon } from "lucide-react";
+import { Camera, Check, Clock, MapPin, Minus, Plus, Star } from "lucide-react";
+import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PLANS } from "@/lib/checkout/catalog";
@@ -155,7 +156,7 @@ export function Services() {
   );
 }
 
-const BACKINGS = ["bg-gold", "bg-cream", "bg-coal-raised", "bg-coal-deep"];
+const PORTRAITS = ["/photos/barber-1.jpg", "/photos/barber-2.jpg", "/photos/barber-3.jpg", "/photos/barber-4.jpg"];
 
 export function Team() {
   const t = useTranslations("team");
@@ -169,14 +170,14 @@ export function Team() {
           {members.map((m, i) => (
             <li key={m.name} data-reveal style={stagger(i)} className={i % 2 ? "lg:mt-12" : ""}>
               <article className="sign flex h-full flex-col overflow-hidden rounded-lg border-2 border-cream bg-coal text-cream">
-                <div
-                  className={`relative flex aspect-[3/4] items-center justify-center ${BACKINGS[i % BACKINGS.length]}`}
-                  role="img"
-                  aria-label={`${c("sample")}: ${m.name}`}
-                >
-                  <span className={`font-display text-[7rem] font-black leading-none ${i % BACKINGS.length < 2 ? "text-coal" : "text-cream"}`} aria-hidden>
-                    {m.name[0]}
-                  </span>
+                <div className="relative aspect-[3/4] bg-coal-deep">
+                  <Image
+                    src={PORTRAITS[i % PORTRAITS.length]}
+                    alt={`${c("sample")}: ${m.name}`}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    className="object-cover object-[50%_20%]"
+                  />
                   <span className="absolute left-2 top-2">
                     <Sample />
                   </span>
@@ -255,16 +256,15 @@ export function Plans() {
   );
 }
 
-// Placeholder "photos": warm toned scenes with a light source and a silhouette icon,
-// laid out as a mosaic so the real client photos can drop into the same slots.
-const TILES: { Icon: LucideIcon; span: string; scene: string }[] = [
-  { Icon: ScissorsIcon, span: "col-span-2 row-span-2", scene: "radial-gradient(circle at 28% 22%, #f5c03055, transparent 55%), linear-gradient(160deg, #3a2a1b, #14100d)" },
-  { Icon: User, span: "", scene: "radial-gradient(circle at 70% 25%, #fff3da33, transparent 50%), linear-gradient(200deg, #5a3d24, #1e1813)" },
-  { Icon: Armchair, span: "row-span-2", scene: "radial-gradient(circle at 50% 15%, #f5c03044, transparent 55%), linear-gradient(180deg, #2b2119, #0b0908)" },
-  { Icon: Sparkles, span: "", scene: "radial-gradient(circle at 30% 70%, #ffd46644, transparent 55%), linear-gradient(135deg, #6b4a1f, #1e1813)" },
-  { Icon: Store, span: "col-span-2", scene: "radial-gradient(circle at 80% 30%, #fff3da2a, transparent 50%), linear-gradient(110deg, #1e1813, #4a3220 60%, #14100d)" },
-  { Icon: Droplets, span: "", scene: "radial-gradient(circle at 40% 30%, #f5c03040, transparent 55%), linear-gradient(170deg, #4b3520, #0b0908)" },
-  { Icon: Smile, span: "", scene: "radial-gradient(circle at 60% 20%, #fff3da30, transparent 55%), linear-gradient(190deg, #7a5524, #1e1813)" },
+// Stock photos (Pexels, free license) laid out as a mosaic; they are not photos of this fictional shop.
+const TILES: { src: string; span: string; pos?: string }[] = [
+  { src: "/photos/shop-1.jpg", span: "col-span-2 row-span-2" },
+  { src: "/photos/shop-2.jpg", span: "" },
+  { src: "/photos/shop-3.jpg", span: "row-span-2", pos: "object-[50%_60%]" },
+  { src: "/photos/shop-4.jpg", span: "", pos: "object-[50%_55%]" },
+  { src: "/photos/shop-5.jpg", span: "col-span-2", pos: "object-[50%_40%]" },
+  { src: "/photos/shop-6.jpg", span: "" },
+  { src: "/photos/shop-7.jpg", span: "", pos: "object-[50%_70%]" },
 ];
 
 export function Gallery() {
@@ -275,10 +275,16 @@ export function Gallery() {
       <div className="wrap">
         <Heading id="gallery-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-10 grid auto-rows-[150px] grid-cols-2 gap-3 sm:auto-rows-[190px] sm:gap-4 lg:auto-rows-[210px] lg:grid-cols-4">
-          {TILES.map(({ Icon, span, scene }, i) => (
+          {TILES.map(({ src, span, pos }, i) => (
             <li key={i} data-reveal style={stagger(i)} className={`tile ${span}`}>
-              <figure className="tile-inner relative m-0 h-full" style={{ background: scene }}>
-                <Icon className="absolute right-4 top-4 text-cream/25" size={i === 0 ? 120 : 56} strokeWidth={1} aria-hidden />
+              <figure className="tile-inner relative m-0 h-full bg-coal-deep">
+                <Image
+                  src={src}
+                  alt={captions[i]}
+                  fill
+                  sizes={span.includes("col-span-2") ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+                  className={`object-cover ${pos ?? ""}`}
+                />
                 <span className="tile-badge" aria-hidden>
                   <Camera size={14} />
                 </span>
@@ -369,7 +375,7 @@ export function Contact() {
         </div>
         <div className="lg:col-span-7" data-reveal style={stagger(1)}>
           <div
-            className="sign relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-gold sm:aspect-[16/10]"
+            className="sign relative flex aspect-[4/3] cursor-grab items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-gold sm:aspect-[16/10]"
             role="img"
             aria-label={t("mapLabel")}
           >
@@ -385,7 +391,16 @@ export function Contact() {
             <div className="relative flex flex-col items-center gap-3 text-coal">
               <MapPin size={56} aria-hidden />
               <span className="font-display text-2xl font-black">{t("map")}</span>
+              <p className="max-w-[32ch] text-center text-sm font-medium">{t("mapHint")}</p>
               <Sample />
+            </div>
+            <div className="absolute right-3 top-3 flex flex-col overflow-hidden rounded-md border-2 border-coal bg-paper text-coal" aria-hidden>
+              <span className="flex h-9 w-9 items-center justify-center border-b-2 border-coal">
+                <Plus size={18} />
+              </span>
+              <span className="flex h-9 w-9 items-center justify-center">
+                <Minus size={18} />
+              </span>
             </div>
           </div>
         </div>
