@@ -27,21 +27,21 @@ export function Hero() {
   const nav = useTranslations("nav");
   const lines = t.raw("lines") as string[];
   return (
-    <section id="top" aria-labelledby="hero-title" className="bg-paper">
+    <section id="top" aria-labelledby="hero-title" className="bg-coal">
       <div className="wrap grid items-center gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-20">
         <div className="lg:col-span-8">
-          <p className="label mb-5 flex flex-wrap items-center gap-3 text-ink-muted">
+          <p className="label mb-5 flex flex-wrap items-center gap-3 text-cream-muted">
             <Sample />
             {t("eyebrow")}
           </p>
           <h1 id="hero-title" className="text-display">
             {lines.map((l, i) => (
               <span key={l} className="hero-line" style={stagger(i)}>
-                {i === lines.length - 1 ? <span className="text-pole-red">{l}</span> : l}
+                {i === lines.length - 1 ? <span className="text-pole-red-bright">{l}</span> : l}
               </span>
             ))}
           </h1>
-          <p className="hero-fade mt-6 max-w-[52ch] text-lg text-ink-muted">{t("sub")}</p>
+          <p className="hero-fade mt-6 max-w-[52ch] text-lg text-cream-muted">{t("sub")}</p>
           <div className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row">
             <a href={BOOK_HREF} className="btn btn-primary">
               {nav("book")}
@@ -53,7 +53,7 @@ export function Hero() {
         </div>
 
         <div className="hero-art lg:col-span-4" role="img" aria-label={t("poleLabel")}>
-          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-ink bg-cobalt py-6 lg:aspect-[3/4]">
+          <div className="sign relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-cobalt py-6 lg:aspect-[3/4]">
             <div className="absolute size-[70%] rounded-full bg-amber lg:size-[110%]" aria-hidden />
             <div className="relative h-full">
               <div className="pole" />
@@ -71,7 +71,7 @@ export function Marquee() {
   const row = (hidden: boolean) => (
     <ul className="flex items-center" aria-hidden={hidden || undefined}>
       {[...items, ...items].map((w, i) => (
-        <li key={i} className="flex items-center font-display text-3xl font-black uppercase tracking-tight text-paper-raised">
+        <li key={i} className="flex items-center font-display text-3xl font-black uppercase tracking-tight text-cream">
           <span className="px-5">{w}</span>
           <span className="text-amber" aria-hidden>
             ✦
@@ -101,7 +101,7 @@ export function Services() {
   const f = useFormatter();
   const items = t.raw("items") as { name: string; desc: string; minutes: number; price: number }[];
   return (
-    <section id="services" aria-labelledby="services-title" className="section bg-paper">
+    <section id="services" aria-labelledby="services-title" className="section bg-coal">
       <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
@@ -113,17 +113,17 @@ export function Services() {
         </div>
         <ul className="lg:col-span-8">
           {items.map((s, i) => (
-            <li key={s.name} data-reveal style={stagger(i)} className="service-row border-t-2 border-ink py-5 last:border-b-2">
+            <li key={s.name} data-reveal style={stagger(i)} className="service-row border-t-2 border-cream py-5 last:border-b-2">
               <div className="flex items-end gap-3">
                 <h3 className="text-title">{s.name}</h3>
                 <span className="leader" aria-hidden />
-                <span className="price text-pole-red">
+                <span className="price text-pole-red-bright">
                   {f.number(s.price, { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="mt-1 flex flex-wrap items-center justify-between gap-x-6">
-                <p className="max-w-[52ch] text-[0.9375rem] text-ink-muted">
-                  {s.desc} <span className="label ml-1 whitespace-nowrap text-ink">{c("min", { n: s.minutes })}</span>
+                <p className="max-w-[52ch] text-[0.9375rem] text-cream-muted">
+                  {s.desc} <span className="label ml-1 whitespace-nowrap text-cream">{c("min", { n: s.minutes })}</span>
                 </p>
                 <a href={BOOK_HREF} className="link text-[0.9375rem]">
                   {t("book")}
@@ -137,26 +137,26 @@ export function Services() {
   );
 }
 
-const BACKINGS = ["bg-pole-red", "bg-amber", "bg-night", "bg-paper"];
+const BACKINGS = ["bg-pole-red", "bg-amber", "bg-night", "bg-coal"];
 
 export function Team() {
   const t = useTranslations("team");
   const c = useTranslations("common");
   const members = t.raw("members") as { name: string; specialty: string; bio: string }[];
   return (
-    <section id="team" aria-labelledby="team-title" className="section on-cobalt bg-cobalt text-paper">
+    <section id="team" aria-labelledby="team-title" className="section on-cobalt bg-cobalt text-cream">
       <div className="wrap">
         <Heading id="team-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {members.map((m, i) => (
             <li key={m.name} data-reveal style={stagger(i)} className={i % 2 ? "lg:mt-12" : ""}>
-              <article className="sign flex h-full flex-col overflow-hidden rounded-lg border-2 border-ink bg-paper-raised text-ink">
+              <article className="sign flex h-full flex-col overflow-hidden rounded-lg border-2 border-cream bg-coal-raised text-cream">
                 <div
                   className={`relative flex aspect-[3/4] items-center justify-center ${BACKINGS[i % BACKINGS.length]}`}
                   role="img"
                   aria-label={`${c("sample")}: ${m.name}`}
                 >
-                  <span className={`font-display text-[7rem] font-black leading-none ${i === 0 || i === 2 ? "text-paper-raised" : "text-ink"}`} aria-hidden>
+                  <span className={`font-display text-[7rem] font-black leading-none ${i % BACKINGS.length === 1 ? "text-coal" : "text-cream"}`} aria-hidden>
                     {m.name[0]}
                   </span>
                   <span className="absolute left-2 top-2">
@@ -165,9 +165,9 @@ export function Team() {
                 </div>
                 <div className="flex flex-1 flex-col gap-1 p-4 sm:p-5">
                   <h3 className="text-title">{m.name}</h3>
-                  <p className="label text-pole-red">{m.specialty}</p>
-                  <p className="mt-1 flex-1 text-[0.9375rem] text-ink-muted">{m.bio}</p>
-                  <a href={BOOK_HREF} className="link mt-2 !text-cobalt text-[0.9375rem]">
+                  <p className="label text-pole-red-bright">{m.specialty}</p>
+                  <p className="mt-1 flex-1 text-[0.9375rem] text-cream-muted">{m.bio}</p>
+                  <a href={BOOK_HREF} className="link mt-2 !text-sky text-[0.9375rem]">
                     {t("bookWith", { name: m.name })}
                   </a>
                 </div>
@@ -185,7 +185,7 @@ export function Plans() {
   const c = useTranslations("common");
   const items = t.raw("items") as { name: string; price: number; perks: string[] }[];
   return (
-    <section id="plans" aria-labelledby="plans-title" className="section on-dark bg-night text-paper">
+    <section id="plans" aria-labelledby="plans-title" className="section on-dark bg-night text-cream">
       <div className="wrap">
         <Heading id="plans-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-12 grid gap-8 lg:grid-cols-3 lg:items-start lg:gap-6">
@@ -194,8 +194,8 @@ export function Plans() {
             return (
               <li key={p.name} data-reveal style={stagger(i)} className={featured ? "lg:order-none" : ""}>
                 <article
-                  className={`plan relative flex h-full flex-col gap-5 rounded-lg bg-paper-raised p-6 text-ink ${
-                    featured ? "sign border-2 border-ink lg:-mt-4" : "border-2 border-transparent"
+                  className={`plan relative flex h-full flex-col gap-5 rounded-lg bg-coal-raised p-6 text-cream ${
+                    featured ? "sign border-2 border-cream lg:-mt-4" : "border-2 border-line"
                   }`}
                 >
                   {featured && (
@@ -203,10 +203,10 @@ export function Plans() {
                   )}
                   <h3 className="text-title">{p.name}</h3>
                   <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                    <span className="font-display text-5xl font-black leading-none text-pole-red">
+                    <span className="font-display text-5xl font-black leading-none text-pole-red-bright">
                       <PriceCount value={p.price} />
                     </span>
-                    <span className="text-sm text-ink-muted">{t("perMonth")}</span>
+                    <span className="text-sm text-cream-muted">{t("perMonth")}</span>
                   </p>
                   <p className="flex flex-wrap gap-2">
                     <Sample>{c("samplePrice")}</Sample>
@@ -223,7 +223,7 @@ export function Plans() {
                     <button type="button" className="btn btn-primary w-full" aria-disabled="true" aria-describedby={`plan-note-${i}`}>
                       {t("cta")}
                     </button>
-                    <p id={`plan-note-${i}`} className="mt-3 text-sm text-ink-muted">
+                    <p id={`plan-note-${i}`} className="mt-3 text-sm text-cream-muted">
                       {t("ctaSoon")}. {t("testMode")}.
                     </p>
                   </div>
@@ -238,18 +238,18 @@ export function Plans() {
 }
 
 const TILES = [
-  { c: "bg-pole-red text-paper-raised", span: "col-span-2 row-span-2" },
-  { c: "bg-amber text-ink", span: "" },
-  { c: "bg-cobalt text-paper-raised", span: "" },
-  { c: "bg-night text-paper", span: "" },
-  { c: "bg-paper-raised text-ink border border-line", span: "" },
-  { c: "bg-pole-red-deep text-paper-raised", span: "lg:col-span-2" },
+  { c: "bg-pole-red text-cream", span: "col-span-2 row-span-2" },
+  { c: "bg-amber text-coal", span: "" },
+  { c: "bg-cobalt text-cream", span: "" },
+  { c: "bg-night text-cream", span: "" },
+  { c: "bg-coal-raised text-cream border border-line", span: "" },
+  { c: "bg-pole-red-deep text-cream", span: "lg:col-span-2" },
 ];
 
 export function Gallery() {
   const t = useTranslations("gallery");
   return (
-    <section id="gallery" aria-labelledby="gallery-title" className="section bg-paper">
+    <section id="gallery" aria-labelledby="gallery-title" className="section bg-coal">
       <div className="wrap">
         <Heading id="gallery-title" eyebrow={t("eyebrow")} title={t("title")} note={t("note")} />
         <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
@@ -272,16 +272,16 @@ export function Reviews() {
   const t = useTranslations("reviews");
   const items = t.raw("items") as string[];
   return (
-    <section aria-labelledby="reviews-title" className="section border-t border-line bg-paper-raised">
+    <section aria-labelledby="reviews-title" className="section border-t border-line bg-coal-raised">
       <div className="wrap grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Heading id="reviews-title" eyebrow={t("eyebrow")} title={t("title")} />
         </div>
         <ul className="grid gap-8 lg:col-span-8 lg:gap-10">
           {items.map((q, i) => (
-            <li key={q} data-reveal style={stagger(i)} className={`${i % 2 ? "lg:ml-12" : ""} border-t-2 border-ink pt-5`}>
+            <li key={q} data-reveal style={stagger(i)} className={`${i % 2 ? "lg:ml-12" : ""} border-t-2 border-cream pt-5`}>
               <blockquote className="font-display text-2xl font-bold leading-snug sm:text-3xl">{q}</blockquote>
-              <p className="mt-3 flex flex-wrap items-center gap-3 text-sm text-ink-muted">
+              <p className="mt-3 flex flex-wrap items-center gap-3 text-sm text-cream-muted">
                 <Sample>{t("label")}</Sample>
                 {t("author")}
               </p>
@@ -297,19 +297,19 @@ export function Contact() {
   const t = useTranslations("contact");
   const hours = t.raw("hours") as { days: string; time: string }[];
   return (
-    <section id="contact" aria-labelledby="contact-title" className="section border-t border-line bg-paper">
+    <section id="contact" aria-labelledby="contact-title" className="section border-t border-line bg-coal">
       <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <Heading id="contact-title" eyebrow={t("eyebrow")} title={t("title")} />
           <dl className="mt-8 grid gap-8" data-reveal style={stagger(1)}>
             <div>
-              <dt className="label mb-2 flex items-center gap-2 text-ink-muted">
+              <dt className="label mb-2 flex items-center gap-2 text-cream-muted">
                 <MapPin size={20} aria-hidden /> {t("addressLabel")} <Sample />
               </dt>
               <dd className="text-lg">{t("address")}</dd>
             </div>
             <div>
-              <dt className="label mb-2 flex items-center gap-2 text-ink-muted">
+              <dt className="label mb-2 flex items-center gap-2 text-cream-muted">
                 <Clock size={20} aria-hidden /> {t("hoursLabel")} <Sample />
               </dt>
               <dd>
@@ -324,13 +324,13 @@ export function Contact() {
               </dd>
             </div>
           </dl>
-          <p className="mt-6 rounded-lg border-2 border-ink bg-paper-raised p-4 text-[0.9375rem]" data-reveal style={stagger(2)}>
+          <p className="mt-6 rounded-lg border-2 border-cream bg-coal-raised p-4 text-[0.9375rem]" data-reveal style={stagger(2)}>
             {t("booking")}
           </p>
         </div>
         <div className="lg:col-span-7" data-reveal style={stagger(1)}>
           <div
-            className="sign relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border-2 border-ink bg-pole-red sm:aspect-[16/10]"
+            className="sign relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border-2 border-cream bg-pole-red sm:aspect-[16/10]"
             role="img"
             aria-label={t("mapLabel")}
           >
@@ -343,7 +343,7 @@ export function Contact() {
                 backgroundSize: "56px 56px",
               }}
             />
-            <div className="relative flex flex-col items-center gap-3 text-paper-raised">
+            <div className="relative flex flex-col items-center gap-3 text-cream">
               <MapPin size={56} aria-hidden />
               <span className="font-display text-2xl font-black">{t("map")}</span>
               <Sample />
@@ -359,7 +359,7 @@ export function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
   return (
-    <footer className="on-dark bg-night text-paper">
+    <footer className="on-dark bg-night text-cream">
       <div className="stripe" aria-hidden />
       <div className="wrap flex flex-col gap-8 py-12 lg:flex-row lg:items-end lg:justify-between">
         <div>

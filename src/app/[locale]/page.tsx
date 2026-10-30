@@ -12,7 +12,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-ink focus:px-6 focus:py-3 focus:font-bold focus:text-paper"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-amber focus:px-6 focus:py-3 focus:font-bold focus:text-coal"
       >
         {t("skip")}
       </a>

@@ -69,7 +69,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper">
+    <header className="sticky top-0 z-40 border-b border-line bg-coal">
       <div className="stripe" aria-hidden />
       <div className="wrap flex h-[64px] items-center justify-between gap-3 lg:h-[72px]">
         <a href="#top" className="whitespace-nowrap font-display text-xl font-black tracking-tight sm:text-2xl lg:text-[1.75rem]">
